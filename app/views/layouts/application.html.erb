@@ -7,17 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div class="jumbotron">
-	  <h1>INTERNĀT ŠHOP</h1>
-	</div>
-
-	<div class="container">
-		<div class="row">
+		<%= render 'shared/home_page/navbar' %>
+		<%= render 'shared/home_page/jumbotron' %>
+		<div class="container-fluid">
+			<div class="row">
+				<%= render 'shared/home_page/left_side_navbar' %>
+			   <!-- Main content goes here -->
+			    <%= yield %>
+			</div>
 		</div>
 	</div>
-
-
-<%= yield %>
-
 </body>
 </html>

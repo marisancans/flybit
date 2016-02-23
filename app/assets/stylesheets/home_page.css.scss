@@ -1,0 +1,27 @@
+/* Jumbotron */
+
+.jumbotron{
+	h1{
+		text-align: center;
+	}
+}
+
+
+/* Thumbnails */
+
+.thumbnails container {
+    padding-top: 70px; 
+    /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+}
+
+.thumbnails .thumb {
+    margin-bottom: 30px;
+}
+
+.thumbnails footer {
+    margin: 50px 0;
+}
+
+
+  
+
