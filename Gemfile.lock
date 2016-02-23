@@ -186,6 +186,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autoprefixer-rails
   bootstrap-sass
   bootstrap-will_paginate
   byebug
