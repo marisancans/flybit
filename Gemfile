@@ -47,4 +47,3 @@ group :development, :test do
 end
 
 gem 'web-console', group: :development
-
