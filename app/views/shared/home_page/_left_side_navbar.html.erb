@@ -3,15 +3,18 @@
 
 <!-- Begin Body -->
       <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="146">
-        <li class="active"><a href="#section1">Section 1</a></li>
-        <li><a href="#section2">Section 2</a></li>
-        <li><a href="#section3">Section 3</a></li>
+        <li class="active"><%= link_to t('.home'),    root_url %></li>
+        <li><%= link_to t('.products'),   root_url %></li>
+        <li><%= link_to t('.products'),   root_url %></li>
       </ul>
 
 </div>
 
 
 <!--
+<li><%= link_to "Home", root_path %></li>
+<li><%= link_to "Contact", contact_path %></li>
+
 
 <ul class="nav navmenu-nav">
     <li class="active"><a href="#">Link</a></li>

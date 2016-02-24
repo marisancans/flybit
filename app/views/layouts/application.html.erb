@@ -6,8 +6,10 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+<header>
+			<%= render 'shared/home_page/navbar' %>
+</header>
 <body>
-		<%= render 'shared/home_page/navbar' %>
 		<%= render 'shared/home_page/jumbotron' %>
 		<div class="container-fluid">
 			<div class="row">
