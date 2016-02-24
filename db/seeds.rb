@@ -8,10 +8,10 @@
 
 
 30.times do
-  name  = Faker::Commerce.product_name
+  title  = Faker::Commerce.product_name
   description = Faker::Lorem.sentence
   price = Faker::Commerce.price
-  Product.create!(name:  name,
+  Product.create!(title:  title,
   								description: description,
   								price: price)
 end
