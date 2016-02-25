@@ -6,17 +6,20 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<header>
-			<%= render 'shared/home_page/navbar' %>
-</header>
 <body>
-		<%= render 'shared/home_page/jumbotron' %>
+	<div class="jumbotron">
+	  <h1>INTERNĀT ŠHOP</h1>
+	</div>
+		<%= render 'shared/home_page/navbar' %>
 		<div class="container-fluid">
 			<div class="row">
-				<%= render 'shared/home_page/left_side_navbar' %>
+				<%= render 'shared/static_page/left_side_navbar' %>
 				<%= yield %>
 			</div>
 		</div>
 	</div>
 </body>
+<footer>
+	<%= render 'shared/static_page/footer' %>
+</footer>
 </html>
