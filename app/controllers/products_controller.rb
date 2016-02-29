@@ -9,9 +9,9 @@ class ProductsController < ApplicationController
     @products = Product.paginate(page: params[:page])
   end
 
-
-
-
+  def edit
+  	@product = Product.find(params[:id])
+  end
 
 end
 
