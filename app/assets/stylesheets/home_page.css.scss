@@ -1,27 +1,28 @@
 /* Jumbotron */
 
-.jumbotron{
+.jumbotron {
 	margin-bottom: 0px;
-}
-
-.jumbotron h1{
-		text-align: center;
+	h1 {
+		text-align: center
+	}
 }
 
 
 /* Thumbnails */
 
-.thumbnails container {
-    padding-top: 70px; 
-    /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
-}
+.thumbnails {
 
-.thumbnails .thumb {
+	.container {
+	    padding-top: 70px; 
+	 		/* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+	}
+	.thumb {
     margin-bottom: 30px;
-}
+	}
 
-.thumbnails footer {
+	.footer {
     margin: 50px 0;
+    }
 }
 
 
