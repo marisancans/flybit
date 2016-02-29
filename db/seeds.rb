@@ -15,3 +15,10 @@
   								description: description,
   								price: price)
 end
+
+5.times do
+	name = Faker::Commerce.department
+	description = Faker::Lorem.sentence
+	Category.create!(name:  name,
+  								description: description)
+end
