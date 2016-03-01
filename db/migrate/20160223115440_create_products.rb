@@ -6,5 +6,8 @@ class CreateProducts < ActiveRecord::Migration
 	    t.decimal :price
       t.timestamps null: false
     end
+
+    add_foreign_key :products, :categories, column: :category_id
+
   end
 end
