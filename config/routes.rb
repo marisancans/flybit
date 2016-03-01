@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'about'               => 'static_pages#about'
   get 'contact'             => 'static_pages#contact'
 
+  get 'category'            => 'products#category'
   resources :products#, only: [:show, :index]
   resources :categories, only: [:show, :index]
 
