@@ -1,3 +1,3 @@
 class Category < ActiveRecord::Base
-	has_many :producs
+	has_many :products
 end

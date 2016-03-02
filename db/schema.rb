@@ -26,7 +26,10 @@ ActiveRecord::Schema.define(version: 20160301112143) do
     t.decimal  "price"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "category_id"
   end
+
+  add_index "products", ["category_id"], name: "index_products_on_category_id"
 
   create_table "sub_categories", force: :cascade do |t|
     t.string   "name"

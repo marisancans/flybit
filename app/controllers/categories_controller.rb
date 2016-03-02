@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
 
 	def selected_category
-		@selected_categories = Category.
+		@selected_categories = Category
 	end
 
 	def index

@@ -7,7 +7,9 @@ class CreateProducts < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_foreign_key :products, :categories, column: :category_id
-
+ #   add_column :products, :category_id
+ #   add_foreign_key :products, :categories
+    add_reference :products, :category, index: true, foreign_key: true
+    add_foreign_key :products, :categories
   end
 end
