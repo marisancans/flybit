@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
 
 	def show
   	@product = Product.find(params[:id])
+    @department = Department.find(@product.department_id)
 	end
 
   def index
@@ -14,14 +15,14 @@ class ProductsController < ApplicationController
 
   def new
   	@product = Product.new
-  	@category_options = Category.all.map{|u| [ u.name, u.id ] }
+  	@department_options = Department.all.map{|u| [ u.name, u.id ] }
   end
 
    def create
     @product = Product.new(product_params)
     if @product.save
       flash[:info] = "successfully added"
-      redirect_to root_url
+      redirect_to new_product_path
       #request.referrer || root_url
     else
       render 'new'
@@ -31,7 +32,7 @@ class ProductsController < ApplicationController
 	private
 
  		def product_params
-      params.require(:product).permit(:title, :description, :price, :category_id)
+      params.require(:product).permit(:title, :description, :price, :department_id)
     end
 
   

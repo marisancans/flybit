@@ -1,3 +1,11 @@
+  def change
+    create_table :categories do |t|
+			t.string :name
+    	t.text :description
+      t.timestamps null: false
+    end
+
+
 == README
 
 This README would normally document whatever steps are necessary to get the

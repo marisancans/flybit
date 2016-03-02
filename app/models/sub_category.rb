@@ -1,3 +1,3 @@
 class SubCategory < ActiveRecord::Base
-	belongs_to :category, dependent: :destroy
+	belongs_to :department, dependent: :destroy
 end

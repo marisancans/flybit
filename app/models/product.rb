@@ -1,4 +1,4 @@
 class Product < ActiveRecord::Base
-	 belongs_to :category, dependent: :destroy
-	 #has_many :category
+	 belongs_to :department, dependent: :destroy
+	 #has_many :department
 end

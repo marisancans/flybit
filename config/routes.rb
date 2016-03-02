@@ -7,11 +7,11 @@ Rails.application.routes.draw do
   get 'about'               => 'static_pages#about'
   get 'contact'             => 'static_pages#contact'
 
-  get 'category'            => 'categories#selected_category'
-  get 'all-categories'      => 'categories#index'
+  get 'department'            => 'departments#selected_department'
+  get 'all-departments'      => 'departments#index'
   
   resources :products#, only: [:show, :index]
-  resources :categories, only: [:show, :index]
+  resources :departments, only: [:show, :index]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

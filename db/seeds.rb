@@ -11,14 +11,16 @@
   title  = Faker::Commerce.product_name
   description = Faker::Lorem.sentence
   price = Faker::Commerce.price
+  department_id = Faker::Number.between(1, 5)
   Product.create!(title:  title,
   								description: description,
-  								price: price)
+  								price: price,
+                  department_id: department_id)
 end
 
 5.times do
 	name = Faker::Commerce.department
 	description = Faker::Lorem.sentence
-	Category.create!(name:  name,
+	Department.create!(name:  name,
   								description: description)
 end

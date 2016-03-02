@@ -1,6 +1,6 @@
-class CreateCategories < ActiveRecord::Migration
+class CreateDepartments < ActiveRecord::Migration
   def change
-    create_table :categories do |t|
+    create_table :departments do |t|
 			t.string :name
     	t.text :description
       t.timestamps null: false
