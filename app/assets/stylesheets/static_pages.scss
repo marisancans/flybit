@@ -6,11 +6,18 @@
 
 
 
+
+
 #login-dp{
     min-width: 250px;
-    padding: 14px 14px 0;
+    padding: 14px 20px 14px 14px;
     overflow:hidden;
     background-color:rgba(255,255,255,.8);
+
+    #welcome{
+        display: block;
+        text-align: center;
+    }
 }
 #login-dp .help-block{
     font-size:12px    
@@ -28,13 +35,17 @@
 
 @media(max-width:768px){
     #login-dp{
-        background-color: inherit;
+        background-color: black;
         color: #fff;
     }
     #login-dp .bottom{
-        background-color: inherit;
+        background-color: green;
         border-top:0 none;
     }
+}
+
+.dropdown-toggle{
+    margin-right: 20px;
 }
 
 .dropdown-menu .sub-menu {
@@ -55,6 +66,7 @@
 
 .nav-tabs .dropdown-menu, .nav-pills .dropdown-menu, .navbar .dropdown-menu {
     margin-top: 0;
+    margin-right: 30px;
 }
 
 .navbar .sub-menu:before {
