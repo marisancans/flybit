@@ -3,14 +3,17 @@ Rails.application.routes.draw do
   devise_for :users
   root 'static_pages#home'
 
-  get 'help'                => 'static_pages#help'
-  get 'about'               => 'static_pages#about'
-  get 'contact'             => 'static_pages#contact'
+  get 'help'                 => 'static_pages#help'
+  get 'about'                => 'static_pages#about'
+  get 'contact'               => 'static_pages#contact'
 
   get 'department'            => 'departments#selected_department'
-  get 'all-departments'      => 'departments#index'
+  get 'all-departments'       => 'departments#index'
+
+  get 'update_categories'     => 'prooducts#update_categories'
   
   resources :products#, only: [:show, :index]
+  resources :categories
   resources :departments, only: [:show, :index]
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -16,9 +16,10 @@ class ProductsController < ApplicationController
   def new
   	@product = Product.new
   	@department_options = Department.all.map{|u| [ u.name, u.id ] }
+    @category_options = Category.all.map{|u| [ u.name, u.id ] }
   end
 
-   def create
+  def create
     @product = Product.new(product_params)
     if @product.save
       flash[:info] = "successfully added"
@@ -29,10 +30,21 @@ class ProductsController < ApplicationController
     end
 	 end
 
+   def update_categories
+        @category_options  = Category.where("department_id = ?", params[:department_id])
+        respond_to do |format|
+          format.js
+        end
+    end
+
 	private
 
  		def product_params
-      params.require(:product).permit(:title, :description, :price, :department_id)
+      params.require(:product).permit(:title, 
+                                      :description, 
+                                      :price, 
+                                      :department_id, 
+                                      :category_id)
     end
 
   
