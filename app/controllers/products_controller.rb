@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
   def new
   	@product = Product.new
   	@department_options = Department.all.map{|u| [ u.name, u.id ] }
-    @category_options = ""
+    @categories = ""
   end
 
   def create
@@ -31,7 +31,7 @@ class ProductsController < ApplicationController
 	 end
 
    def update_categories
-        @category_options = Categories.find(1)
+        @categories = Category.where("department_id = ?", params[:department_id])
         respond_to do |format|
           format.js
         end
@@ -40,11 +40,8 @@ class ProductsController < ApplicationController
 	private
 
  		def product_params
-      params.require(:product).permit(:title, 
-                                      :description, 
-                                      :price, 
-                                      :department_id, 
-                                      :category_id)
+      params.require(:product).permit(:title, :description, :price, 
+                                      :department_id, :category_id)
     end
 
   

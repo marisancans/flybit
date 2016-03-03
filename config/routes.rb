@@ -3,18 +3,18 @@ Rails.application.routes.draw do
   devise_for :users
   root 'static_pages#home'
 
-  get 'help'                 => 'static_pages#help'
-  get 'about'                => 'static_pages#about'
+  get 'help'                  => 'static_pages#help'
+  get 'about'                 => 'static_pages#about'
   get 'contact'               => 'static_pages#contact'
 
-  get 'department'            => 'departments#selected_department'
-  get 'all-departments'       => 'departments#index'
+  get 'departments'           => 'departments#index'
+  get 'categories'            => 'categories#index'  
 
-  get 'update_categories'     => 'products#update_categories'
+  get 'products/update_categories'     => 'products#update_categories'
   
-  resources :products#, only: [:show, :index]
   resources :categories
   resources :departments, only: [:show, :index]
+  resources :products#, only: [:show, :index]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
