@@ -7,8 +7,7 @@ Rails.application.routes.draw do
   get 'about'                 => 'static_pages#about'
   get 'contact'               => 'static_pages#contact'
 
-  get 'departments'           => 'departments#index'
-  get 'categories'            => 'categories#index'  
+  get 'departments'           => 'departments#index'  
 
   get 'products/update_categories'     => 'products#update_categories'
   
