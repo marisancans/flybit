@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
   def new
   	@product = Product.new
   	@department_options = Department.all.map{|u| [ u.name, u.id ] }
-    @category_options = Category.all.map{|u| [ u.name, u.id ] }
+    @category_options = ""
   end
 
   def create
@@ -31,7 +31,7 @@ class ProductsController < ApplicationController
 	 end
 
    def update_categories
-        @category_options  = Category.where("department_id = ?", params[:department_id])
+        @category_options = Categories.find(1)
         respond_to do |format|
           format.js
         end

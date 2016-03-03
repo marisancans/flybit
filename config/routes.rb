@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'department'            => 'departments#selected_department'
   get 'all-departments'       => 'departments#index'
 
-  get 'update_categories'     => 'prooducts#update_categories'
+  get 'update_categories'     => 'products#update_categories'
   
   resources :products#, only: [:show, :index]
   resources :categories
