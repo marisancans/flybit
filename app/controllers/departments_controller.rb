@@ -5,7 +5,7 @@ class DepartmentsController < ApplicationController
 	end
 
 	def index
-		@departments = Departments.all
+		@departments = Department.all
 	end
 
 end
