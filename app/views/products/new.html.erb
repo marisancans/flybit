@@ -13,7 +13,8 @@
       <%= f.label :price %>
       <%= f.text_field :price, class: 'form-control' %>
 
-      <%= f.select(:department_id, options_for_select(@department_options),  prompt: "Department") %>
+      <%= f.select(:department_id, 
+      (@department_options),  prompt: "Department") %>
 
       <%= f.select(:category_id, options_for_select(@categories),  prompt: "Category") %>
 
@@ -21,3 +22,8 @@
     <% end %>
   </div>
 </div>
+
+
+
+
+
