@@ -5,6 +5,7 @@ class Users::SessionsController < Devise::SessionsController
   # def new
   #   super
   # end
+  clear_respond_to  
 
   def create
   resource = User.find_for_database_authentication(email: params[:user][:email])
@@ -12,7 +13,7 @@ class Users::SessionsController < Devise::SessionsController
 
   if resource.valid_password?(params[:user][:password])
     sign_in :user, resource
-    return render nothing: true
+    request.referer
   end
 
   invalid_login_attempt

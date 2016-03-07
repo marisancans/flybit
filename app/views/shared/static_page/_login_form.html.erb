@@ -5,30 +5,34 @@
     <li>
       <div class="row">
         <div class="col-md-12">
-          <form class="form" role="form" method="post" action="/users/sign_in" accept-charset="UTF-8" id="login-nav">
-            <label id = "welcome"> Welcome back! </label>
-            <div class="form-group">
-              <label class="sr-only" for="exampleInputEmail2">Email</label>
-              <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password %><br />
+            <%= f.password_field :password, autocomplete: "off" %>
+          </div>
+
+          <% if devise_mapping.rememberable? -%>
+            <div class="field">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
             </div>
-            <div class="form-group">
-              <label class="sr-only" for="exampleInputPassword2">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
-              <div class="help-block text-right"><a href="">Forget the password ?</a></div>
-            </div>
-            <div class="form-group">
-              <button type="submit" class="btn btn-primary btn-block">Log in</button>
-            </div>
-            <div class="checkbox">
-              <label>
-                <input type="checkbox"> Remember me
-              </label>
-            </div>
-          </form>
+          <% end -%>
+
+          <div class="actions">
+            <%= f.submit "Log in" %>
+          </div>
+        <% end %>
+        <a <%= link_to "U want akount? Klik mi!", new_user_registration_path %> </a>
         </div>
-        <div class="bottom text-center"> Don't have an account? <a href="#"><b>Register</b></a></div>
       </div>
     </li>
   </ul>
 </li>
+
+
 
