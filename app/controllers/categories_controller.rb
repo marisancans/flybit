@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
-
 	def index
-		@categories = Category.find(params[:department_id])
+		@categories = Category.where("department_id = ?", params[:selected])
 	end
+
 end
