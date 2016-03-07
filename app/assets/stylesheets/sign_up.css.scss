@@ -1,0 +1,57 @@
+/* Sign up text centered */
+
+	#sign_up{
+		margin: 0 auto;
+		width: 7%;	
+	}
+
+
+/* A black border around the input fields */
+
+	.field input{
+		border-radius: 15px;
+ 	   border: solid 5px black;	
+	}
+
+
+/* Input fields centered */
+
+	.field {
+		margin: 0 auto;
+		width: 23%;
+	}
+
+
+/* Password fields centered individually */ 
+
+	.pass_pos{
+		margin: 0 auto;
+		width: 60%;
+	}
+
+	
+/* Dynamic hover help thingy */
+
+
+	span:hover + #stuck_help {
+   		display: inline-block;
+	}
+
+	#stuck_help {
+    	background-color: black;
+    	color: white;
+    	padding-left: 10px;
+    	padding-right: 10px;
+    	display: none;
+	}
+
+/* Sign up pogas pozicionēšana */
+
+	.actions{
+		margin: 0 auto;
+		width: 4%;
+	}
+
+
+
+
