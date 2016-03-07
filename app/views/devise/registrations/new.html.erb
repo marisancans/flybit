@@ -18,12 +18,13 @@
   <div class="field">
     <div class = "wrap">
       <div class = "pass_pos">
-        <%= f.label :password %>
+        <%= f.label :password %><span class =  "glyphicon glyphicon-question-sign"></span>
+        <div id = "stuck_help">Password has to be at least 8 characters long</div>
         <% if @minimum_password_length %><% end %>
         <%= f.password_field :password, autocomplete: "off", :size => 30, :style => "text-align: center" %>
         </div>
-        <span class =  "glyphicon glyphicon-question-sign"></span>
-        <div id = "stuck_help">Password has to be at least 8 characters long</div>
+        
+        
   
     </div>
   </div>
