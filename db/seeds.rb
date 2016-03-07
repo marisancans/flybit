@@ -19,6 +19,7 @@
                   department_id: department_id,
                   category_id: category_id)
 end
+puts '-------CREATED 30 products-------'
 
 #Generate 5 departments
 5.times do
@@ -27,6 +28,7 @@ end
 	Department.create!(name:  name,
   								description: description)
 end
+puts '-------CREATED 5 department-------'
 
 #Generate random count of categories on each deaprtment
 Department.count.times do 
@@ -41,3 +43,4 @@ Department.count.times do
 
   end
 end
+puts '-------CREATED some...products...needs fix-------'
