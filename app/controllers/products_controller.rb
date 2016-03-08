@@ -6,8 +6,11 @@ class ProductsController < ApplicationController
 	end
 
   def index
-    @products = Product.paginate(page: params[:page])
+    @products = Product.where("category_id = ?", params[:selected]).paginate(page: params[:page])
   end
+ # @products = Product.where("category_id = ?", params[:selected])
+  #  .map{|p| [p.title, p.price] }#.paginate(page: params[:page]) Get only title, price etc. 
+
 
   def edit
   	@product = Product.find(params[:id])

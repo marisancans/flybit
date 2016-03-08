@@ -2,5 +2,8 @@
 	<li>Title: <%= @product.title %></li>
 	<li>Description: <%= @product.description %></li>
 	<li>Price: <%= @product.price %></li>
-	<%= image_tag @product.image.url %>
+
+	<% if @product.image? %>
+		<%= image_tag @product.image.url %>
+	<% end %>
 </ul>

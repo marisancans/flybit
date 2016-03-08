@@ -9,7 +9,7 @@ class Product < ActiveRecord::Base
 	                              access_token_secret: ENV['ACCESS_TOKEN_SECRET'],
 	                              user_id: ENV['USER_ID'],
 	                              access_type: 'app_folder'}
-	validates :image, attachment_presence: true
+	#validates :image, attachment_presence: true
 	validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
 	validates_attachment_file_name :image, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/]
 	 #has_many :department
