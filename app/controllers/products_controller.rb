@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
 
 	def show
   	@product = Product.find(params[:id])
-    @department = Department.find(@product.department_id)
+    #@department = Department.find(@product.department_id)
 	end
 
   def index
@@ -11,6 +11,12 @@ class ProductsController < ApplicationController
 
   def edit
   	@product = Product.find(params[:id])
+  end
+
+  def destroy
+    #Delete image from dropbox
+    #@user.avatar = nil
+    #@user.save
   end
 
   def new
@@ -41,7 +47,7 @@ class ProductsController < ApplicationController
 
  		def product_params
       params.require(:product).permit(:title, :description, :price, 
-                                      :department_id, :category_id)
+                                      :department_id, :category_id, :image)
     end
 
   
