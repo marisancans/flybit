@@ -35,12 +35,10 @@ Department.count.times do
   x = rand(5)
   x.times do
     name = Faker::Commerce.department
-    description = Faker::Lorem.sentence
     department_id = x
     Category.create!(name:  name,
-                    description: description,
                     department_id: department_id)
 
   end
 end
-puts '-------CREATED some...products...needs fix-------'
+puts '-------CREATED some...catgories...needs fix-------'
