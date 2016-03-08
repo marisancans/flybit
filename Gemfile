@@ -25,6 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 #Image handling
 gem "paperclip", "~> 4.3"
+gem 'paperclip-dropbox', '~> 1.3', '>= 1.3.2'
 
 #Bootstrap
 gem 'autoprefixer-rails'
@@ -40,6 +41,9 @@ gem "lol_dba"
 
 #Authentication
 gem 'devise'
+
+#Security
+gem "figaro"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
