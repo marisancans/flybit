@@ -1,19 +1,22 @@
-  <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-    <div class="thumbnail">
-      <%= link_to product do %>
-        <img class="img-responsive" src=<%= product.image.url %> alt="">
-        <div class="text-under-thumbnail">
-         <% end %>
-         	<div class="col-md-12">
-          	<h4><%= product.title %></h4>
-        	</div>
+<div class="col-lg-3 col-md-4 col-xs-6 thumb">
+  <div class="thumbnail">
+    <%= link_to product do %>
+      <img class="img-responsive" src=<%= product.image.url %> alt="">
+      <div class="text-under-thumbnail">
+       <% end %>
 
-				<a class="btn btn-default" href="#">
-				<i class="glyphicon glyphicon-info-sign"></i> More info</a>
-				<h3>€<%= product.price %><h3>
-								<a class="btn btn-default" href="#">
-				<i class="glyphicon glyphicon-shopping-cart"></i> Add to cart</a>
-        </a>
-        </div>
-    </div>
+       	<%= link_to product do %>
+        	<h4><%= product.title %></h4>
+        <% end %>
+
+
+				<%= link_to " More info", product, class: "btn btn-default glyphicon glyphicon-info-sign" %> 
+
+
+			<h3>€<%= product.price %><h3>
+							<a class="btn btn-default" href="#">
+			<i class="glyphicon glyphicon-shopping-cart"></i> Add to cart</a>
+      </a>
+      </div>
   </div>
+</div>
