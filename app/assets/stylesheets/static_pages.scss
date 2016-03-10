@@ -1,9 +1,8 @@
 .affix {
     top: 0;
     width: 100%;
-    z-index:10;
+    z-index: 10;
 }
-
 
 
 
@@ -76,6 +75,7 @@
     border-top: 7px solid transparent;
     left: -7px;
     top: 10px;
+    position: fixed;
 }
 .navbar .sub-menu:after {
     border-top: 6px solid transparent;
@@ -85,4 +85,5 @@
     left: 10px;
     top: 11px;
     left: -6px;
+    position: fixed;
 }
