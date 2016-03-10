@@ -33,7 +33,7 @@ end
 puts '-------CREATED some...catgories...needs fix-------'
 
 
-100.times do
+10.times do
   title  = Faker::Commerce.product_name
   description = Faker::Lorem.sentence
   price = Faker::Commerce.price

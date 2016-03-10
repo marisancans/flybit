@@ -4,6 +4,6 @@
 	<li>Price: <%= @product.price %></li>
 
 	<% if @product.image? %>
-		<%= image_tag @product.image.url(:medium) %>
+		<%= image_tag @product.image.url(:thumb) %>
 	<% end %>
 </ul>
