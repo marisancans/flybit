@@ -7,19 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 #Generate 30 products
-30.times do
-  title  = Faker::Commerce.product_name
-  description = Faker::Lorem.sentence
-  price = Faker::Commerce.price
-  department_id = Faker::Number.between(1, 5)
-  category_id = Faker::Number.between(1, 10)
-  Product.create!(title:  title,
-  								description: description,
-  								price: price,
-                  department_id: department_id,
-                  category_id: category_id)
-end
-puts '-------CREATED 30 products-------'
+image_array = ["iphone.jpg", "pc.jpeg", "keyboard.jpeg", "laptop.jpg", "smartphone.jpg"]
+
 
 #Generate 5 departments
 5.times do
@@ -38,7 +27,29 @@ Department.count.times do
     department_id = x
     Category.create!(name:  name,
                     department_id: department_id)
-
+    puts "Category  #{name}, department_id: #{department_id} created"
   end
 end
 puts '-------CREATED some...catgories...needs fix-------'
+
+
+10.times do
+  title  = Faker::Commerce.product_name
+  description = Faker::Lorem.sentence
+  price = Faker::Commerce.price
+  department_id = Faker::Number.between(1, 5)
+  category_id = Faker::Number.between(1, 10)
+  Product.create!(title:  title,
+                  description: description,
+                  price: price,
+                  department_id: 1,
+                  category_id: 1,
+                  image_file_name: image_array.sample)
+  puts "Product  #{title} created"
+end
+puts '-------CREATED 100 products-------'
+
+#Generate users
+
+10.times do
+end

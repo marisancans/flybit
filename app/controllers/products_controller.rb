@@ -2,15 +2,24 @@ class ProductsController < ApplicationController
 
 	def show
   	@product = Product.find(params[:id])
-    @department = Department.find(@product.department_id)
+    #@department = Department.find(@product.department_id)
 	end
 
   def index
-    @products = Product.paginate(page: params[:page])
+    @products = Product.where("category_id = ?", params[:selected]).paginate(page: params[:page])
   end
+ # @products = Product.where("category_id = ?", params[:selected])
+  #  .map{|p| [p.title, p.price] }#.paginate(page: params[:page]) Get only title, price etc. 
+
 
   def edit
   	@product = Product.find(params[:id])
+  end
+
+  def destroy
+    #Delete image from dropbox
+    #@user.avatar = nil
+    #@user.save
   end
 
   def new
@@ -41,7 +50,7 @@ class ProductsController < ApplicationController
 
  		def product_params
       params.require(:product).permit(:title, :description, :price, 
-                                      :department_id, :category_id)
+                                      :department_id, :category_id, :image)
     end
 
   
