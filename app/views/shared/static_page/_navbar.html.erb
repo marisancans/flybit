@@ -1,6 +1,6 @@
-<nav class="navbar navbar-default" data-spy="affix" data-offset-top="197">
+<nav class="navbar navbar-default" data-spy="affix" data-offset-top="0">
   <ul class="nav navbar-nav">
-    <a class="navbar-brand" <%= link_to "logo", root_url %> </a>
+    <a class="navbar-brand" <%= link_to "logo", root_path %> </a>
 
     <li class="dropdown">
          <a <%= link_to "Computers", categories_path(selected: "1") %> </a>
@@ -90,7 +90,7 @@
     </li>
 
     <li class="dropdown">
-      <a <%= link_to "Lapptops", categories_path(selected: "5") %> </a>
+      <a <%= link_to "Laptops", categories_path(selected: "5") %> </a>
       <ul class="dropdown-menu">
         <li><a href="#">Accessories</a></li>
         <li><a href="#">Bags</a></li>
@@ -100,7 +100,17 @@
         <li><a href="#">Link</a></li>
       </ul>
     </li>
+
+    <li>
+      <form class="search-container" action="//llamaswill.tumblr.com/search">
+        <input id="search-box" type="text" class="search-box" name="q" />
+          <label for="search-box"><span class="glyphicon glyphicon-search search-icon"></span></label>
+        <input type="submit" id="search-submit" />
+      </form>
+    </li>
   </ul>
+
+
 
 
    <ul class="nav navbar-nav navbar-right">

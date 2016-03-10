@@ -38,3 +38,6 @@ $("form#user_new").bind "ajax:success", (e, data, status, xhr) ->
       console.log(xhr.responseText);
     });
   });
+
+
+  document.addEventListener("touchstart", function(){}, true);
