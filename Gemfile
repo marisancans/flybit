@@ -43,8 +43,12 @@ gem "lol_dba"
 #Authentication
 gem 'devise'
 
-#Security
+#Variable, data security in code
 gem "figaro"
+
+#Admin
+gem 'activeadmin', github: 'activeadmin'
+gem 'kaminari' #Pagination
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

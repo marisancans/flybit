@@ -47,9 +47,10 @@ puts '-------CREATED some...catgories...needs fix-------'
                   image_file_name: image_array.sample)
   puts "Product  #{title} created"
 end
-puts '-------CREATED 100 products-------'
+puts '-------CREATED 10 products-------'
 
 #Generate users
 
 10.times do
 end
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
