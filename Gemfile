@@ -33,6 +33,7 @@ gem 'bootstrap-will_paginate'
 gem 'bootstrap-sass'
 
 #Database
+gem 'seedbank'
 
 #ol_dba is a small package of rake tasks that scan your application models 
 #and displays a list of columns that probably should be indexed. 
