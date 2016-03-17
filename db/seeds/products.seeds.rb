@@ -8,7 +8,7 @@ image_array = ["iphone.jpg", "pc.jpeg", "keyboard.jpeg", "laptop.jpg", "smartpho
   Product.create!(title:  title,
                   description: description,
                   price: price,
-                  department_id: 1,
+                  department_id: department_id,
                   category_id: 1,
                   image_file_name: image_array.sample)
   puts "Product  #{title} created"
