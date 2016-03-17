@@ -15,29 +15,3 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
-
-
-$("form#user_new").bind "ajax:success", (e, data, status, xhr) ->
-    if data.success
-      $('#sign_up').modal('hide')
-      $('#sign_up_button').hide()
-      $('#submit_comment').slideToggle(1000, "easeOutBack" )
-    else
-      alert('failure!')
-
-:javascript
-  $(document).ready(function() {
-    #new_user
-    $('#new_user')
-    .bind('ajax:success', function(evt, data, status, xhr) {
-      //function called on status: 200 (for ex.)
-      console.log('success');
-    })
-    .bind("ajax:error", function(evt, xhr, status, error) {
-      //function called on status: 401 or 500 (for ex.)
-      console.log(xhr.responseText);
-    });
-  });
-
-
-  document.addEventListener("touchstart", function(){}, true);

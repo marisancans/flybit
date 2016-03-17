@@ -2,6 +2,9 @@ class Product < ActiveRecord::Base
 	belongs_to :category, dependent: :destroy, counter_cache: true
 	belongs_to :department
 
+	#accept_nested_attributes_for :status_histories, reject_if: :all_blank
+	#===Validation needed!===
+
 	has_attached_file :image,
 										:styles  => { :thumb => "x200" },
 										:convert_options => {:'x200' => " -background white -gravity center -extent x200"},
