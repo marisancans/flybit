@@ -1,16 +1,9 @@
 ActiveAdmin.register Product do
-	permit_params :title, :department, :category, :price
+	permit_params :title, :department, :category, :price, :image
 
-  form do |f|
-  f.input :product_id, as: :search_select, url: admin_product_path,
-          fields: [:title], display_name: 'title', minimum_input_length: 2
-  end
   filter :price, as: :range_select
-
-
-
   filter :department
-  filter :category#, collection: 
+  filter :category
   filter :created_at
 
 	index pagination_total: false do
@@ -25,9 +18,42 @@ ActiveAdmin.register Product do
     actions dropdown: true 
   end
 
+  show do
+    attributes_table do
+      row :title
+      row :description
+      row :price
+      row :department
+      row :category
+      row :created_at
+      row :updated_at
+      panel 'Markup' do
+        "Image details"
+      end
+      image_row :image
+      row :image_file_name
+      row :image_content_type
+      row :image_file_size
+      row :image_uploaded_at
+    end
+  end
+
+  form do |f|
+    f.semantic_errors # shows errors on :base
+      inputs 'Details' do
+      input :title
+      input :description
+      input :price
+      input :department
+      input :category
+      input :image
+    end
+    f.actions         # adds the 'Submit' and 'Cancel' buttons
+  end
+
   controller do
     def scoped_collection
-      super.includes :category # prevents N+1 queries to your database
+      super.includes :category, :department # prevents N+1 queries to your database
     end
   end
 

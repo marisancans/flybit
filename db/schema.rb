@@ -48,8 +48,9 @@ ActiveRecord::Schema.define(version: 20160311161032) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "products_count"
     t.integer  "department_id"
   end
 
@@ -58,8 +59,9 @@ ActiveRecord::Schema.define(version: 20160311161032) do
   create_table "departments", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "categories_count"
   end
 
   create_table "products", force: :cascade do |t|

@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
-	belongs_to :category, dependent: :destroy
+	belongs_to :category, dependent: :destroy, counter_cache: true
+	belongs_to :department
 
 	has_attached_file :image,
 										:styles  => { :thumb => "x200" },
