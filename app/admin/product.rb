@@ -1,13 +1,16 @@
 ActiveAdmin.register Product do
 	permit_params :title, :department, :category, :price, :image
 
+  filter :id
+  filter :title
   filter :price, as: :range_select
   filter :department
   filter :category#, collection: 
   filter :created_at
 
 	index pagination_total: false do
-    column "Title", sortable: :title, filter: title do |p|
+    column :id
+    column "Title", sortable: :title do |p|
       link_to p.title, admin_product_path(p)
     end
     number_column :price, as: :currency, unit: "$", separator: ","
@@ -20,6 +23,7 @@ ActiveAdmin.register Product do
 
   show do
     attributes_table do
+      row :id
       row :title
       row :price
       row :description
@@ -41,13 +45,13 @@ ActiveAdmin.register Product do
   form do |f|
     f.semantic_errors # shows errors on :base
       inputs 'Details' do
-      input :title
-      input :price  
-      input :description
-      input :department
-      input :category
-      input :image
-    end
+        input :title
+        input :price  
+        input :description
+        input :department
+        input :category
+        input :image
+      end
     f.actions         # adds the 'Submit' and 'Cancel' buttons
   end
 

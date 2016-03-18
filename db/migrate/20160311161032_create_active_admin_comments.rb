@@ -17,3 +17,5 @@ class CreateActiveAdminComments < ActiveRecord::Migration
     drop_table :active_admin_comments
   end
 end
+
+dminUser.create!(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password')

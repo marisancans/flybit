@@ -39,6 +39,10 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.1)
+    activeadmin-ajax_filter (0.2.2)
+      activeadmin (>= 1.0.0.pre1)
+      coffee-rails (>= 4.1.0)
+      selectize-rails (>= 0.11.2)
     activeadmin_addons (0.7.0)
       railties
       select2-rails (~> 3.5.9)
@@ -118,6 +122,9 @@ GEM
     formtastic_i18n (0.6.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    goldiloader (0.0.10)
+      activerecord (>= 3.2, < 5.1)
+      activesupport (>= 3.2, < 5.1)
     guard (2.13.0)
       formatador (>= 0.2.4)
       listen (>= 2.7, <= 4.0)
@@ -248,6 +255,7 @@ GEM
     seedbank (0.3.0)
     select2-rails (3.5.10)
       thor (~> 0.14)
+    selectize-rails (0.12.1)
     shellany (0.0.1)
     slop (3.6.0)
     spring (1.6.3)
@@ -286,6 +294,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
+  activeadmin-ajax_filter
   activeadmin_addons
   autoprefixer-rails
   better_errors
@@ -296,6 +305,7 @@ DEPENDENCIES
   devise
   faker
   figaro
+  goldiloader
   guard-minitest
   jbuilder (~> 2.0)
   jquery-rails
