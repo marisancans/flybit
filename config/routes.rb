@@ -14,11 +14,10 @@ Rails.application.routes.draw do
 
   get 'departments'           => 'departments#index'  
 
-  get 'products/update_categories'     => 'products#update_categories'
   
-  resources :categories
-  resources :departments, only: [:show, :index]
-  resources :products#, only: [:show, :index]
+  resources :categories, only: [:show, :index]
+  resources :departments, only: [:show]
+  resources :products, only: [:show, :index]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

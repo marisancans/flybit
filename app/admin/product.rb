@@ -3,7 +3,7 @@ ActiveAdmin.register Product do
 
   filter :price, as: :range_select
   filter :department
-  filter :category
+  filter :category#, collection: 
   filter :created_at
 
 	index pagination_total: false do
@@ -21,15 +21,15 @@ ActiveAdmin.register Product do
   show do
     attributes_table do
       row :title
-      row :description
       row :price
+      row :description
       row :department
       row :category
       row :created_at
       row :updated_at
-      panel 'Markup' do
-        "Image details"
-      end
+     # panel 'Markup' do
+     #   "Image details"
+     # end
       image_row :image
       row :image_file_name
       row :image_content_type
@@ -42,8 +42,8 @@ ActiveAdmin.register Product do
     f.semantic_errors # shows errors on :base
       inputs 'Details' do
       input :title
+      input :price  
       input :description
-      input :price
       input :department
       input :category
       input :image

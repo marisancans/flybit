@@ -6,22 +6,26 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-#Generate 30 products
-image_array = ["iphone.jpg", "pc.jpeg", "keyboard.jpeg", "laptop.jpg", "smartphone.jpg"]
+#Seed database with these variables:
+#Categories are generated for each department between 1..5
+department_count = 5
+product_count = 10
+user_count = 10
 
 
-#Generate 5 departments
-5.times do
+#Generate departments
+department_count.times do
 	name = Faker::Commerce.department
 	description = Faker::Lorem.sentence
 	Department.create!(name:  name,
   								description: description)
 end
-puts '-------CREATED 5 departments -------'
+puts "== CREATED #{department_count} departments =="
+
 
 #Generate random count of categories on each deapartment
 d = 0
-Department.count.times do 
+department_count.times do 
   d += 1
   x = Faker::Number.between(1, 5)
   x.times do
@@ -31,15 +35,20 @@ Department.count.times do
                     department_id: department_id)
   end
 end
-puts "-------CREATED random count of categories for #{d} departments -------"
+puts "== CREATED random count of categories for #{department_count} departments =="
 
 
-10.times do
+#List of image file names on dropbox, so they are randomly assigned
+image_array = ["iphone.jpg", "pc.jpeg", "keyboard.jpeg", "laptop.jpg", "smartphone.jpg"]
+
+#Generate products
+category_count = Category.count
+product_count.times do
   title  = Faker::Commerce.product_name
   description = Faker::Lorem.sentence
   price = Faker::Commerce.price
   department_id = Faker::Number.between(1, 5)
-  category_id = Faker::Number.between(1, Category.count)
+  category_id = Faker::Number.between(1, category_count)
   Product.create!(title:  title,
                   description: description,
                   price: price,
@@ -47,12 +56,17 @@ puts "-------CREATED random count of categories for #{d} departments -------"
                   category_id: category_id,
                   image_file_name: image_array.sample)
 end
-puts '-------CREATED 10 products-------'
+puts "== CREATED #{product_count} products =="
 
 #Generate users
 
-10.times do
+user_count.times do
+    email = Faker::Internet.email
+    password = Faker::Internet::password(8, 20)
+    User.create!(email: email,
+                 password: password)
 end
+puts "== CREATED #{user_count} users =="
 
 #Generate admin user
 email = "admin@example.com"
