@@ -32,14 +32,6 @@ gem 'autoprefixer-rails'
 gem 'bootstrap-will_paginate'
 gem 'bootstrap-sass'
 
-#Database
-gem 'seedbank'
-
-#ol_dba is a small package of rake tasks that scan your application models 
-#and displays a list of columns that probably should be indexed. 
-#Also, it can generate .sql migration scripts.
-gem "lol_dba" 
-
 #Authentication
 gem 'devise'
 
@@ -71,10 +63,17 @@ group :development, :test do
 
  	gem 'guard-minitest'
 
- 	#User data
-	gem 'faker'
+ 	#Database 
+	gem 'faker' #Random data generatos
+	gem 'seedbank' #More rake comands, specific seed files
 
-	gem "better_errors"
+	gem "better_errors" 
+
+	#lol_dba is a small package of rake tasks that scan your application models 
+	#and displays a list of columns that probably should be indexed. 
+	#Also, it can generate .sql migration scripts.
+	#======! This might be needed to remove later
+	gem "lol_dba" 
 
 end
 
