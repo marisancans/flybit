@@ -51,12 +51,7 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'activeadmin_addons'
 gem 'kaminari' #Pagination for admin panel. Kaminari and will-paginate may cause some conflict
 gem 'responsive_active_admin', '~> 0.0.5' 
-gem 'activeadmin-ajax_filter' #Ajax search
 
-
-
-
-gem 'goldiloader'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
