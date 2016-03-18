@@ -14,7 +14,12 @@ Rails.application.routes.draw do
 
   get 'departments'           => 'departments#index'  
 
-  
+  get 'carts/add'             => 'carts@add'
+  get 'cart'                  => 'carts#show'      
+
+
+
+  resources :carts
   resources :categories, only: [:show, :index]
   resources :departments, only: [:show]
   resources :products, only: [:show, :index]

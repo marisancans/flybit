@@ -14,8 +14,7 @@
 
 
 			<h3>€<%= product.price %><h3>
-							<a class="btn btn-default" href="#">
-			<i class="glyphicon glyphicon-shopping-cart"></i> Add to cart</a>
+        <%= link_to " Add to cart", carts_add_path, class: "btn btn-default glyphicon glyphicon-shopping-cart" %>
       </a>
       </div>
   </div>

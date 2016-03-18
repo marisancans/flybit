@@ -8,14 +8,16 @@ class Users::SessionsController < Devise::SessionsController
   clear_respond_to  
 
   def create
-  resource = User.find_for_database_authentication(email: params[:user][:email])
-  return invalid_login_attempt unless resource
+    resource = User.find_for_database_authentication(email: params[:user][:email])
+    return invalid_login_attempt unless resource
 
-  if resource.valid_password?(params[:user][:password])
-    sign_in :user, resource
-    request.referer
-  end
-
+    if resource.valid_password?(params[:user][:password])
+      sign_in :user, resource
+      flash[:notice] = "Cart is alive"
+      session[:cart]
+      request.referer
+    end
+    
   invalid_login_attempt
  end
 

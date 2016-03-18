@@ -67,4 +67,7 @@ user_count.times do
                  password: password)
 end
 puts "== CREATED #{user_count} users =="
+User.create!(email: "admin@example.com",
+             password: "password")
+puts "== User created, see in seeds file =="
 puts "== DONE =="

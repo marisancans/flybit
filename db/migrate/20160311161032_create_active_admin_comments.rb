@@ -18,4 +18,4 @@ class CreateActiveAdminComments < ActiveRecord::Migration
   end
 end
 
-dminUser.create!(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password')
+AdminUser.create!(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password')
