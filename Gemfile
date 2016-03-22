@@ -75,6 +75,8 @@ group :development, :test do
 	#======! This might be needed to remove later
 	gem "lol_dba" 
 
+	gem 'rails-dev-tweaks', '~> 1.1'
+
 end
 
 gem 'web-console', group: :development

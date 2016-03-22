@@ -1,3 +1,7 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
 <div class="col-lg-3 col-md-4 col-xs-6 thumb">
   <div class="thumbnail">
     <%= link_to product do %>
@@ -14,7 +18,7 @@
 
 
 			<h3>€<%= product.price %><h3>
-        <%= link_to " Add to cart", carts_add_path, class: "btn btn-default glyphicon glyphicon-shopping-cart" %>
+        <%= button_to " Add to cart", line_items_path(product_id: product), class: "btn btn-default glyphicon glyphicon-shopping-cart" %>
       </a>
       </div>
   </div>

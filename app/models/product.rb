@@ -1,6 +1,8 @@
 class Product < ActiveRecord::Base
 	belongs_to :category, dependent: :destroy, counter_cache: true
 	belongs_to :department
+	has_many :line_items
+	before_destroy :ensure_not_referenced_by_any_line_item
 
 	#accept_nested_attributes_for :status_histories, reject_if: :all_blank
 	#===Validation needed!===
@@ -19,5 +21,19 @@ class Product < ActiveRecord::Base
 	validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
 	validates_attachment_file_name :image, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/]
 	 #has_many :department
+
+
+
+	 private
+ 		#ensure that there are no line items referencing this product
+		def ensure_not_referenced_by_any_line_item
+		 	if line_items.empty?
+		 		return true
+		 	else
+		 		errors.add(:base, 'Line Items present')
+		 		return false
+			end
+		end
+
 end
 

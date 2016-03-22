@@ -12,13 +12,11 @@ Rails.application.routes.draw do
   get 'about'                 => 'static_pages#about'
   get 'contact'               => 'static_pages#contact'
 
-  get 'departments'           => 'departments#index' 
 
-  get 'carts/add'             => 'carts@add'
-  get 'cart'                  => 'carts#show'      
+  get 'departments'           => 'departments#index'      
 
 
-
+  resources :line_items
   resources :carts
   resources :categories, only: [:show, :index]
   resources :departments, only: [:show]

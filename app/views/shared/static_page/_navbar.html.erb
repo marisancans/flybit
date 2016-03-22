@@ -110,9 +110,19 @@
     </li>
   </ul>
 
-  <div id = "cart">
-    <a href = "#" <%= link_to "Cart", carts_path %> </a>
+  <!-- Cart  -->
+  <div class="dropdown">
+    <a <%= link_to "Shopping cart" %> </a>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      <li><a href="#">Action</a></li>
+      <li><a href="#">Another action</a></li>
+      <li><a href="#">Something else here</a></li>
+      <li role="separator" class="divider"></li>
+      <li><a href="#">Separated link</a></li>
+    </ul>
   </div>
+
+ <!-- NEEDS PATH TO USER CART! -->
 
 
    <ul class="nav navbar-nav navbar-right">
