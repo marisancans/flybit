@@ -50,6 +50,14 @@
     top: 0;
     visibility: hidden;
     margin-top: -1px;
+
+    li a:link{
+      text-decoration: none;
+    }
+
+    li a:visited{
+      text-decoration: none;
+    }
 }
 
 .dropdown-menu li:hover .sub-menu {
@@ -74,6 +82,7 @@
     top: 10px;
     position: fixed;
 }
+
 .navbar .sub-menu:after {
     border-top: 6px solid transparent;
     border-left: none;
@@ -83,6 +92,17 @@
     top: 11px;
     left: -6px;
     position: fixed;
+}
+
+.dropdown a{                    /* Dropdown links */
+    text-decoration: none;
+}
+
+#cart{
+
+  a{
+    text-decoration: none;
+  }
 }
 
 

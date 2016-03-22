@@ -1,6 +1,6 @@
 <nav class="navbar navbar-default" data-spy="affix" data-offset-top="0">
   <ul class="nav navbar-nav">
-    <a class="navbar-brand" <%= link_to "logo", root_path %> </a>
+    <a class="navbar-brand" style = "text-decoration: none;" <%= link_to "logo", root_path %> </a>
 
     <li class="dropdown">
          <a <%= link_to "Computers", categories_path(selected: "1") %> </a>
@@ -110,7 +110,9 @@
     </li>
   </ul>
 
-  <a <%= link_to "Cart", carts_path %> </a>
+  <div id = "cart">
+    <a href = "#" <%= link_to "Cart", carts_path %> </a>
+  </div>
 
 
    <ul class="nav navbar-nav navbar-right">
