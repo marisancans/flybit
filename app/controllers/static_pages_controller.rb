@@ -1,4 +1,5 @@
 class StaticPagesController < ApplicationController
+  include CurrentCart
 
   def home
   end
