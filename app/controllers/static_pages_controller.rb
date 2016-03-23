@@ -2,7 +2,7 @@ class StaticPagesController < ApplicationController
   include CurrentCart
   
   def home
-    @cart = set_cart
+    #@cart = set_cart
   end
 
   def show
