@@ -1,4 +1,4 @@
-user_count = 200
+user_count = 100
 c = 0
 user_count.times do
 		c += 1

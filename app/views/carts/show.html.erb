@@ -1,5 +1,9 @@
-<%= @cart.id %>
-<%= @cart.product_id %>
-<%= @cart.quantitty %>
-<%= @cart.createrd_at %>
-<%= @cart.updated_at %>
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<h2>Your shopping cart</h2>
+<ul>
+<% @cart.line_items.each do |item| %>
+<li><%= item.product.title %></li>
+<% end %>
+</ul>

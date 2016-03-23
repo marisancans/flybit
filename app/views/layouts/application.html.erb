@@ -7,16 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<%= render 'shared/static_page/navbar' %>
-		<div class="container-fluid">
-				<% render 'shared/static_page/left_side_navbar' %>
+	<% cache 'navbar' do %>
+		<%= render 'shared/static_page/navbar' %>
+	<% end %>
+	<div class="container-fluid">
+			<% render 'shared/static_page/left_side_navbar' %>
 
-				<%= yield %>
+			<%= yield %>
 
-				<% render 'shared/static_page/right_side_navbar' %>
-		</div>
+			<% render 'shared/static_page/right_side_navbar' %>
+	</div>
 </body>
 <footer>
-	<%= render 'shared/static_page/footer' %>
+	<% render 'shared/static_page/footer' %>
 </footer>
 </html>

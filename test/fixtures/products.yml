@@ -4,7 +4,10 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
+cumputa:
+ title: "Computer"
+ description: "Slow cumputer, dont buy"
+ price: 9.99
 # column: value
 #
 two: {}
