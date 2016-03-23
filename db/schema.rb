@@ -57,9 +57,9 @@ ActiveRecord::Schema.define(version: 20160318132028) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
-    t.text     "description"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "products_count"
     t.integer  "department_id"
   end
 
@@ -68,8 +68,9 @@ ActiveRecord::Schema.define(version: 20160318132028) do
   create_table "departments", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "categories_count"
   end
 
   create_table "products", force: :cascade do |t|
@@ -79,19 +80,15 @@ ActiveRecord::Schema.define(version: 20160318132028) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.integer  "department_id"
+    t.integer  "category_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
   end
 
+  add_index "products", ["category_id"], name: "index_products_on_category_id"
   add_index "products", ["department_id"], name: "index_products_on_department_id"
-
-  create_table "sub_categories", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
