@@ -114,7 +114,12 @@
   <div class="dropdown">
     <a <%= link_to "Shopping cart" %> </a>
     <ul class="dropdown-menu">
- 
+      <div id = "cart">
+        <% if @cart %>
+            <%= render @cart %>
+
+        <% end %>
+      </div>
     </ul>
   </div>
 
