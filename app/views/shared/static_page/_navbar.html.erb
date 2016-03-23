@@ -108,21 +108,19 @@
         <input type="submit" id="search-submit" />
       </form>
     </li>
-  </ul>
+  
 
   <!-- Cart  -->
-  <div class="dropdown">
-    <a <%= link_to "Shopping cart" %> </a>
-    <ul class="dropdown-menu">
-      <div id = "cart">
-        <% if @cart %>
+    <li class="dropdown">
+      <a class="dropdown-toggle disabled"><%= link_to "Shopping cart" %> <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <% if @cart %>
             <%= render @cart %>
 
         <% end %>
-      </div>
-    </ul>
-  </div>
-
+        </ul>
+      </li>
+  </ul>
  <!-- NEEDS PATH TO USER CART! -->
 
 
