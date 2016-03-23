@@ -1,4 +1,5 @@
 class Users::SessionsController < Devise::SessionsController
+
 # before_filter :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
@@ -13,9 +14,7 @@ class Users::SessionsController < Devise::SessionsController
 
     if resource.valid_password?(params[:user][:password])
       sign_in :user, resource
-      flash[:notice] = "Cart is alive"
-      session[:cart]
-      request.referer
+
     end
     
   invalid_login_attempt

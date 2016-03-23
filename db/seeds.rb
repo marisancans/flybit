@@ -12,6 +12,12 @@ department_count = 5
 product_count = 10
 user_count = 10
 
+#Generate test user
+puts "== CREATED #{user_count} users =="
+User.create!(email: "admin@example.com",
+             password: "12345678")
+puts "== User created, see in seeds file =="
+
 
 #Generate departments
 department_count.times do
@@ -66,8 +72,5 @@ user_count.times do
     User.create!(email: email,
                  password: password)
 end
-puts "== CREATED #{user_count} users =="
-User.create!(email: "admin@example.com",
-             password: "password")
-puts "== User created, see in seeds file =="
+
 puts "== DONE =="

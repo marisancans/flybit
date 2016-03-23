@@ -111,28 +111,17 @@
   
 
   <!-- Cart  -->
-<<<<<<< bf7cc302530858e72093efd162fe922776be81b4
     <li>
       <button class="btn btn-primary dropdown-toggle" type = "button" data-toggle="dropdown" style = "margin-left: 50%;"><b><%= link_to "Shopping cart" %></b><span class="caret"></span></button>
         <ul class="dropdown-menu">
-          <% if @cart %>
-            <%= render @cart %>
-          <% end %>
+            <% if @cart.line_items.empty? %>
+              <%= render plain: "Your cart is empty" %>
+            <% else %>
+              <%= render @cart %>
+            <% end %>
         </ul>
       </li>
   </ul>
-=======
-
-  <div id = "cart">
-    cartttttttt
-        <% if @cart %>
-          <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
-            <%= render @cart %>
-          <% end %>
-        <% end %>
-  </div>
-
->>>>>>> Cart
  <!-- NEEDS PATH TO USER CART! -->
 
 

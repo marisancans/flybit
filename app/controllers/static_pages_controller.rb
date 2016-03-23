@@ -1,8 +1,8 @@
 class StaticPagesController < ApplicationController
   include CurrentCart
-  
+  before_action :set_cart
+
   def home
-    #@cart = set_cart
   end
 
   def show
