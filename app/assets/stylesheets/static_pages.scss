@@ -4,6 +4,11 @@
     z-index: 10;
 }
 
+.something{
+    margin-top: 5%;
+}
+
+
 #login-dp{
     min-width: 250px;
     padding: 14px 20px 14px 14px;
@@ -111,15 +116,15 @@
 /* ------------------------ SEARCH BUTTON -------------------*/
 
 
-$tl: 0.6s; // transition length
+$tl: 0.2s; // transition length
 
 .search-box {
   transition: width $tl, border-radius $tl, background $tl, box-shadow $tl;
-  width: 40px;height: 40px;
+  width: 300px;height: 30px;
   border-radius: 20px;border: none;
   cursor: pointer;
   margin-left: 10%;
-  margin-top: 2%;
+  margin-top: 4%;
   background: rgb(235, 235, 235);
   & + label .search-icon {    color: black    }
   &:hover {

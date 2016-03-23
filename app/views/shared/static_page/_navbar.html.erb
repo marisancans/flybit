@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default" data-spy="affix" data-offset-top="0">
+<nav class="navbar navbar-default" data-spy="affix">
   <ul class="nav navbar-nav">
     <a class="navbar-brand" style = "text-decoration: none;" <%= link_to "logo", root_path %> </a>
 
@@ -111,8 +111,8 @@
   
 
   <!-- Cart  -->
-    <li class="dropdown">
-      <a class="dropdown-toggle disabled"><%= link_to "Shopping cart" %> <b class="caret"></b></a>
+    <li>
+      <button class="btn btn-primary dropdown-toggle" type = "button" data-toggle="dropdown" style = "margin-left: 50%;"><b><%= link_to "Shopping cart" %></b><span class="caret"></span></button>
         <ul class="dropdown-menu">
           <% if @cart %>
             <%= render @cart %>
