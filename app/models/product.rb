@@ -1,6 +1,6 @@
 class Product < ActiveRecord::Base
 	belongs_to :category, dependent: :destroy, counter_cache: true
-	belongs_to :department
+	has_one :department, through: :category
 	has_many :line_items
 	before_destroy :ensure_not_referenced_by_any_line_item
 

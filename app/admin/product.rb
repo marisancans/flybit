@@ -3,7 +3,7 @@ ActiveAdmin.register Product do
 
   filter :id
   filter :title
-  filter :price, as: :range_select
+  filter :price
   filter :department
   filter :category#, collection: 
   filter :created_at
@@ -13,11 +13,15 @@ ActiveAdmin.register Product do
     column "Title", sortable: :title do |p|
       link_to p.title, admin_product_path(p)
     end
-    number_column :price, as: :currency, unit: "$", separator: ","
-  	column :department, sortable: "departments.name"     
-  	column :category, sortable: "categories.name"
+
+  	column :department  
+  	column :category
     column :created_at, filter: :created_at, as: :check_boxes
-    image_column :image, style: :thumb
+
+    column "Image" do |product|
+      image_tag product.image.url(:thumb), class: 'my_image_size'
+    end
+
     actions dropdown: true 
   end
 
@@ -34,7 +38,9 @@ ActiveAdmin.register Product do
      # panel 'Markup' do
      #   "Image details"
      # end
-      image_row :image
+      row "Image" do
+        image_tag(product.image.url(:thumb))
+      end
       row :image_file_name
       row :image_content_type
       row :image_file_size

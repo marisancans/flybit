@@ -35,15 +35,13 @@ gem 'bootstrap-sass'
 #Authentication
 gem 'devise'
 
-#Variable, data security in variables, secrey keys
+#gem 'puma'
+
+#Enviroment variables
 gem "figaro"
 
 #Admin
 gem 'activeadmin', github: 'activeadmin'
-gem 'activeadmin_addons'
-gem 'kaminari' #Pagination for admin panel. Kaminari and will-paginate may cause some conflict
-gem 'responsive_active_admin', '~> 0.0.5' 
-
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -56,26 +54,26 @@ gem 'responsive_active_admin', '~> 0.0.5'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  #gem 'byebug'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  #gem 'spring'
 
- 	gem 'guard-minitest'
+ 	#gem 'guard-minitest'
 
  	#Database 
-	gem 'faker' #Random data generatos
-	gem 'seedbank' #More rake comands, specific seed files
+	#gem 'faker' #Random data generatos
+	#gem 'seedbank' #More rake comands, specific seed files
 
-	gem "better_errors" 
+	#gem "better_errors" 
 
 	#lol_dba is a small package of rake tasks that scan your application models 
 	#and displays a list of columns that probably should be indexed. 
 	#Also, it can generate .sql migration scripts.
 	#======! This might be needed to remove later
-	gem "lol_dba" 
+	#gem "lol_dba" 
 
-	gem 'rails-dev-tweaks', '~> 1.1'
+	#gem 'rails-dev-tweaks', '~> 1.1'
 
 end
 

@@ -111,17 +111,16 @@
   
 
   <!-- Cart  -->
-    <li>
-      <button class="btn btn-primary dropdown-toggle" type = "button" data-toggle="dropdown" style = "margin-left: 50%;"><b><%= link_to "Shopping cart" %></b><span class="caret"></span></button>
-        <ul class="dropdown-menu">
-            <% if @cart.line_items.empty? %>
-              <%= render plain: "Your cart is empty" %>
-            <% else %>
+      <% if @cart %>
+        <li>
+            <button class="btn btn-primary dropdown-toggle" type = "button" data-toggle="dropdown" style = "margin-left: 50%;"><b><%= link_to "Shopping cart" %></b><span class="caret"></span></button>
+            <ul class="dropdown-menu">
               <%= render @cart %>
-            <% end %>
-        </ul>
-      </li>
-  </ul>
+            </ul>
+        </li>
+      <% end %>
+    </ul>
+
  <!-- NEEDS PATH TO USER CART! -->
 
 
