@@ -62,8 +62,8 @@ group :development, :test do
  	#gem 'guard-minitest'
 
  	#Database 
-	#gem 'faker' #Random data generatos
-	#gem 'seedbank' #More rake comands, specific seed files
+	gem 'faker' #Random data generatos
+	gem 'seedbank' #More rake comands, specific seed files
 
 	#gem "better_errors" 
 

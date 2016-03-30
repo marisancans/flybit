@@ -13,6 +13,8 @@ class ProductsController < ApplicationController
  # @products = Product.where("category_id = ?", params[:selected])
   #  .map{|p| [p.title, p.price] }#.paginate(page: params[:page]) Get only title, price etc. 
 
+
+
 	private
   
 end

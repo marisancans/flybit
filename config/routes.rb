@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   get 'contact'               => 'static_pages#contact'
 
 
-  get 'departments'           => 'departments#index'      
+  get 'departments'           => 'departments#index' 
+   
 
 
   resources :line_items

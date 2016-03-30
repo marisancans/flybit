@@ -10,7 +10,9 @@ ActiveAdmin.register_page "Dashboard" do
         panel "Recently registred users" do
           table_for User.limit(15).select(:id, :email, :created_at).order('id desc') do
             column :id
-            column :email
+            column "Email", :email do |user|
+              link_to user.email, admin_user_path(user)
+            end
             column :created_at
           end
         end

@@ -1,5 +1,9 @@
 ActiveAdmin.register Product do
 	permit_params :title, :department, :category, :price, :image
+  member_action :change_categories, method: :post do
+    @categories = Department.find_by(params[:department_id]).try(:categories)
+    render :text => view_context.options_from_collection_for_select(@categories, :id, :name)
+  end
 
   filter :id
   filter :title
@@ -51,12 +55,14 @@ ActiveAdmin.register Product do
   form do |f|
     f.semantic_errors # shows errors on :base
       inputs 'Details' do
-        input :title
-        input :price  
-        input :description
-        input :department
-        input :category
-        input :image
+        f.input :title
+        f.input :price  
+        f.input :description
+        f.input :department, :input_html => {
+        :onchange => remote_request(:post, :change_categories, {:department_id=>"$('#product_department_id').val()"}, :product_category_id)
+    }
+        f.input :category
+        f.input :image
       end
     f.actions         # adds the 'Submit' and 'Cancel' buttons
   end
