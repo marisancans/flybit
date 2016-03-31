@@ -2,10 +2,13 @@
   <ul class="nav navbar-nav">
     <a class="navbar-brand" style = "text-decoration: none;" <%= link_to "logo", root_path %> </a>
 
+    <% counter = 0 %>
+    <% 5.times do %>
+    <% counter += 1 %>
     <li class="dropdown">
          <a <%= link_to "Computers", categories_path(selected: "1") %> </a>
       <ul class="dropdown-menu">
-        <li><a href="#">Cases</a></li>
+        <li><%= link_to products_path(selected: "#{counter}"), "Cases" %> </li>
         <li><a href="#">Cooling</a></li>
         <li><a href="#">Memory (RAM)</a></li>
         <li><a href="#">Motherboards</a></li>
@@ -19,7 +22,8 @@
         <li><a href="#">All-in-one PCs</a></li>
       </ul>
     </li>
-
+    <% end %>
+<!--
     <li class="dropdown">
       <a <%= link_to "Tablets", categories_path(selected: "2") %> </a>
       <ul class="dropdown-menu">
@@ -108,6 +112,7 @@
         <input type="submit" id="search-submit" />
       </form>
     </li>
+  -->
   
 
   <!-- Cart  -->
