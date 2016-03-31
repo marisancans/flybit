@@ -8,9 +8,9 @@
     <li class="dropdown">
          <a <%= link_to "Computers", categories_path(selected: "1") %> </a>
       <ul class="dropdown-menu">
-        <li><%= link_to products_path(selected: "#{counter}"), "Cases" %> </li>
-        <li><a href="#">Cooling</a></li>
-        <li><a href="#">Memory (RAM)</a></li>
+        <li><%= link_to "Cases", products_path(selected: "1") %> </li>
+        <li><%= link_to "Cooling", products_path(selected: "2") %> </li>
+        <li><%= link_to "Memory (RAM)", products_path(selected: "3") %> </li>
         <li><a href="#">Motherboards</a></li>
         <li><a href="#">Power supplies</a></li>
         <li><a href="#">Processors</a></li>
