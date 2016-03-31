@@ -18,11 +18,12 @@
 
 
 //Link color
-//body.active_admin a {
-//	text-decoration: none;
+body.active_admin a {
+		text-decoration: none;
 //	color: #146b68;
-//}
+}
 
+//Link hover color
 body.active_admin a:hover { 
     background-color: #e0e0eb;
 }
