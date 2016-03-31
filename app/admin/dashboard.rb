@@ -22,7 +22,9 @@ ActiveAdmin.register_page "Dashboard" do
         panel "Recently added products" do
           table_for Product.limit(15).select(:id, :title, :created_at).order('id desc') do
             column :id
-            column :title
+            column "Title", :title do |product|
+              link_to product.title, admin_product_path(product)
+            end
             column :created_at
           end
         end
