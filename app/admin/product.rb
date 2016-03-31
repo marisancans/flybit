@@ -1,7 +1,7 @@
 ActiveAdmin.register Product do
 	permit_params :title, :department, :category, :price, :image
-  member_action :change_categories, method: :post do
-    @categories = Department.find_by(params[:department_id]).try(:categories)
+  collection_action :change_categories, :method => :get do
+    @categories = Category.where("department_id = ?", Department.find(params[:product_department_id]))
     render :text => view_context.options_from_collection_for_select(@categories, :id, :name)
   end
 
@@ -58,10 +58,11 @@ ActiveAdmin.register Product do
         f.input :title
         f.input :price  
         f.input :description
-        f.input :department, :input_html => {
-        :onchange => remote_request(:post, :change_categories, {:department_id=>"$('#product_department_id').val()"}, :product_category_id)
-    }
-        f.input :category
+        f.input :department, include_blank: false, :input_html => {
+        onchange: remote_get("change_categories", 'product_department_id', :product_category_id)
+    },
+        label: "Select department first"
+        f.input :category, include_blank: false, collection: ""
         f.input :image
       end
     f.actions         # adds the 'Submit' and 'Cancel' buttons
