@@ -9,16 +9,13 @@
       <div class="text-under-thumbnail">
        <% end %>
 
-       	<%= link_to product do %>
-        	<h6><%= product.title %></h6>
-        <% end %>
-
-
+        <h6><%= product.title %></h6>
+        
 				<%= link_to " More info", product, class: "btn btn-default glyphicon glyphicon-info-sign" %> 
 
 
 			<h3>€<%= product.price %><h3>
-        <%= button_to " Add to cart", line_items_path(product_id: product), class: "btn btn-default glyphicon glyphicon-shopping-cart" %>
+        <%= button_to " Add to cart", line_items_path(product_id: product), remote: true, class: "btn btn-default glyphicon glyphicon-shopping-cart" %>
       </a>
       </div>
   </div>
