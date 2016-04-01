@@ -43,29 +43,27 @@ if choice == 1
 
   #Generate departments
   puts "== CREATING manual departments =="
-  c = 0
-    dach.each do |key, array|
-      c += 1
-      description = Faker::Lorem.sentence
+    dach.keys.each_with_index do |key, index|
       Department.create!(name: "#{key}")
-      puts "#{c}: #{key}"
+      puts "#{index + 1}: #{key}" 
     end
-    puts "== DONE, created #{dach.count} departments ==\n\n"
+  puts "== DONE, created #{dach.count} departments ==\n\n"
 
   #Generate categories for each department
   puts "== CREATING manual categories =="
-  c = 0
+  department_id = 0
+  category_count = 0
   dach.each do |key, array|
+      department_id += 1
       puts "---#{key}---"
-    array.each do |name|
-      c += 1
-      Category.create!(name: "#{name}")
-      puts "#{c}: #{name}"
+      array.each_with_index do |name, category_index|
+      Category.create!(name: "#{name}", department_id: "#{department_id}")
+      puts "#{category_index + 1}|#{department_id}|#{name}"
+      category_count += 1
     end
     puts "\n"
   end
-
-  puts "== DONE, created #{c} categories ==\n\n"
+  puts "== DONE, created #{category_count} categories ==\n\n"
 
   #Code refractoring
   #if choice == 1
@@ -74,12 +72,10 @@ if choice == 1
 else
 
   #Generate departments
-  c = 0
   puts "== CREATING departments =="
   department_count.times do
     c += 1
   	name = Faker::Commerce.department
-  	description = Faker::Lorem.sentence
   	Department.create!(name:  name)
     puts "#{c}: #{name}"
   end
@@ -147,11 +143,11 @@ puts "== DONE, created #{user_count} users ==\n\n"
 
 #Generate test user
 if User.exists?(email: "admin@example.com")
-  puts "== ERROR, test user already exists! admin@example.com, password: password =="
+  puts "== ERROR, test user already exists! admin@example.com, password: password ==\n\n"
 else
   User.create!(email: "admin@example.com",
                password: "password")
-  puts "== User created, admin@example.com, password: password =="
+  puts "== User created, admin@example.com, password: password ==\n\n"
 end
 
 

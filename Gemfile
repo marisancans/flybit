@@ -53,28 +53,26 @@ gem 'activeadmin', github: 'activeadmin'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  #gem 'byebug'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  #gem 'spring'
+  gem 'spring'
 
  	#gem 'guard-minitest'
 
+ 	gem 'newrelic_rpm'
+
  	#Database 
-	gem 'faker' #Random data generatos
-	gem 'seedbank' #More rake comands, specific seed files
+ 	#Random data generatos
+	gem 'faker'
+	#More rake comands, specific seed files
+	gem 'seedbank' 
 
 	#gem "better_errors" 
 
-	#lol_dba is a small package of rake tasks that scan your application models 
-	#and displays a list of columns that probably should be indexed. 
-	#Also, it can generate .sql migration scripts.
-	#======! This might be needed to remove later
-	#gem "lol_dba" 
-
-	#gem 'rails-dev-tweaks', '~> 1.1'
+	gem 'web-console'
 
 end
 
-gem 'web-console', group: :development
+group  :production do
+	gem 'pg'
+end

@@ -1,5 +1,8 @@
-5.times do 
-	name = Faker::Commerce.product_name
+department_array = ['Computers', 'Tablets', 
+										'Laptops & Notebooks', 'Accessories', 
+										'Laptops'] 
+
+department_array.each_with_index do |name, index|
 	Department.create!(name: name)
-	puts "Department #{name} created"
+	puts "#{index + 1}: #{name}"
 end

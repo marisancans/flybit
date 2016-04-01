@@ -1,109 +1,13 @@
 <nav class="navbar navbar-default" data-spy="affix">
   <ul class="nav navbar-nav">
     <a class="navbar-brand" style = "text-decoration: none;" <%= link_to "logo", root_path %> </a>
+      <%= render 'shared/static_page/dep_and_cat_list' %>
 
-    <% counter = 0 %>
-    <% 5.times do %>
-    <% counter += 1 %>
-    <li class="dropdown">
-         <a <%= link_to "Computers", categories_path(selected: "1") %> </a>
-      <ul class="dropdown-menu">
-        <li><%= link_to "Cases", products_path(selected: "1") %> </li>
-        <li><%= link_to "Cooling", products_path(selected: "2") %> </li>
-        <li><%= link_to "Memory (RAM)", products_path(selected: "3") %> </li>
-        <li><a href="#">Motherboards</a></li>
-        <li><a href="#">Power supplies</a></li>
-        <li><a href="#">Processors</a></li>
-        <li><a href="#">Video cards</a></li>
-        <li><a href="#">Sound cards</a></li>
-        <li><a href="#">Storage</a></li>
-        <li class="divider"></li>
-        <li><a href="#">Pre-built PCs</a></li>
-        <li><a href="#">All-in-one PCs</a></li>
-      </ul>
-    </li>
-    <% end %>
-<!--
-    <li class="dropdown">
-      <a <%= link_to "Tablets", categories_path(selected: "2") %> </a>
-      <ul class="dropdown-menu">
-        <li><a href="#">Apple</a></li>
-        <li><a href="#">Samsung</a></li>
-        <li><a href="#">Microsoft</a></li>
-        <li><a href="#">Lenovo</a></li>
-        <li><a href="#">Asus</a></li>
-        <li><a href="#">Google</a></li>
-        <li><a href="#">Dell</a></li>
-        <li><a href="#">Acer</a></li>
-        <li class="divider"></li>
-        <li><a href="#">7 inches</a></li>
-        <li><a href="#">8 inches</a></li>
-        <li><a href="#">9 inches</a></li>
-        <li><a href="#">10 inches</a></li>
-        <li><a href="#">12 inches</a></li>
+    <li>
       </ul>
     </li>
 
-    <li class="dropdown">
-      <a <%= link_to "Laptops & Notebooks", categories_path(selected: "3") %> </a>
-      <ul class="dropdown-menu">
-        <li><a href="#">Apple</a></li>
-        <li><a href="#">Dell</a></li>
-        <li><a href="#">HP</a></li>
-        <li><a href="#">Lenovo</a></li>
-        <li><a href="#">Asus</a></li>
-        <li><a href="#">Acer</a></li>
-        <li><a href="#">Alienware</a></li>
-        <li><a href="#">Sony</a></li>
-        <li><a href="#">Toshiba</a></li>
-        <li class="divider"></li>
-        <li><a href="#">Windows</a></li>
-        <li><a href="#">Mac OS</a></li>
-        <li><a href="#">Chrome OS</a></li>
-        <li><a href="#">No OS</a></li>
-        <li class="divider"></li>
-        <li><a href="#">Less than $500</a></li>
-        <li><a href="#">$500 - $1000</a></li>
-        <li><a href="#">$1000+</a></li>
-      </ul>
-    </li>
 
-    <li class="dropdown">
-      <a <%= link_to "Accessories", categories_path(selected: "4") %> </a>
-      <ul class="dropdown-menu">
-        <li class="nav-header">Computers</li>
-        <li><a href="#">Mice</a></li>
-        <li><a href="#">Keyboards</a></li>
-        <li><a href="#">Headphones</a></li>
-        <li><a href="#">Microphones</a></li>
-        <li class="divider"></li>
-        <li class="nav-header">Tablets</li>
-        <li><a href="#">Cases</a></li>
-        <li><a href="#">Styluses</a></li>
-        <li><a href="#">Storage</a></li>
-        <li class="divider"></li>
-        <li class="nav-header">Laptops & Notebooks</li>
-        <li><a href="#">Cooling</a></li>
-        <li><a href="#">Chargers</a></li>
-        <li><a href="#">Webcams</a></li>
-        <li><a href="#">Carrying bags</a></li>
-        <li><a href="#">Storage</a></li>
-        <li><a href="#">Wrist rests</a></li>
-
-      </ul>
-    </li>
-
-    <li class="dropdown">
-      <a <%= link_to "Laptops", categories_path(selected: "5") %> </a>
-      <ul class="dropdown-menu">
-        <li><a href="#">Accessories</a></li>
-        <li><a href="#">Bags</a></li>
-        <li class="divider"></li>
-        <li class="nav-header">Header</li>
-        <li><a href="#">Batteries</a></li>
-        <li><a href="#">Link</a></li>
-      </ul>
-    </li>
 
     <li>
       <form class="search-container" action="//llamaswill.tumblr.com/search">
@@ -112,10 +16,10 @@
         <input type="submit" id="search-submit" />
       </form>
     </li>
-  -->
+
   
 
-  <!-- Cart  -->
+   <!-- Cart  -->
       <% if @cart %>
         <li id="cart-button">
             <button class="btn btn-primary dropdown-toggle" type = "button" data-toggle="dropdown" style = "margin-left: 50%;"><b><%= link_to "Shopping cart" %></b><span class="caret"></span></button>
@@ -126,7 +30,8 @@
             </ul>
         </li>
       <% end %>
-    </ul>
+
+   </ul>
 
  <!-- NEEDS PATH TO USER CART! -->
 
