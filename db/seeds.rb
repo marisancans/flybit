@@ -1,9 +1,13 @@
-
+#Seed database with these variables for generated option
+#Categories are generated for each department between 1..5
+department_count = 5
+product_count = 10
+user_count = 10
 
 
 print "\n 1 - Seed manual categories and department data from seed file \n 2 - Seed generated data \n"
 print "Choice: "
-choice = STDIN.gets.chomp
+choice = STDIN.gets.chomp.to_i
 
 
 if choice == 1 
@@ -46,7 +50,7 @@ if choice == 1
       Department.create!(name: "#{key}")
       puts "#{c}: #{key}"
     end
-    puts "== DONE #{dach.count} departments ==\n\n"
+    puts "== DONE, created #{dach.count} departments ==\n\n"
 
   #Generate categories for each department
   puts "== CREATING manual categories =="
@@ -61,20 +65,13 @@ if choice == 1
     puts "\n"
   end
 
-  puts "== DONE #{c} categories ==\n\n"
+  puts "== DONE, created #{c} categories ==\n\n"
 
-
+  #Code refractoring
   #if choice == 1
   #  dn = Proc.new { name = Faker::Commerce.department  }
 
-
-
 else
-  #Seed database with these variables:
-  #Categories are generated for each department between 1..5
-  department_count = 5
-  product_count = 10
-  user_count = 10
 
   #Generate departments
   c = 0
@@ -138,19 +135,24 @@ c = 0
 puts "== CREATING users =="
 user_count.times do
     c += 1
-    email = Faker::Internet.email
+    begin
+      email = Faker::Internet::email
+    end until !User.exists?(email: email)#Email uniqueness validation
     password = Faker::Internet::password(8, 20)
     User.create!(email: email,
                  password: password)
  puts "#{c}: #{email}, password = #{password}"
 end
-puts "== DONE, created #{user_count} users\n\n" 
+puts "== DONE, created #{user_count} users ==\n\n" 
 
-    #Generate test user
-User.create!(email: "admin@example.com",
-             password: "12345678")
-puts "== User created, see in seeds file =="
-
+#Generate test user
+if User.exists?(email: "admin@example.com")
+  puts "== ERROR, test user already exists! admin@example.com, password: password =="
+else
+  User.create!(email: "admin@example.com",
+               password: "password")
+  puts "== User created, admin@example.com, password: password =="
+end
 
 
 puts "== DATABASE SEEDING DONE =="
