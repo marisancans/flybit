@@ -1,4 +1,4 @@
-<h4>selected category name here</h4>
+<h4><%= Category.find(params[:selected]).name %></h4>
 <%= will_paginate %>
 <div="row">
 	<div class="col-md-1"></div>

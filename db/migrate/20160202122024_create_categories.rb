@@ -7,7 +7,7 @@ class CreateCategories < ActiveRecord::Migration
     end
 
   add_reference :categories, :department, index: true, foreign_key: true
-  add_foreign_key :categories, :departments
+  #add_foreign_key :categories, :departments
 
 	end
 end

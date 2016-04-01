@@ -1,7 +1,9 @@
 <nav class="navbar navbar-default" data-spy="affix">
   <ul class="nav navbar-nav">
     <a class="navbar-brand" style = "text-decoration: none;" <%= link_to "logo", root_path %> </a>
-      <%= render 'shared/static_page/dep_and_cat_list' %>
+      <% cache 'dep_and_cat_list_cache' do %>
+        <%= render 'shared/static_page/dep_and_cat_list' %>
+      <% end %>
 
     <li>
       </ul>
