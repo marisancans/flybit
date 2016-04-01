@@ -9,6 +9,7 @@ ruby 2.2.1p85 (2015-02-26 revision 49769) [x86_64-darwin14]
 development
 
 * Database creation
+Seed database with rake db:seed:original, this uses only seeds.rb file, using rake db:seed causes seedbank gem to seed all its *.seeds.rb files!
 Project has seedbank gem and some seed files: 
     for example, to seed products use: rake db:seed:products, files can be located at db/seeds
 
