@@ -22,7 +22,6 @@ test:
 
 production:
   adapter: postgresql
-  encoding: unicode
-  # For details on connection pooling, see rails configuration guide
-  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  database: my_database_production
   pool: 5
+  timeout: 5000
