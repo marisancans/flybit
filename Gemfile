@@ -56,6 +56,13 @@ gem 'activeadmin', github: 'activeadmin'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+	#THESE TWO BELOW SHOULD NOT BE HERE ON PRODUCTION!!!!!
+ 	#Database 
+ 	#Random data generatos
+	gem 'faker'
+	#More rake comands, specific seed files
+	gem 'seedbank' 
+
 group :development, :test do
 
 
@@ -67,11 +74,7 @@ group :development, :test do
 
  	gem 'newrelic_rpm'
 
- 	#Database 
- 	#Random data generatos
-	gem 'faker'
-	#More rake comands, specific seed files
-	gem 'seedbank' 
+
 
 	#gem "better_errors" 
 
