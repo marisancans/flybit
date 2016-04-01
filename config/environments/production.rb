@@ -1,4 +1,11 @@
 Rails.application.configure do
+
+  dropbox_app_key: ENV['DROPBOX_APP_KEY']
+  dropbox_app_secret: ENV['DROPBOX_APP_SECRET']
+  dropbox_access_token: ENV['DROPBOX_ACCESS_TOKEN']
+  dropbox_access_token_secret: ENV['DROPBOX_ACCESS_TOKEN_SECRET']
+  dropbox_user_id: ENV['DROPBOX_USER_ID']
+  dropbox_access_type: 'app_folder'
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
