@@ -35,6 +35,8 @@ gem 'bootstrap-sass'
 #Authentication
 gem 'devise'
 
+
+
 #Database
 gem 'pg'
 gem 'taps'
