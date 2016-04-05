@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     match :qty, action: :qty, via: [:post, :delete], on: :member #-> url.com/line_items/qty
   end
 
+  get 'navbar_cart'           => 'carts#navbar_cart'
  
   resources :carts
   resources :categories, only: [:show, :index]

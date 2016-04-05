@@ -1,6 +1,5 @@
 $(document).ready(function(){
 	$("#cart-badge-id").text(<%=@cart.line_items_count%>);
-	$('#cart').html("<%= escape_javascript render(@cart) %>");
 	$('#cart-button').effect( "bounce", {times:3}, 1000 );
 });
 

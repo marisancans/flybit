@@ -1,5 +1,4 @@
 class CartsController < ApplicationController
-  skip_before_action :authorize, only: [:create, :update, :destroy]
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
 
@@ -18,6 +17,13 @@ class CartsController < ApplicationController
     #  then
     #  @a = "true" else @a = "false"
    # end
+  end
+
+  def navbar_cart
+    @cart = Cart.find(session[:cart_id])
+    respond_to do |format|
+      format.js
+    end
   end
 
   # GET /carts/new
