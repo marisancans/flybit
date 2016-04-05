@@ -100,7 +100,6 @@ class LineItemsController < ApplicationController
 
   def increase
     @line_item = @cart.increase(params[:id])
-    @index = params[:index]
     respond_to do |format|
       if @line_item.save
         format.html { redirect_to store_path, notice: 'Item was successfully updated.' }

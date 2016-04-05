@@ -33,7 +33,7 @@
 						<div class="col-xs-4 col-md-4 col-md-4">
 							<h4 class="product-name"><strong><%= item.product.title %></strong></h4><h4><small><%= item.product.description %></small></h4>
 						</div>
-						<div class="col-xs-3 col-md-3 col-md-3" id="qty-n-price-row-<%= index + 1 %>">
+						<div class="col-xs-4 col-md-4 col-md-4" id="qty-n-price-row-<%= index + 1 %>">
 							<%= render 'shared/line_items/qty_n_price_row', item: item, index: index + 1%>
 							</div>	
 							<div class="col-xs-1 col-md-1 col-md-1">
@@ -55,7 +55,7 @@
 					<div class="row">
 					<div class="col-xs-11">
 						<div class="row text-center">
-							<h4 class="text-right"> <strong>€<%= @cart.total_price %></strong></h4>
+							<h4 class="text-right" id="line-items-total-sum"> <strong>€<%= @cart.total_price %></strong></h4>
 						</div>
 					</div>
 					<div class="col-xs-1">
