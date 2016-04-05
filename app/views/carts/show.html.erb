@@ -1,9 +1,80 @@
 <% if notice %>
 <p id="notice"><%= notice %></p>
 <% end %>
-<h2>Your shopping cart</h2>
-<ul>
-<% @cart.line_items.each do |item| %>
-<li><%= item.product.title %></li>
-<% end %>
-</ul>
+
+<div class="row">
+	<div class="col-md-1"></div>
+		<div class="col-md-10">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<div class="panel-title">
+						<div class="row">
+							<div class="col-xs-6">
+								<h5><span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart</h5>
+							</div>
+							<div class="col-xs-6">
+								<button type="button" class="btn btn-primary btn-sm btn-block">
+									<span class="glyphicon glyphicon-share-alt"></span> Continue shopping
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel-body">
+
+					<% @cart.line_items.each_with_index do |item, index| %>
+					<div class="row">
+						
+						<div class="col-xs-2 col-md-2 col-sm-2">
+							<img class="img-responsive" src=
+							<%= item.product.image.url(:thumb) %>
+						</div>
+						</div>
+						<div class="col-xs-4 col-md-4 col-md-4">
+							<h4 class="product-name"><strong><%= item.product.title %></strong></h4><h4><small><%= item.product.description %></small></h4>
+						</div>
+						<div class="col-xs-3 col-md-3 col-md-3" id="qty-n-price-row-<%= index + 1 %>">
+							<%= render 'shared/line_items/qty_n_price_row', item: item, index: index + 1%>
+							</div>	
+							<div class="col-xs-1 col-md-1 col-md-1">
+								<%= button_to qty_line_item_path(item), method: :post, remote: true, params: { index: index + 1 } do%>
+									<span class="glyphicon glyphicon-plus"></span>
+								<% end %>
+								<%= button_to qty_line_item_path(item), method: :delete, remote: true, params: { index: index + 1 } do%>
+									<span class="glyphicon glyphicon-minus"></span>
+								<% end %>
+							</div>
+							<div class="col-xs-1 col-md-1 col-md-1">
+								<%= button_to item, method: :delete do %>
+							    <span class="glyphicon glyphicon-trash"></span>
+								<% end %>
+							</div>
+					</div>
+					<hr>
+					<% end %>
+					<div class="row">
+					<div class="col-xs-11">
+						<div class="row text-center">
+							<h4 class="text-right"> <strong>€<%= @cart.total_price %></strong></h4>
+						</div>
+					</div>
+					<div class="col-xs-1">
+					</div>
+				</div>
+				</div>
+				<div class="panel-footer">
+					<div class="row text-center">
+						<div class="col-xs-9">
+						</div>
+						<div class="col-xs-3">
+							<button type="button" class="btn btn-success btn-block">
+								Checkout
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+</div>

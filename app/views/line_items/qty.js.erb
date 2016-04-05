@@ -1,0 +1,4 @@
+$( document ).ready(function() {
+    $('#qty-n-price-row-<%= @index %>').html("<%= escape_javascript render(:partial => 'shared/line_items/qty_n_price_row', :locals => { index: @index, item: @item } ) %>");
+});
+

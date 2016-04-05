@@ -1,3 +1,4 @@
+$("#cart-button").load(location.href + " #cart-button");
 $('#cart').html("<%= escape_javascript render(@cart) %>");
+$('#cart-button').effect( "bounce", {times:3}, 1000 );
 
-$('#cart-button').effect( "bounce", {times:3}, 1000 )

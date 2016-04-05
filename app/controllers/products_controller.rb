@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
   before_action :set_cart, only: [:show, :index]
 
 	def show
+    #if current_user
   	@product = Product.find(params[:id])
     #@department = Department.find(@product.department_id)
 	end

@@ -12,6 +12,12 @@ class CartsController < ApplicationController
   # GET /carts/1
   # GET /carts/1.json
   def show
+    @disable_shopping_cart = true
+    #current_user.cart_id = 1
+    #if current_user.cart_id = params[:cart_id] 
+    #  then
+    #  @a = "true" else @a = "false"
+   # end
   end
 
   # GET /carts/new

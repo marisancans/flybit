@@ -9,7 +9,7 @@ image_array = ["iphone.jpg", "pc.jpeg", "keyboard.jpeg", "laptop.jpg", "smartpho
                   description: description,
                   price: price,
                   department_id: department_id,
-                  category_id: 1,
+                  category_id: category_id,
                   image_file_name: image_array.sample)
   puts "Product  #{title} created"
 end

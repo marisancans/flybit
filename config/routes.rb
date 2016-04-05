@@ -12,12 +12,11 @@ Rails.application.routes.draw do
   get 'about'                 => 'static_pages#about'
   get 'contact'               => 'static_pages#contact'
 
+  resources :line_items do
+    match :qty, action: :qty, via: [:post, :delete], on: :member #-> url.com/line_items/qty
+  end
 
-  get 'departments'           => 'departments#index' 
-   
-
-
-  resources :line_items
+ 
   resources :carts
   resources :categories, only: [:show, :index]
   resources :departments, only: [:show]

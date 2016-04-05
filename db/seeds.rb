@@ -1,7 +1,7 @@
 #Seed database with these variables for generated option
 #Categories are generated for each department between 1..5
 department_count = 5
-product_count = 10
+product_count = 30
 user_count = 10
 
 

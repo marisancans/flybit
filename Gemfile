@@ -35,7 +35,8 @@ gem 'bootstrap-sass'
 #Authentication
 gem 'devise'
 
-
+#Payment
+gem 'stripe'
 
 #Database
 gem 'pg'
