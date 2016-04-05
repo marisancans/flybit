@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get 'navbar_cart'           => 'carts#navbar_cart'
  
   resources :carts
+  resources :orders
   resources :categories, only: [:show, :index]
   resources :departments, only: [:show]
   resources :products, only: [:show, :index]

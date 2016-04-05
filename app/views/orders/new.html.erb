@@ -1,0 +1,9 @@
+<h1><%=raw t('.new_order') %></h1>
+
+<div class = "depot_form"
+	<fieldset>
+		<legend><%= t('.legend') %></legend><br>
+		<%= render 'form' %>
+	</fieldset>
+
+<%= link_to 'Back', orders_path %>
