@@ -20,7 +20,7 @@ class Cart < ActiveRecord::Base
     if current_item.quantity > 1
       current_item.quantity -= 1
     else
-      current_item.destroy
+      current_item.quantity = 1
     end
     current_item
   end

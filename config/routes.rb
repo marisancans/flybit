@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   end
 
   get 'navbar_cart'           => 'carts#navbar_cart'
+  get 'continue_shopping'     => 'carts#continue_shopping'
  
   resources :carts
   resources :orders

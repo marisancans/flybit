@@ -17,6 +17,7 @@ class CartsController < ApplicationController
     #  then
     #  @a = "true" else @a = "false"
    # end
+   session[:return_to] ||= request.referer
   end
 
   def navbar_cart
@@ -24,6 +25,11 @@ class CartsController < ApplicationController
     respond_to do |format|
       format.js
     end
+  end
+
+  def continue_shopping
+    session[:return_to] ||= request.referer
+    redirect_to session.delete(:return_to)
   end
 
   # GET /carts/new
@@ -78,7 +84,7 @@ class CartsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cart
-      @cart = Cart.find(params[:id])  
+      @cart = Cart.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
