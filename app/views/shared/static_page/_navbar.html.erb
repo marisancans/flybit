@@ -22,7 +22,7 @@
       <li id="cart-button-li">
           <%= link_to navbar_cart_path, { method: :get, remote: true, class: "btn btn-primary dropdown-toggle", "id": "cart-button", "type": "button", "data-toggle": "dropdown" }  do %>
               <span class="glyphicon glyphicon-shopping-cart"></span>
-              <span class="badge" ><%="#{@cart.line_items_count}" %></span>
+              <span class="badge" id="cart-badge-id" ><%="#{@cart.line_items_count}" %></span>
           <% end %>
           <ul class="dropdown-menu">
             <div id="cart">
