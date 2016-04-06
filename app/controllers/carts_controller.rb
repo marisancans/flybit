@@ -17,7 +17,6 @@ class CartsController < ApplicationController
     #  then
     #  @a = "true" else @a = "false"
    # end
-   session[:return_to] ||= request.referer
   end
 
   def navbar_cart

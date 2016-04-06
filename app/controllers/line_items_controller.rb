@@ -71,8 +71,6 @@ class LineItemsController < ApplicationController
   end
 
   def qty
-
-    @item = @cart.line_items.find(params[:id])
     @index = params[:index]
     if request.post? #-> increment
       increase
@@ -86,8 +84,8 @@ class LineItemsController < ApplicationController
   def decrease
     @line_item = @cart.decrease(params[:id])
     respond_to do |format|
-      @index = params[:index]
       if @line_item.save
+        @item = @cart.line_items.find(params[:id])
         format.html { redirect_to store_path, notice: 'Item was successfully updated.' }
         format.js { @current_item = @line_item }
         format.json { head :ok }
@@ -102,6 +100,7 @@ class LineItemsController < ApplicationController
     @line_item = @cart.increase(params[:id])
     respond_to do |format|
       if @line_item.save
+        @item = @cart.line_items.find(params[:id])
         format.html { redirect_to store_path, notice: 'Item was successfully updated.' }
         format.js   { @current_item = @line_item }
         format.json { head :ok }

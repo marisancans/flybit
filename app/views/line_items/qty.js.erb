@@ -1,9 +1,10 @@
 $(document).ready(function(){
-	$('#qty-n-price-row-<%= @index %>').html("<%= escape_javascript render(:partial => 'shared/line_items/qty_n_price_row', :locals => { index: @index, item: @item } ) %>");
 	var sum = 0;
 	$('[id^="litp-id-"]').each(function() {
 	    sum += parseFloat($(this).text().slice(3));
 	});
 	sum_total = sum.toFixed(2);
 	$('#line-items-total-sum').text("€" + sum_total);
+	$('#qty-n-price-row-<%= @index %>').html("<%= escape_javascript render(:partial => 'shared/line_items/qty_n_price_row', :locals => { index: @index, item: @item } ) %>");
+	
 });

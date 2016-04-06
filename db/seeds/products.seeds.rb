@@ -1,5 +1,9 @@
 image_array = ["iphone.jpg", "pc.jpeg", "keyboard.jpeg", "laptop.jpg", "smartphone.jpg"]
-20.times do
+print "How many products? : "
+choice = STDIN.gets.chomp.to_i
+counter = 0
+choice.times do
+  counter += 1
   title  = Faker::Commerce.product_name
   description = Faker::Lorem.sentence
   price = Faker::Commerce.price
@@ -11,6 +15,6 @@ image_array = ["iphone.jpg", "pc.jpeg", "keyboard.jpeg", "laptop.jpg", "smartpho
                   department_id: department_id,
                   category_id: category_id,
                   image_file_name: image_array.sample)
-  puts "Product  #{title} created"
+  puts "#{counter}| #{title} cat_id: #{category_id}, dep_id: #{department_id}"
 end
-puts '-------CREATED 20 products-------'
+puts '-------CREATED #{choice} products-------'
