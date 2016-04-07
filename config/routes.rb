@@ -19,11 +19,11 @@ Rails.application.routes.draw do
 
   get 'navbar_cart'           => 'carts#navbar_cart'
   get 'continue_shopping'     => 'carts#continue_shopping'
- 
+
   resources :carts
   resources :orders
   resources :categories, only: [:show, :index]
-  resources :departments, only: [:show]
+  resources :departments, only: [:index]
   resources :products, only: [:show, :index]
 
   # The priority is based upon order of creation: first created -> highest priority.

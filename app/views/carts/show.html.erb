@@ -1,3 +1,4 @@
+<% @title="Flybit - Cart" %>
 <% if notice %>
 <p id="notice"><%= notice %></p>
 <% end %>
@@ -53,13 +54,13 @@
 									</div>
 								</div>
 								<div class="col-xs-1 col-md-1 col-md-1">
-									<%= button_to qty_line_item_path(item), method: :post, remote: true, params: { index: index + 1 } do%>
+									<%= button_to qty_line_item_path(item), method: :post, remote: true,  params: { index: index + 1 } do%>
 										<span class="glyphicon glyphicon-plus"></span>
 									<% end %>
 									<%= button_to qty_line_item_path(item), method: :delete, remote: true, params: { index: index + 1 } do%>
 										<span class="glyphicon glyphicon-minus"></span>
 									<% end %>
-									<%= button_to item, method: :delete , remote: true do %>
+									<%= button_to item, method: :delete , remote: true, data: { confirm: "Are you sure?" } do %>
 								    <span class="glyphicon glyphicon-trash"></span>
 									<% end %>
 								</div>
@@ -98,10 +99,9 @@
 		<div class="col-md-1"></div>
 	</div>
 </div>
-
 <script type="text/javascript">
   function input_change(index, item){
-  	quantity = $("#quantity-input-id-" + index).val();
+  	quantity = parseFloat($("#quantity-input-id-" + index).val()) || 1;
   	$.ajax({
 			type: "POST",
 			url: "/line_items/" + item + "/input_field_change",
