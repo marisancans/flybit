@@ -2,21 +2,20 @@
 
 .jumbotron {
 	padding-bottom: 0px;
+	width: 100%;
+	margin-top: 4%;
+	background-image: url("http://previews.123rf.com/images/jager/jager1110/jager111000464/10882747-the-beautiful-butterfly-with-wings-Stock-Photo-electronic-circuit-electronics.jpg");
+	background-size: 100% auto;
+	background-position: 8% 8%;
 
 	.col-md-4{
 		text-align: center;
 	}
 
-	#border{
+	h1{
 		text-align: center;
 	}
-
-	h1{
-		display:inline-block;
-		border-bottom: solid 5px #664a86;
-	}
 }
-
 
 
 /* Thumbnails */

@@ -1,20 +1,12 @@
-<nav class="navbar navbar-default" data-spy="affix">
+<nav class="navbar navbar-inverse navbar-fixed-top">
   <ul class="nav navbar-nav">
-    <a class="navbar-brand" style = "text-decoration: none;" <%= link_to "logo", root_path %> </a>
+    <a class="navbar-brand" <%= link_to "logo", root_path %> </a>
       <% cache 'dep_and_cat_list_cache' do %>
         <%= render 'shared/static_page/dep_and_cat_list' %>
       <% end %>
 
-    <li>
-      <form class="search-container" action="//llamaswill.tumblr.com/search">
-        <input id="search-box" type="text" class="search-box" name="q" />
-          <label for="search-box"><span class="glyphicon glyphicon-search search-icon"></span></label>
-        <input type="submit" id="search-submit" />
-      </form>
-    </li>
-    
-   </ul>
 
+  <span class = "cart-login-position">
  <!-- NEEDS PATH TO USER CART! -->
    <ul class="nav navbar-nav navbar-right">
      <!-- Cart  -->
@@ -39,4 +31,5 @@
       <% end %>
     </li>
   </ul>
+</span>
 </nav>
