@@ -1,107 +1,33 @@
-.affix {
-    top: 0;
-    width: 100%;
-    z-index: 10;
-}
-
 .container-fluid{
     margin-top: 5%;
 }
 
 #login-dp{
-    min-width: 250px;
-    padding: 14px 20px 14px 14px;
+    padding: 1% 2% 1% 2%;
     overflow:hidden;
-    background-color:rgba(255,255,255,.8);
-
-    #welcome{
-        display: block;
-        text-align: center;
-    }
-}
-#login-dp .help-block{
-    font-size:12px    
-}
-#login-dp .bottom{
-    background-color:rgba(255,255,255,.8);
-    border-top:1px solid #ddd;
-    clear:both;
-    padding:14px;
+    background-color: white;
 }
 
-#login-dp .form-group {
-    margin-bottom: 10px;
+
+@media(max-width:768px){          //majaslapa tiek samazinata lidz 768px platumam
+
+
 }
 
-@media(max-width:768px){
-    #login-dp{
-        background-color: black;
-        color: #fff;
-    }
-    #login-dp .bottom{
-        background-color: green;
-        border-top:0 none;
-    }
-}
 
 .dropdown-toggle{
-    margin-right: 20px;
-}
-
-.dropdown-menu .sub-menu {
-    left: 100%;
-    position: absolute;
-    top: 0;
-    visibility: hidden;
-    margin-top: -1px;
-
-    li a:link{
-      text-decoration: none;
-    }
-
-    li a:visited{
-      text-decoration: none;
-    }
-}
-
-.dropdown-menu li:hover .sub-menu {
-    visibility: visible;
+    
 }
 
 .dropdown:hover .dropdown-menu {
     display: block;
 }
 
-.navbar {
-    background-color: #a13ff3;
-}
-
-
 .nav-tabs .dropdown-menu, .nav-pills .dropdown-menu, .navbar .dropdown-menu {
     margin-top: 0;
     margin-right: 30px;
 }
 
-.navbar .sub-menu:before {
-    border-bottom: 7px solid transparent;
-    border-left: none;
-    border-right: 7px solid rgba(0, 0, 0, 0.2);
-    border-top: 7px solid transparent;
-    left: -7px;
-    top: 10px;
-    position: fixed;
-}
-
-.navbar .sub-menu:after {
-    border-top: 6px solid transparent;
-    border-left: none;
-    border-right: 6px solid #fff;
-    border-bottom: 6px solid transparent;
-    left: 10px;
-    top: 11px;
-    left: -6px;
-    position: fixed;
-}
 
 .dropdown a{                    /* Dropdown links */
     text-decoration: none;
@@ -117,6 +43,10 @@
   }
 }
 
+.cart-login-position{         /* Space between lists and cart/login */
+    margin-left: 450px;
+}
+
 #cart{
 
   a{
@@ -125,50 +55,25 @@
 }
 
 
-
-
-/* ------------------------ SEARCH BUTTON -------------------*/
-
-
-$tl: 0.2s; // transition length
-
-.search-box {
-  transition: width $tl, border-radius $tl, background $tl, box-shadow $tl;
-  width: 300px;height: 30px;
-  border-radius: 20px;border: none;
-  cursor: pointer;
-  margin-left: 10%;
-  margin-top: 4%;
-  background: rgb(235, 235, 235);
-  & + label .search-icon {    color: black    }
-  &:hover {
-    color: white;
-    background: rgb(200, 200, 200);
-    box-shadow: 0 0 0 5px rgb(61, 71, 82);
-    & + label .search-icon {    color: white    }
-  }
-  &:focus {
-    transition: width $tl cubic-bezier(0,1.22,.66,1.39), border-radius $tl, background $tl;
-    border: none;outline: none;
-    box-shadow: none;
-    padding-left: 15px;
-    cursor: text;
-    width: 300px;
-    border-radius: auto;
-    background: rgb(235, 235, 235);
-    color: black;
-    & + label .search-icon {    color: black;    }
-  }
-  &:not(:focus) {    text-indent:-5000px;    } // for more-graceful falling back (:not browsers likely support indent)
+#no-account{
+  text-decoration: none;
+  color: black;
 }
 
-#search-submit {
-  position: relative;left: -5000px;
-}
-
-.search-icon {
-  position: relative;
-  left: -30px;
+#no-account:hover{
   color: white;
-  cursor: pointer;
+}
+
+
+
+/*------------------ Navbar hover border color background -------------*/
+
+.dropdown a{
+  text-decoration: none;
+}
+
+.dropdown a:hover {  
+  background-color: white !important;
+  border: 2px solid white !important;
+  color: black !important;
 }
