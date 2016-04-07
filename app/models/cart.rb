@@ -27,9 +27,23 @@ class Cart < ActiveRecord::Base
 
   def increase(line_item_id)
     current_item = line_items.find(line_item_id)
-    current_item.quantity += 1
-    current_item.save
+    if current_item.quantity > 1
+      current_item.quantity += 1
+    else
+      current_item.quantity = 1
+    end
     current_item
   end
+
+  def input_field_change(line_item_id, quantity)
+  	current_item = line_items.find(line_item_id)
+    if current_item.quantity > 1 && quantity > 1
+  	 current_item.quantity = quantity
+    else
+      current_item.quantity = 1
+    end
+  	current_item
+  end
+  
 end
 

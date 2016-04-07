@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :line_items do
     match :qty, action: :qty, via: [:post, :delete], on: :member #-> url.com/line_items/qty
+    match :input_field_change, action: :input_field_change, via: :post, on: :member
   end
 
   get 'navbar_cart'           => 'carts#navbar_cart'

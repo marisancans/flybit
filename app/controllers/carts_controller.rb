@@ -27,8 +27,9 @@ class CartsController < ApplicationController
   end
 
   def continue_shopping
-    session[:return_to] ||= request.referer
+    session[:return_to] ||= request.env['HTTP_REFERER'] || root_url
     redirect_to session.delete(:return_to)
+    session[:last_product_page] = request.env['HTTP_REFERER'] || products_url
   end
 
   # GET /carts/new
