@@ -1,7 +1,9 @@
-<% @title="Flybit - Categories" %>
+<% @title="Flybit - Browse shop" %>
 <h4>Browse shop</h4>
 <div class="col-md-1"></div>
 <div class="col-md-10">
-	<%= render @departments %>
+	<% cache do %>
+		<%= render @departments %>
+	<% end %>
 </div>
 <div class="col-md-1"></div>

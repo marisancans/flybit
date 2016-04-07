@@ -1,8 +1,11 @@
+<% index = department_counter + 1 %>
 <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-  <a class="thumbnail" href="#">
-    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-    <div class="text-under-thumbnail">
-    	<%= department.name %>
-    </div>
-  </a>
+  <div class="thumbnail">
+  	<%= link_to categories_path(selected: "#{index}") do %>
+	    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+	    <div class="text-under-thumbnail">
+	    	<%= department.name %>
+	    </div>
+	  <% end %>
+  </div>
 </div>
