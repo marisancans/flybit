@@ -9,17 +9,16 @@
 			<div class="panel-heading">
 					<div class="panel-title">
 						<div class="row">
-							<div class="col-sm-3 col-md-3">
+							<div class="col-sm-6 col-md-6 col-xs-6">
 								<h5><span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart</h5>
 							</div>
-							<div class="col-sm-3 col-md-3">
-							</div>
-							<div class="col-sm-3 col-md-3">
-							</div>
-							<div class="col-sm-3 col-md-3">
-									<%= link_to continue_shopping_path, class: "btn btn-primary btn-sm btn-block" do %>
+							<div class="col-sm-6 col-md-6 col-xs-6">
+								<% if @cart.line_items.empty? %>
+								<% else %>
+								<%= link_to continue_shopping_path, class: "btn btn-primary btn-sm btn-block" do %>
 									  <i class="glyphicon glyphicon-check"></i>&nbsp; Continue shopping
 									<% end %>
+								<% end %>
 							</div>
 						</div>
 					</div>
@@ -28,6 +27,15 @@
 					<% if @cart.line_items.empty? %>
 						<div class="row text-center">
 							<h3>Your cart is empty</h3>
+							<div class ="row">
+								<div class="col-md-4 col-sm-4 col-xs-4">
+								</div>
+								<div class="col-md-4 col-sm-4 col-xs-4">
+									<%= link_to "Browse shop", departments_path, class: "btn btn-primary btn-sm btn-block" %>
+								</div>
+								<div class="col-md-4 col-sm-4 col-xs-4">
+								</div>
+							</div>
 							<p>Or try to refresh this page</p>
 						</div>
 					<% else %>
