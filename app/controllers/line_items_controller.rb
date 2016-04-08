@@ -65,13 +65,8 @@ class LineItemsController < ApplicationController
   def destroy
     @line_item.destroy
     respond_to do |format|
-      if @line_item.save
-        format.js { @item = params[:id] }
-        format.json { head :ok }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @line_item.errors, status: :unprocessable_entity}
-      end
+      format.html {redirect_to(:back)}
+      format.json { head :no_content }
     end
   end
 
