@@ -40,8 +40,7 @@
 						</div>
 					<% else %>
 						<% @cart.line_items.each_with_index do |item, index| %>
-						<!-- line item row -->
-							<div class="row" id="line-item-row-id-<%= item.id %>">
+							<div class="row"><!-- line item row-->
 								<div class="col-xs-2 col-md-2 col-sm-2">
 									<img class="img-responsive" src=
 									<%= item.product.image.url(:thumb) %>
@@ -74,7 +73,7 @@
 									<% end %>
 								</div>
 							</div><!-- end of line item row-->
-							<hr id="line-item-hr-id-<%= item.id %>">
+							<hr>
 						<% end %>
 						<div class="row">
 							<div class="col-xs-10">
