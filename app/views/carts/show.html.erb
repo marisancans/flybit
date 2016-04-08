@@ -48,7 +48,7 @@
 								</div>
 								</div>
 								<div class="col-xs-4 col-md-4 col-md-4">
-									<h4 class="product-name"><strong><%= item.product.title %></strong></h4><h4><small><%= item.product.description %></small></h4>
+									<h4 class="product-name"><strong><%= link_to "#{item.product.title}", product_path(item.product) %></strong></h4><h4><small><%= item.product.description %></small></h4>
 								</div>
 								<div class="col-md-5" id="qty-n-price-row-<%= index + 1 %>">
 									<div class="col-xs-4 col-md-4 text-left">
