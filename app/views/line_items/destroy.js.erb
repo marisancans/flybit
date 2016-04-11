@@ -1,2 +1,7 @@
 $('#line-item-row-id-<%= @item %>').remove();
 $('#line-item-hr-id-<%= @item %>').remove();
+
+if ($('[id^="line-item-row-id-"').length) {
+	} else {
+		location.reload();
+}
