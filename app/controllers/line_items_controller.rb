@@ -60,13 +60,18 @@ class LineItemsController < ApplicationController
     end
   end
 
-  # DELETE /line_items/1
+ # DELETE /line_items/1
   # DELETE /line_items/1.json
   def destroy
     @line_item.destroy
     respond_to do |format|
-      format.html {redirect_to(:back)}
-      format.json { head :no_content }
+      if @line_item.save
+        format.js { @item = params[:id] }
+        format.json { head :ok }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @line_item.errors, status: :unprocessable_entity}
+      end
     end
   end
 
