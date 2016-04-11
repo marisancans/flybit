@@ -2,7 +2,6 @@
 	<li>Title: <%= @product.title %></li>
 	<li>Description: <%= @product.description %></li>
 	<li>Price: <%= @product.price %></li>
-
 	<% if @product.image? %>
 		<%= image_tag @product.image.url(:thumb) %>
 	<% end %>

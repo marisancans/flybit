@@ -1,4 +1,6 @@
-<h4><%= Category.find(params[:selected]).name %></h4>
+
+<% @title="Flybit - #{@current_category}" %>
+<h4><%= @current_category %></h4>
 <%= will_paginate %>
 <div="row">
 	<div class="col-md-1"></div>
