@@ -8,6 +8,6 @@
 
 </table>
 
-<%= link_to "Checkout" ,new_order_path, method: :get %>
+<%= link_to "Checkout" ,new_charge_path, method: :get %>
 <%= button_to "show cart", cart_path(session[:cart_id]),  method: :get %>
 <%= button_to "empty", cart, method: :delete, data: { confirm: 'Are you sure?'} %>
