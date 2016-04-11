@@ -80,7 +80,7 @@
 								</div>
 							</div>
 							<div class="col-xs-2">
-								<h4 class="text-center" id="line-items-total-sum"> <strong>€<%= @cart.total_price %></strong></h4>
+								<h4 class="text-center" id="line-items-total-sum"> <strong>Total: €<%= @cart.total_price %></strong></h4>
 							</div>
 						</div>
 					<% end %>
@@ -94,7 +94,8 @@
 							<div class="col-sm-3 col-md-3">
 							</div>
 							<div class="col-sm-3 col-md-3">
-							<%= link_to "Checkout" ,new_charge_path, method: :get, class: "btn btn-success btn-block" unless @cart.line_items.empty? %>
+							<%#= link_to "Checkout" ,new_charge_path, method: :get, class: "btn btn-success btn-block" unless @cart.line_items.empty? %>
+							<%= render "checkout" %>
 							</div>
 					</div>
 				</div>

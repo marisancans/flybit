@@ -16,11 +16,12 @@ class ChargesController < ApplicationController
 	  # Amount in cents
 		token = params[:stripeToken]
 	  charge = Stripe::Charge.create(
-	    :amount      => 500,
-	    :description => 'Rails Stripe customer',
+	    :amount      => (@cart.total_price * 100).to_i,
+	    :description =>  'ds',
 	    :currency    => 'eur',
 	    :source => token
 	  )
+	  @price_paid = @cart.total_price
 
 	rescue Stripe::CardError => e
 	  flash[:error] = e.message

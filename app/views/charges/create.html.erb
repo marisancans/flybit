@@ -1,1 +1,7 @@
-<h2>Thanks, you paid <strong>$5.00</strong>!</h2>
+<%= stylesheet_link_tag "navbar" %>
+<% @title="Flybit - Thank you" %>
+<div class="text-center" id="thank-you">
+	<h1>Thank you for your purchase!</h1>
+	<p>You paid €<%= @price_paid %></p>
+	<p>We will contact you via email</p>
+</div>

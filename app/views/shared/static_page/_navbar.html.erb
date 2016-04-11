@@ -1,35 +1,36 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <ul class="nav navbar-nav">
-    <a class="navbar-brand" <%= link_to "logo", root_path %> </a>
+      <a class="navbar-brand" <%= link_to "logo", root_path %> </a>
       <% cache 'dep_and_cat_list_cache' do %>
         <%= render 'shared/static_page/dep_and_cat_list' %>
       <% end %>
-
-
-  <span class = "cart-login-position">
- <!-- NEEDS PATH TO USER CART! -->
-   <ul class="nav navbar-nav navbar-right">
+   
+    <!-- NEEDS PATH TO USER CART! -->
+    <ul class="nav navbar-nav pull-right" style="float: right">
      <!-- Cart  -->
-    <% if @cart  && controller.controller_name != 'carts' %>
-      <li id="cart-button-li">
-          <%= link_to navbar_cart_path, { method: :get, remote: true, class: "btn btn-primary dropdown-toggle", "id": "cart-button", "type": "button", "data-toggle": "dropdown" }  do %>
-              <span class="glyphicon glyphicon-shopping-cart"></span>
-              <span class="badge" id="cart-badge-id" ><%="#{@cart.line_items_count}" %></span>
-          <% end %>
-          <ul class="dropdown-menu">
-            <div id="cart">
-              <p class ="text-center">Loading...</p>
-            </div>
-          </ul>
-      </li>
-    <% end %>
-      <li>
-      <% if user_signed_in? %>
-          <%= link_to "Sign out", destroy_user_session_path, method: :delete %> 
-        <% else %>
-          <%= render 'shared/static_page/login_form' %>
+      <% if @cart  && controller.controller_name != 'carts' %>
+        <li id="cart-button-li">
+            <%= link_to navbar_cart_path, { method: :get, remote: true, class: "btn btn-primary dropdown-toggle", "id": "cart-button", "type": "button", "data-toggle": "dropdown" }  do %>
+                <span class="glyphicon glyphicon-shopping-cart"></span>
+                <span class="badge" id="cart-badge-id" ><%="#{@cart.line_items_count}" %></span>
+            <% end %>
+            <ul class="dropdown-menu">
+              <div id="cart">
+                <p class ="text-center">Loading...</p>
+              </div>
+            </ul>
+        </li>
       <% end %>
-    </li>
+      <!--End of cart-->
+      <li>
+        <% if user_signed_in? %>
+            <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+          <% else %>
+            <li><p class="navbar-text">Login or register</p></li>
+            <%= render 'shared/static_page/login_form' %>
+        <% end %>
+      </li>
+    </ul>
+  </span>
   </ul>
-</span>
 </nav>
