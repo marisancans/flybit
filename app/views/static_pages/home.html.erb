@@ -1,4 +1,4 @@
-<%= stylesheet_link_tag "navbar" %>
+<%= stylesheet_link_tag "navbar", "home_page" %>
 <% @title="Flybit" %>
 <% if flash[:notice] %>
   <div class="notice"><%= flash[:notice] %></div>
@@ -9,7 +9,7 @@
 <% end %>
 
 <div class="jumbotron">
-  <h1 style = "color: black;"><b>Flybit</b></h1>
+  <h1><b>Flybit</b></h1>
 </div>
 
 <% if Rails.env.production? %>
@@ -68,43 +68,42 @@
 
   <!-- Exclusive products -->
   <!-- Page Content -->
-  <div class="thumbnails">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Atlaides</h1>
-            </div>
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12">
+              <h1 class="page-header">Atlaides</h1>
+          </div>
 
-            <% 4.times do %>
+          <% 4.times do %>
+          <div class="col-xs-6 col-sm-3">
+              <a class="thumbnail" href="#">
+                  <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+              </a>
+          </div>
+          <% end %>
+
+
+          <div class="col-lg-12">
+              <h1 class="page-header">Speciālie piedāvājumi</h1>
+          </div>
+
+          <% 4.times do %>
             <div class="col-xs-6 col-sm-3">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
+              <a class="thumbnail" href="#">
+                <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+              </a>
             </div>
-            <% end %>
+          <% end %>
 
+          <div class="col-lg-12">
+              <h1 class="page-header">Sālīti gurķīši</h1>
+          </div>
 
-            <div class="col-lg-12">
-                <h1 class="page-header">Speciālie piedāvājumi</h1>
-            </div>
-
-           <% 4.times do %>
+          <% 3.times do %>
             <div class="col-xs-6 col-sm-3">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
-            <% end %>
-
-            <div class="col-lg-12">
-                <h1 class="page-header">Sālīti gurķīši</h1>
-            </div>
-
-           <% 3.times do %>
-            <div class="col-xs-6 col-sm-3">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
+              <a class="thumbnail" href="#">
+                  <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+              </a>
             </div>
             <% end %>
             <div class="col-xs-6 col-sm-3">
@@ -112,9 +111,9 @@
                     <img class="img-responsive" src="http://www.7000days.org/assets/1974/pickle.jpg" alt="">
                 </a>
             </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-<div class="col-md-1">
+  <div class="col-md-1">
 </div>

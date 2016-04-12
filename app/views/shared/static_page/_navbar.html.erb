@@ -1,12 +1,25 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
-  <ul class="nav navbar-nav">
-      <a class="navbar-brand" <%= link_to "logo", root_path %> </a>
-      <% cache 'dep_and_cat_list_cache' do %>
-        <%= render 'shared/static_page/dep_and_cat_list' %>
-      <% end %>
-   
-    <!-- NEEDS PATH TO USER CART! -->
-    <ul class="nav navbar-nav pull-right" style="float: right">
+  <div class = "navbar-header">
+      <img class="img-responsive butter_image" src=<%= asset_path ("logo.png") %> alt="Chania" style = "max-width: 150px;">
+    <!--<a class="navbar-brand" <%= link_to root_path %> </a>-->
+      <button type = "button" class = "navbar-toggle" data-toggle = "collapse" data-target = ".navbar-collapse" style = "color: white;">
+        Kategorijas un Login
+      </button>
+  </div> 
+
+      <div class = "navbar-collapse collapse">
+        <ul class = "nav navbar-nav">
+          <% cache 'dep_and_cat_list' do %>
+            <%= render 'shared/static_page/dep_and_cat_list' %>
+          <% end %>
+        </ul>
+      <div>
+     
+
+ <!-- NEEDS PATH TO USER CART! -->
+ <div id = "cart_login_margin_from_right">
+   <ul class="nav navbar-nav navbar-right">
+
      <!-- Cart  -->
       <% if @cart  && controller.controller_name != 'carts' && controller.controller_name != 'charges' %>
         <li id="cart-button-li">
@@ -33,4 +46,5 @@
     </ul>
   </span>
   </ul>
+</div>
 </nav>

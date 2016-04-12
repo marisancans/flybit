@@ -18,4 +18,6 @@ Rails.application.config.assets.precompile += %w( active_admin.scss departments.
 																									categories.scss products.css.scss
 																									static_pages.css.scss navbar.scss
 																									scaffolds.css carts.scss
-																									charges.css )
+																									charges.css home_page.css.scss
+																									sign_up.css.scss)
+

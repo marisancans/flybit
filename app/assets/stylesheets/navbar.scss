@@ -1,5 +1,11 @@
-body {
-    padding-top: 50px;
+body{
+  padding-top: 50px;
+}
+
+.butter_image{
+  height: 50px;
+  width: 50px;
+  padding: 10px 10px;
 }
 
 #login-dp{
@@ -8,16 +14,6 @@ body {
     background-color: white;
 }
 
-
-@media(max-width:768px){          //majaslapa tiek samazinata lidz 768px platumam
-
-
-}
-
-
-.dropdown-toggle{
-    
-}
 
 .dropdown:hover .dropdown-menu {
     display: block;
@@ -29,7 +25,7 @@ body {
 }
 
 
-.dropdown a{                    /* Dropdown links */
+.dropdown a{                 /* Dropdown links */
     text-decoration: none;
 }
 
@@ -42,15 +38,36 @@ body {
       color: white;
   }
 }
+@media (max-width: 990px) {
+    .navbar-header {
+        float: right;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+    margin-top: 7.5px;
+  }
+  .navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .collapse.in{
+      display:block !important;
+  }
 
-
-#cart{
-
-  a{
-    text-decoration: none;
+  .butter_image{
+    float: left;
+    max-width: 150px;
   }
 }
-
 
 #no-account{
   text-decoration: none;
@@ -59,6 +76,10 @@ body {
 
 #no-account:hover{
   color: white;
+}
+
+#cart_login_margin_from_right{
+  margin-right: 5%;
 }
 
 
@@ -70,6 +91,30 @@ body {
 }
 
 .dropdown a:hover {  
-  background-color: white !important;
-  color: black !important;
+  background-color: white;
+  color: black;
 }
+
+
+
+/*----- Cart ----*/
+
+.cart{
+  
+  table{
+    width: 20%;
+  }
+
+  .cart_button_center{
+    text-align: center;
+  }
+
+}
+
+
+
+
+
+
+
+
