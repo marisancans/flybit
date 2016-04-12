@@ -10,14 +10,14 @@ class Product < ActiveRecord::Base
 
 	has_attached_file :image,
 										:styles  => { :thumb => "200x200!" },
-										:convert_options => {:'x200' => " -background white -gravity center -extent x200"},
-	    							:storage => :dropbox,
-								    :dropbox_credentials => { app_key: ENV['DROPBOX_APP_KEY'],
-								                              app_secret: ENV['DROPBOX_APP_SECRET'],
-								                              access_token: ENV['DROPBOX_ACCESS_TOKEN'],
-								                              access_token_secret: ENV['DROPBOX_ACCESS_TOKEN_SECRET'],
-								                              user_id: ENV['DROPBOX_USER_ID'],
-								                              access_type: 'app_folder'}
+										:convert_options => {:'x200' => " -background white -gravity center -extent x200"}#,
+	    							#:storage => :dropbox,
+								    #:dropbox_credentials => { app_key: ENV['DROPBOX_APP_KEY'],
+								    #                          app_secret: ENV['DROPBOX_APP_SECRET'],
+								    #                          access_token: ENV['DROPBOX_ACCESS_TOKEN'],
+								    #                          access_token_secret: ENV['DROPBOX_ACCESS_TOKEN_SECRET'],
+								    #                          user_id: ENV['DROPBOX_USER_ID'],
+								    #                          access_type: 'app_folder'}
 	#validates :image, attachment_presence: true
 	validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
 	validates_attachment_file_name :image, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/]

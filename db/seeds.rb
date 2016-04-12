@@ -150,5 +150,14 @@ else
   puts "== User created, admin@example.com, password: password ==\n\n"
 end
 
+#Generate admin user
+if Admin.exists?(email: "admin@example.com")
+  puts "== ERROR, admin user already exists! admin@example.com, password: password ==\n\n"
+else
+  User.create!(email: "admin@example.com",
+               password: "password")
+  puts "== Admin user created, admin@example.com, password: password ==\n\n"
+end
+
 
 puts "== DATABASE SEEDING DONE =="

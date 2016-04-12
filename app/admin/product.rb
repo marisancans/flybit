@@ -40,7 +40,7 @@ ActiveAdmin.register Product do
       row :created_at
       row :updated_at
       row "Image" do
-        image_tag(product.image.url(:thumb))
+        image_tag(product.image_file_name)
       end
       row :image_file_name
       row :image_content_type
