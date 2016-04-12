@@ -27,13 +27,24 @@ class ChargesController < ApplicationController
 	    :currency    => 'eur',
 	    :source => token
 	  )
+	  user_id = current_user.id if user_signed_in?
+	  order = Order.create!( name: params[:stripeBillingName],
+	  											 address: params[:stripeBillingAddressLine1],
+	  										 	 email: params[:stripeEmail],
+	  										 	 pay_type: params[:stripeTokenType],
+	  										 	 user_id: user_id,
+	  										 	 zip_code: params[:stripeShippingAddressZip],
+	  										 	 city: params[:stripeShippingAddressCity],
+	  										 	 country: params[:stripeShippingAddressCountry],
+	  										 	 country_code: params[:stripeShippingAddressCountryCode]
+	  )
+	  order.add_line_items_from_cart(@cart)
 	  @cart.destroy
-	  
+
 	rescue Stripe::CardError => e
 	  flash[:error] = e.message
 	  redirect_to new_charge_path
 	end
 
-
-
+	
 end
