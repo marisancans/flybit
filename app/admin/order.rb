@@ -4,6 +4,36 @@ ActiveAdmin.register Order do
 								:created_at, :updated_at, :user_id,
 								:zip_code, :city, :country, :country_code
 
+	filter :id
+  filter :name
+  filter :address
+  filter :email
+  filter :pay_type
+  filter :created_at
+  filter :updated_at
+  filter :user_id
+  filter :zip_code
+  filter :city
+  filter :country
+  filter :country_code
+
+	index pagination_total: false do
+    column :id
+    column "name" do |n|
+      	link_to n.name, admin_order_path(n)
+    end
+    column :address
+    column :email
+    column :pay_type
+    column :created_at
+    column :updated_at
+    column :user_id
+    column :zip_code
+    column :city
+    column :country
+    column :country_code
+    actions dropdown: true 
+  end
 
 	show :title => :id do
     attributes_table do
@@ -24,20 +54,23 @@ ActiveAdmin.register Order do
       #		link_to item.product.title
       #	end
       #end
-      panel "items" do
-	      table_for order.line_items do
-	      	column :id
-	      	column "name" do |item|
-	      		link_to item.product.title, admin_product_path(item.product.id)
-	      	end
-	      	column :quantity
-	      	column :created_at
-	      	column "price" do |item|
-	      		item.total_price
-	      	end
-	      end
-	    end
-	    f.actions dropdown: true 
+      if order.line_items.empty?
+      	render plain: "Error, no items found"
+      else
+	      panel "items" do
+		      table_for order.line_items do
+		      	column :id
+		      	column "name" do |item|
+		      		link_to item.product.title, admin_product_path(item.product.id)
+		      	end
+		      	column :quantity
+		      	column :created_at
+		      	column "price" do |item|
+		      		item.total_price
+		      	end
+		      end
+		    end 
+		  end
     end
   end
 
@@ -49,8 +82,6 @@ ActiveAdmin.register Order do
 	      f.input :address
 	      f.input :email
 	      f.input :pay_type
-	      f.input :created_at
-	      f.input :updated_at
 	      f.input :user_id
 	      f.input :zip_code
 	      f.input :city

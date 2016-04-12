@@ -12,6 +12,14 @@
   <h1 style = "color: black;"><b>Flybit</b></h1>
 </div>
 
+<% if Rails.env.production? %>
+  <div class="alert alert-info">
+    You are in test production mode. Pay with test card: 4242424242424242<br>
+    access admin panel by typing /admin at home page<br>
+    admin email: admin@example.com, password: password
+  </div>
+<% end %>
+
 <div class="col-md-1">
 </div>
 <div class="col-md-10">
