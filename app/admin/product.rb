@@ -56,12 +56,12 @@ ActiveAdmin.register Product do
         f.input :price  
         f.input :description
         f.input :department, include_blank: false, :input_html => {
-        onchange: remote_get("change_categories", 'product_department_id', :product_category_id)
-    }
+          onchange: remote_get("change_categories", 'product_department_id', :product_category_id)
+        }
         f.input :category, include_blank: false, collection: ""
         f.input :image
       end
-    f.actions         # adds the 'Submit' and 'Cancel' buttons
+       f.actions dropdown: true          # adds the 'Submit' and 'Cancel' buttons
   end
 
   controller do

@@ -5,9 +5,7 @@ ActiveAdmin.register Order do
 								:zip_code, :city, :country, :country_code
 
 
-
-
-	show do
+	show :title => :id do
     attributes_table do
       row :id
       row :name
@@ -35,17 +33,39 @@ ActiveAdmin.register Order do
 	      	column :quantity
 	      	column :created_at
 	      	column "price" do |item|
-	      		item.product.price
+	      		item.total_price
 	      	end
 	      end
 	    end
+	    f.actions dropdown: true 
     end
+  end
+
+  form do |f|
+    f.semantic_errors # shows errors on :base
+      inputs 'Details' do
+	      f.input :id
+	      f.input :name
+	      f.input :address
+	      f.input :email
+	      f.input :pay_type
+	      f.input :created_at
+	      f.input :updated_at
+	      f.input :user_id
+	      f.input :zip_code
+	      f.input :city
+	      f.input :country
+	      f.input :country_code
+      end
+    f.actions       # adds the 'Submit' and 'Cancel' buttons
   end
 
 
 
 
-   controller do
+
+
+  controller do
     def scoped_collection
       super.includes :line_items # prevents N+1 queries to your database
     end
