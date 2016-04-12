@@ -1,15 +1,24 @@
+$margin_center: 0 auto;
+
 /* Sign up text centered */
 
 	#sign_up{
-		margin: 0 auto;
-		width: 7%;	
+		margin: $margin_center;
+		width: 10%;
+		border: 1px solid black;
+		background-color: black;
+		border-radius: 10px;
+		color: white;
+		text-align: center;
+		padding: 1%;
+		margin-top: 2%;	
 	}
 
 
 /* A black border around the input fields */
 
 	.field input{
-		border-radius: 15px;
+		border-radius: 10px;
  	   	border: solid 5px black;	
 	}
 
@@ -22,7 +31,7 @@
 /* Input fields centered */
 
 	.field{
-		margin: 0 auto;
+		margin: $margin_center;
 		width: 23%;
 	}
 
@@ -30,30 +39,15 @@
 /* Password fields centered individually */ 
 
 	.pass_pos{
-		margin: 0 auto;
+		margin: $margin_center;
 		width: 60%;
-	}
-
-	
-/* Dynamic hover help thingy */
-
-
-	span:hover + #stuck_help {
-   		display: inline-block;
-	}
-
-	#stuck_help {
-    	background-color: black;
-    	color: white;
-    	padding-left: 10px;
-    	padding-right: 10px;
-    	display: none;
 	}
 
 /* Sign up button positioning */
 
 	.actions{
-		margin: 0 auto;
+		margin: $margin_center;
+		margin-top: 2%;
 		width: 4%;
 	}
 

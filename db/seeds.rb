@@ -17,7 +17,7 @@ if choice == 1
   dach = {'Computers'           => ['Cases', 'Cooling', 'Memory (RAM)',
                                     'Motherboards','Power supplies', 'Processors', 
                                     'Video cards','Sound cards', 'Storage',
-                                    'Pre-buillt PCs', 'All-in-one PCs'],
+                                    'Pre-buillt PCs', 'All-in-one PCs', 'Monitors'],
 
           'Tablets'             =>  ['Apple', 'Samsung', 'Microsoft',
                                      'Lenovo', 'Asus', 'Google', 'Dell', 

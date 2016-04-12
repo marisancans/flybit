@@ -1,13 +1,17 @@
-<table>
-	<%= render(cart.line_items) %>
+<div class = "cart">
+	<table>
+		<%= render(cart.line_items) %>
 
-	<tr class="total_line">
-		<td colspan="2">Total</td>
-		<td class="total_cell"><%= number_to_currency(cart.total_price) %></td>
-	</tr>
+		<tr class="total_line">
+			<td colspan="2">Total</td>
+			<td class="total_cell"><%= number_to_currency(cart.total_price) %></td>
+		</tr>
 
-</table>
+	</table>
 
-<%= link_to "Checkout" ,new_charge_path, method: :get %>
-<%= button_to "show cart", cart_path(session[:cart_id]),  method: :get %>
-<%= button_to "empty", cart, method: :delete, data: { confirm: 'Are you sure?'} %>
+	<div class = "cart_button_center">
+		<%= link_to "Checkout" ,new_charge_path, method: :get %>
+		<%= button_to "show cart", cart_path(session[:cart_id]),  method: :get %>
+		<%= button_to "empty", cart, method: :delete, data: { confirm: 'Are you sure?'} %>
+	</div>
+</div>

@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag "navbar", "sign_up" %>
 <h2 id = "sign_up">Sign up</h2>
 
 <br/>
@@ -18,8 +19,7 @@
   <div class="field">
     <div class = "wrap">
       <div class = "pass_pos">
-        <%= f.label :password %><span class =  "glyphicon glyphicon-question-sign"></span>
-        <div id = "stuck_help">Password has to be at least 8 characters long</div>
+        <%= f.label :password %>
         <% if @minimum_password_length %><% end %>
         <%= f.password_field :password, autocomplete: "off", :size => 30, :style => "text-align: center" %>
         </div>
@@ -45,4 +45,4 @@
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<%#= render "devise/shared/links" %>
