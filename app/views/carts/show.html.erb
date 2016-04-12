@@ -95,7 +95,12 @@
 							</div>
 							<div class="col-sm-3 col-md-3">
 							<%#= link_to "Checkout" ,new_charge_path, method: :get, class: "btn btn-success btn-block" unless @cart.line_items.empty? %>
-							<%= render "checkout" %>
+							<% if @cart.line_items.empty? %>
+							<% else %>
+								<% cache "checkout_cache" do %> 
+									<%= render "checkout"  %>
+								<% end %>
+							<% end %>
 							</div>
 					</div>
 				</div>
