@@ -23,8 +23,6 @@ class Product < ActiveRecord::Base
 	validates_attachment_file_name :image, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/]
 	 #has_many :department
 
-
-
 	 private
  		#ensure that there are no line items referencing this product
 		def ensure_not_referenced_by_any_line_item
