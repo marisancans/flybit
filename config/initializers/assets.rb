@@ -14,12 +14,8 @@ Rails.application.config.assets.version = '1.0'
   Rails.application.config.assets.precompile += ["#{controller}.js.coffee", "#{controller}.css"]
 end
 
-Rails.application.config.assets.precompile += %w( active_admin.scss )
-Rails.application.config.assets.precompile += %w( departments.css.scss )
-Rails.application.config.assets.precompile += %w( categories.scss )
-Rails.application.config.assets.precompile += %w( products.css.scss )
-Rails.application.config.assets.precompile += %w( static_pages.css.scss )
-Rails.application.config.assets.precompile += %w( navbar.scss )
-Rails.application.config.assets.precompile += %w( scaffolds.css )
-Rails.application.config.assets.precompile += %w( carts.scss )
-Rails.application.config.assets.precompile += %w( charges.css )
+Rails.application.config.assets.precompile += %w( active_admin.scss departments.css.scss
+																									categories.scss products.css.scss
+																									static_pages.css.scss navbar.scss
+																									scaffolds.css carts.scss
+																									charges.css )

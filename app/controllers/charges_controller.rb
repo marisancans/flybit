@@ -14,15 +14,21 @@ class ChargesController < ApplicationController
 
 	def create
 	  # Amount in cents
+	  @price_paid = @cart.total_price
+	  text = ""
+	  @cart.line_items.each  do |item|
+			text += item.product.title + "(#{item.quantity}), "
+		end
+	  @items_bought = text
 		token = params[:stripeToken]
 	  charge = Stripe::Charge.create(
 	    :amount      => (@cart.total_price * 100).to_i,
-	    :description =>  'ds',
+	    :description =>  text,
 	    :currency    => 'eur',
 	    :source => token
 	  )
-	  @price_paid = @cart.total_price
-
+	  @cart.destroy
+	  
 	rescue Stripe::CardError => e
 	  flash[:error] = e.message
 	  redirect_to new_charge_path
@@ -31,4 +37,3 @@ class ChargesController < ApplicationController
 
 
 end
-

@@ -8,7 +8,7 @@
     <!-- NEEDS PATH TO USER CART! -->
     <ul class="nav navbar-nav pull-right" style="float: right">
      <!-- Cart  -->
-      <% if @cart  && controller.controller_name != 'carts' %>
+      <% if @cart  && controller.controller_name != 'carts' && controller.controller_name != 'charges' %>
         <li id="cart-button-li">
             <%= link_to navbar_cart_path, { method: :get, remote: true, class: "btn btn-primary dropdown-toggle", "id": "cart-button", "type": "button", "data-toggle": "dropdown" }  do %>
                 <span class="glyphicon glyphicon-shopping-cart"></span>
