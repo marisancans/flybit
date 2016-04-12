@@ -2,6 +2,7 @@ class Product < ActiveRecord::Base
 	belongs_to :category, dependent: :destroy, counter_cache: true
 	has_one :department, through: :category
 	has_many :line_items
+	has_many :orders, through: :line_items
 	before_destroy :ensure_not_referenced_by_any_line_item
 
 	#accept_nested_attributes_for :status_histories, reject_if: :all_blank

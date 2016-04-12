@@ -39,7 +39,7 @@ class ChargesController < ApplicationController
 	  										 	 country_code: params[:stripeShippingAddressCountryCode]
 	  )
 	  order.add_line_items_from_cart(@cart)
-	  @cart.destroy
+	  session[:cart_id] = nil
 
 	rescue Stripe::CardError => e
 	  flash[:error] = e.message

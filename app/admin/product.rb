@@ -39,9 +39,6 @@ ActiveAdmin.register Product do
       row :category
       row :created_at
       row :updated_at
-     # panel 'Markup' do
-     #   "Image details"
-     # end
       row "Image" do
         image_tag(product.image.url(:thumb))
       end
