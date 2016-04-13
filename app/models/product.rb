@@ -4,13 +4,14 @@ class Product < ActiveRecord::Base
 	has_many :line_items
 	has_many :orders, through: :line_items
 	before_destroy :ensure_not_referenced_by_any_line_item
+	mount_uploader :image, ImageUploader
 
 	#accept_nested_attributes_for :status_histories, reject_if: :all_blank
 	#===Validation needed!===
 
-	has_attached_file :image,
-										:styles  => { :thumb => "200x200!" },
-										:convert_options => {:'x200' => " -background white -gravity center -extent x200"}#,
+	#has_attached_file :image,
+										#:styles  => { :thumb => "200x200!" },
+										#:convert_options => {:'x200' => " -background white -gravity center -extent x200"}#,
 	    							#:storage => :dropbox,
 								    #:dropbox_credentials => { app_key: ENV['DROPBOX_APP_KEY'],
 								    #                          app_secret: ENV['DROPBOX_APP_SECRET'],
@@ -19,9 +20,9 @@ class Product < ActiveRecord::Base
 								    #                          user_id: ENV['DROPBOX_USER_ID'],
 								    #                          access_type: 'app_folder'}
 	#validates :image, attachment_presence: true
-	validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
-	validates_attachment_file_name :image, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/]
-	 #has_many :department
+	#validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
+	#validates_attachment_file_name :image, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/]
+	#has_many :department
 
 	 private
  		#ensure that there are no line items referencing this product

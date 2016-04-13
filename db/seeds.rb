@@ -121,7 +121,7 @@ product_count.times do
                   price: price,
                   department_id: department_id,
                   category_id: category_id,
-                  image_file_name: image_array.sample)
+                  image: image_array.sample)
   puts "#{c}: #{title}, price = #{price}"
 end
 puts "== CREATED #{product_count} products ==\n\n"
@@ -151,7 +151,7 @@ else
 end
 
 #Generate admin user
-if Admin.exists?(email: "admin@example.com")
+if AdminUser.exists?(email: "admin@example.com")
   puts "== ERROR, admin user already exists! admin@example.com, password: password ==\n\n"
 else
   User.create!(email: "admin@example.com",

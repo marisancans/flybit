@@ -1,5 +1,5 @@
 ActiveAdmin.register Product do
-	permit_params :title, :department, :category, :price, :image
+	permit_params :title, :department, :category, :price, {images: []}
   collection_action :change_categories, :method => :get do
     @categories = Category.where("department_id = ?", Department.find(params[:product_department_id]))
     render :text => view_context.options_from_collection_for_select(@categories, :id, :name)
@@ -23,7 +23,7 @@ ActiveAdmin.register Product do
     column :created_at, filter: :created_at, as: :check_boxes
 
     column "Image" do |product|
-      image_tag product.image.url(:thumb), class: 'my_image_size'
+      cl_image_tag(product.image, height: 200, class: 'my_image_size')
     end
 
     actions dropdown: true 
@@ -39,13 +39,10 @@ ActiveAdmin.register Product do
       row :category
       row :created_at
       row :updated_at
+
       row "Image" do
-        image_tag(product.image_file_name)
+        cl_image_tag(product.image)
       end
-      row :image_file_name
-      row :image_content_type
-      row :image_file_size
-      row :image_uploaded_at
     end
   end
 
@@ -59,7 +56,7 @@ ActiveAdmin.register Product do
           onchange: remote_get("change_categories", 'product_department_id', :product_category_id)
         }
         f.input :category, include_blank: false, collection: ""
-        f.input :image
+        f.file_field :pictures, multiple: true
       end
        f.actions dropdown: true          # adds the 'Submit' and 'Cancel' buttons
   end

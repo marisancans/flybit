@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160412091525) do
+ActiveRecord::Schema.define(version: 20160413071746) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,11 +46,9 @@ ActiveRecord::Schema.define(version: 20160412091525) do
     t.datetime "updated_at",     null: false
     t.integer  "products_count"
     t.integer  "department_id"
-    t.string   "slug"
   end
 
   add_index "categories", ["department_id"], name: "index_categories_on_department_id", using: :btree
-  add_index "categories", ["slug"], name: "index_categories_on_slug", unique: true, using: :btree
 
   create_table "departments", force: :cascade do |t|
     t.string   "name"
@@ -58,19 +56,6 @@ ActiveRecord::Schema.define(version: 20160412091525) do
     t.datetime "updated_at",       null: false
     t.integer  "categories_count"
   end
-
-  create_table "friendly_id_slugs", force: :cascade do |t|
-    t.string   "slug",                      null: false
-    t.integer  "sluggable_id",              null: false
-    t.string   "sluggable_type", limit: 50
-    t.string   "scope"
-    t.datetime "created_at"
-  end
-
-  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
-  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
-  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
-  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "line_items", force: :cascade do |t|
     t.integer  "product_id"
@@ -103,18 +88,12 @@ ActiveRecord::Schema.define(version: 20160412091525) do
     t.string   "title"
     t.text     "description"
     t.decimal  "price"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.integer  "department_id"
     t.integer  "category_id"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.string   "slug"
+    t.string   "image"
   end
-
-  add_index "products", ["slug"], name: "index_products_on_slug", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
