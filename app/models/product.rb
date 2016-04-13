@@ -4,7 +4,7 @@ class Product < ActiveRecord::Base
 	has_many :line_items
 	has_many :orders, through: :line_items
 	before_destroy :ensure_not_referenced_by_any_line_item
-	mount_uploader :image, ImageUploader
+	mount_uploader :image, ImageUploader 
 
 	#accept_nested_attributes_for :status_histories, reject_if: :all_blank
 	#===Validation needed!===

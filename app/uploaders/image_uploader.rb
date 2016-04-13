@@ -7,12 +7,12 @@ class ImageUploader < CarrierWave::Uploader::Base
 
 
 
-  version :standard do
-  end
+  #version :standard do
+  #end
   
-  version :thumbnail do
-    resize_to_fit(250, 250)
-  end
+  #version :thumbnail do
+  #  resize_to_fit(250, 250)
+  #end
 
 
 
