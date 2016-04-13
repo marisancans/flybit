@@ -71,6 +71,12 @@ ActiveAdmin.register Product do
        f.actions dropdown: true          # adds the 'Submit' and 'Cancel' buttons
   end
 
+
+
+
+
+
+
   controller do
     def scoped_collection
       super.includes :category, :department # prevents N+1 queries to your database
