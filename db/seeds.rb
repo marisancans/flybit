@@ -121,7 +121,7 @@ product_count.times do
                   price: price,
                   department_id: department_id,
                   category_id: category_id,
-                  image: image_array.sample)
+                  images: image_array.sample)
   puts "#{c}: #{title}, price = #{price}"
 end
 puts "== CREATED #{product_count} products ==\n\n"

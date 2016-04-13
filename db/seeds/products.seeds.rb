@@ -14,7 +14,7 @@ choice.times do
                   price: price,
                   department_id: department_id,
                   category_id: category_id,
-                  image_file_name: image_array.sample)
+                  images: image_array.sample)
   puts "#{counter}| #{title} cat_id: #{category_id}, dep_id: #{department_id}"
 end
 puts '-------CREATED #{choice} products-------'

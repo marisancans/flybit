@@ -1,14 +1,15 @@
 class ImageUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
+  include CarrierWave::RMagick 
   # include CarrierWave::MiniMagick
-  include Cloudinary::CarrierWave
+  #include Cloudinary::CarrierWave <------- No support for array, json
+  #ruby class AvatarUploader < CarrierWave::Uploader::Base include CarrierWave::RMagick 
 
 
-
-  #version :standard do
-  #end
+  version :admin_panel do
+    resize_to_fit(500, 500)
+  end
   
   #version :thumbnail do
   #  resize_to_fit(250, 250)

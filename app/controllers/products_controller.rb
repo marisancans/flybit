@@ -22,8 +22,18 @@ class ProductsController < ApplicationController
   def create
     #Cloudinary::Uploader.upload(params[:picture])
     @product = Product.new(product_params)
-    #Cloudinary::Uploader.upload(params[:product][:image])
-    @product.save
+    respond_to do |format|
+      if @product.save
+        params[:product][:images].each do |image|
+          Cloudinary::Uploader.upload(image)
+        end
+        format.html { redirect_to @product, notice: 'Product was successfully created.' }
+        format.json { render :show, status: :created, location: @product }
+      else
+        format.html { render :new }
+        format.json { render json: @product.errors, status: :unprocessable_entity }
+      end
+    end
 
     redirect_to action: "new"
   end
@@ -33,7 +43,7 @@ class ProductsController < ApplicationController
 	private
 
   def product_params
-    params.require(:product).permit(:title, :image)
+    params.require(:product).permit(:title, {images: []})
   end
   
 end
