@@ -6,7 +6,6 @@ class Product < ActiveRecord::Base
 	has_many :images
 	accepts_nested_attributes_for :images, allow_destroy: true
 	before_destroy :ensure_not_referenced_by_any_line_item
-	mount_uploaders :images, ImageUploader 
 
 
 	#accept_nested_attributes_for :status_histories, reject_if: :all_blank

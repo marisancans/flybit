@@ -1,5 +1,7 @@
 ActiveAdmin.register Product do
-	permit_params :title, :department, :category, :price, :image
+	permit_params :title, :department, :category, :price, images_attributes: [:file_name, :image_content_type, :image_file_size, :image_updated_at, :_destroy, :id]
+
+
   collection_action :change_categories, :method => :get do
     @categories = Category.where("department_id = ?", Department.find(params[:product_department_id]))
     render :text => view_context.options_from_collection_for_select(@categories, :id, :name)
@@ -39,11 +41,11 @@ ActiveAdmin.register Product do
       row :category
       row :created_at
       row :updated_at
-      panel 'Gallery' do
-        table_for product.gallery_id do
-          column :image
+      panel 'Images' do
+        product.images.each do|image|
+          image_tag(image.url)
         end
-      end 
+      end
     end
   end
 
@@ -57,11 +59,15 @@ ActiveAdmin.register Product do
         onchange: remote_get("change_categories", 'product_department_id', :product_category_id)
       }
       f.input :category, include_blank: false, collection: ""
-      f.input :gallery_id, label: "Gallery ID"
 
+      #f.inputs "Image",  :for => [:image, f.object.images || Image.new] do |i|
+      #  i.input :file_name, :for => :image, :as => :file
+      #end
 
-      f.has_many :images, new_record: 'Upload images' do |b|
-        b.file_field :image, as: :file
+      f.inputs 'Фотографии' do
+        f.has_many :images, allow_destroy: true, heading: 'Фото', new_record: true do |fasset|
+          fasset.input :file_name, as: :file
+        end
       end
 
     end
