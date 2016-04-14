@@ -4,8 +4,8 @@
 	<li>Title: <%= @product.title %></li>
 	<li>Description: <%= @product.description %></li>
 	<li>Price: <%= @product.price %></li>
-	<% @product.images.each do |image| %>
-		<%= cl_image_tag(image.url) %>
+	<% @product.attachments.each do |attachment| %>
+		<%= image_tag(attachment.image.url(:thumbnail)) %>
 		<% end %>
 	<%= button_to " Add to cart", line_items_path(product_id: @product), remote: true, class: "btn btn-default glyphicon glyphicon-shopping-cart" %>
 </ul>
