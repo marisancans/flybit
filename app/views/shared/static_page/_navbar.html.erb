@@ -1,7 +1,10 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class = "navbar-header">
-      <img class="img-responsive butter_image" src=<%= asset_path ("logo.png") %> alt="Chania" style = "max-width: 150px;">
-    <!--<a class="navbar-brand" <%= link_to root_path %> </a>-->
+      
+      <%= link_to root_path do %>
+        <%= image_tag "logo.png", class: "butter_image" %>      <!-- Navbar bilde ar linku uz sākumu-->
+      <% end %>
+
       <button type = "button" class = "navbar-toggle" data-toggle = "collapse" data-target = ".navbar-collapse" style = "color: white;">
         Kategorijas un Login
       </button>
@@ -17,12 +20,13 @@
      
 
  <!-- NEEDS PATH TO USER CART! -->
- <div id = "cart_login_margin_from_right">
+ <span id = "login_cart_right_float">
+  <div class = "cart_login_margin_from_right">
    <ul class="nav navbar-nav navbar-right">
 
      <!-- Cart  -->
       <% if @cart  && controller.controller_name != 'carts' && controller.controller_name != 'charges' %>
-        <li id="cart-button-li">
+        <li class="cart-button-li">
             <%= link_to navbar_cart_path, { method: :get, remote: true, class: "btn btn-primary dropdown-toggle", "id": "cart-button", "type": "button", "data-toggle": "dropdown" }  do %>
                 <span class="glyphicon glyphicon-shopping-cart"></span>
                 <span class="badge" id="cart-badge-id" ><%="#{@cart.line_items_count}" %></span>

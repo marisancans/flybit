@@ -5,13 +5,7 @@ data aviable in seed files-->
 	categories = Category.all 
   category_counter = 0 %>
 <% departments.each_with_index do |department, index| %>
-  <li class="dropdown">
+  <li style = "max-width: 40%;">
     <%= link_to "#{department.name}", categories_path(selected: "#{index + 1}") %>
-    <ul class="dropdown-menu">
-    	<% categories.where("department_id = ?", index + 1).each_with_index do |category, index| 
-        category_counter += 1 %>
-    		<li><%= link_to "#{category.name}", products_path(selected: "#{category_counter}") %></li>
-    	<% end %>
-    </ul>
   </li>
 <% end %>
