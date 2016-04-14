@@ -4,6 +4,10 @@ ActiveAdmin.register Product do
     @categories = Category.where("department_id = ?", Department.find(params[:product_department_id]))
     render :text => view_context.options_from_collection_for_select(@categories, :id, :name)
   end
+  member_action :change_categories, :method => :get do
+    @categories = Category.where("department_id = ?", Department.find(params[:product_department_id]))
+    render :text => view_context.options_from_collection_for_select(@categories, :id, :name)
+  end
 
   filter :id
   filter :title

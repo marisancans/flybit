@@ -101,10 +101,6 @@ else
   puts "== DONE, 1..5 categories for each of #{department_count} departments ==\n\n"
 end
 
-
-#List of image file names on dropbox, so they are randomly assigned
-image_array = ["iphone.jpg", "pc.jpeg", "keyboard.jpeg", "laptop.jpg", "smartphone.jpg"]
-
 #Generate products
 c = 0
 puts "== CREATING products =="
@@ -120,11 +116,25 @@ product_count.times do
                   description: description,
                   price: price,
                   department_id: department_id,
-                  category_id: category_id,
-                  images: image_array.sample)
+                  category_id: category_id)
   puts "#{c}: #{title}, price = #{price}"
 end
 puts "== CREATED #{product_count} products ==\n\n"
+
+#List of image file names on dropbox, so they are randomly assigned
+image_array = ["iphone.jpg", "keyboard.jpeg", "vlad.jpg", "laptop.jpg", "smartphone.jpg", "earbuds.jpeg", "mouse.jpg", "router.jpg"]
+
+#Generate images (Attachments)
+c = 0
+puts "== CREATING attachments =="
+Product.find_each do |product|
+  c += 1
+  img = image_array.sample
+  Attachment.create(image: Rails.root.join("public/uploads/seeds/#{img}").open, 
+                    product_id: product.id)
+  puts "#{c}: #{img} for product id: #{product.id}"
+end
+puts "== DONE, created #{c} attachments ==\n\n" 
 
 #Generate users
 c = 0
@@ -142,22 +152,26 @@ end
 puts "== DONE, created #{user_count} users ==\n\n" 
 
 #Generate test user
-if User.exists?(email: "admin@example.com")
-  puts "== ERROR, test user already exists! admin@example.com, password: password ==\n\n"
+if User.exists?(email: "user@example.com")
+  puts "== ERROR, test user already exists! user@example.com, password: password ==\n\n"
 else
-  User.create!(email: "admin@example.com",
+  User.create!(email: "user@example.com",
                password: "password")
-  puts "== User created, admin@example.com, password: password ==\n\n"
+  puts "== User created, user@example.com, password: password ==\n\n"
 end
 
 #Generate admin user
 if AdminUser.exists?(email: "admin@example.com")
   puts "== ERROR, admin user already exists! admin@example.com, password: password ==\n\n"
 else
-  User.create!(email: "admin@example.com",
-               password: "password")
+  email = "admin@example.com"
+  password = "password"
+  AdminUser.create!(email: email, password: password)
+  puts "created admin with email: #{email} and password: #{password}"
   puts "== Admin user created, admin@example.com, password: password ==\n\n"
 end
+
+
 
 
 puts "== DATABASE SEEDING DONE =="
