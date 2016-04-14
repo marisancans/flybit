@@ -29,6 +29,10 @@ Rails.application.routes.draw do
   resources :products, only: [:show, :index, :new, :create]
   resources :static_pages, only: [:home, :help]
 
+  resources :galleries do
+    resources :images, :only => [:create]
+  end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

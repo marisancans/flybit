@@ -24,9 +24,6 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
     respond_to do |format|
       if @product.save
-        params[:product][:images].each do |image|
-          Cloudinary::Uploader.upload(image)
-        end
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
