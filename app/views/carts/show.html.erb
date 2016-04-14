@@ -42,7 +42,7 @@
 							<div class="row" id="line-item-row-id-<%= item.id %>">
 								<div class="col-xs-2 col-md-2 col-sm-2">
 									<img class="img-responsive" src=
-									<%= item.product.image.url(:thumb) %>
+									<%= item.product.attachments.first.image.url(:thumbnail) %>
 								</div>
 								</div>
 								<div class="col-xs-4 col-md-4 col-md-4">
