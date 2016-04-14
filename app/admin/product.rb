@@ -9,6 +9,8 @@ ActiveAdmin.register Product do
     render :text => view_context.options_from_collection_for_select(@categories, :id, :name)
   end
 
+  batch_action :destroy
+
   filter :id
   filter :title
   filter :price
@@ -25,7 +27,7 @@ ActiveAdmin.register Product do
   	column :category
     column :created_at, filter: :created_at, as: :check_boxes
     column "Image" do |product|
-      image_tag(product.attachments.first.image.url(:thumbnail)) unless product.attachments.empty?
+      image_tag(product.attachments.first.image.url(:thumbnail))
     end
     actions dropdown: true 
   end

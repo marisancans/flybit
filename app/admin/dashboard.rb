@@ -9,10 +9,10 @@ ActiveAdmin.register_page "Dashboard" do
       column do
         panel "Recently placed orders" do
           table_for Order.limit(15).select(:id, :email, :created_at).order('id desc') do
+            column :id
             column "Email", :email do |order|
               link_to order.email, admin_order_path(order)
             end
-            column :email
             column :created_at
           end
         end
