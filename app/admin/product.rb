@@ -1,5 +1,5 @@
 ActiveAdmin.register Product do
-	permit_params :title, :department, :category, :price, images_attributes: [:file_name, :image_content_type, :image_file_size, :image_updated_at, :_destroy, :id]
+	permit_params :title, :department, :category, :price, attachments_attributes: [:image, :image_content_type, :image_file_size, :image_updated_at, :_destroy, :id]
 
 
   collection_action :change_categories, :method => :get do
@@ -42,8 +42,8 @@ ActiveAdmin.register Product do
       row :created_at
       row :updated_at
       panel 'Images' do
-        product.images.each do|image|
-          image_tag(image.url)
+        product.attachments.each do|attachment|
+          a
         end
       end
     end
@@ -64,11 +64,11 @@ ActiveAdmin.register Product do
       #  i.input :file_name, :for => :image, :as => :file
       #end
 
-      f.inputs 'Фотографии' do
-        f.has_many :images, allow_destroy: true, heading: 'Фото', new_record: true do |fasset|
-          fasset.input :file_name, as: :file
+
+        f.has_many :attachments, allow_destroy: true, heading: 'Image', new_record: true do |fasset|
+          fasset.input :image, as: :file
         end
-      end
+
 
     end
     f.actions dropdown: true          # adds the 'Submit' and 'Cancel' buttons
