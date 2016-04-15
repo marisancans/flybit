@@ -24,8 +24,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 #Image handling
-gem "paperclip", "~> 4.3"
-gem 'paperclip-dropbox', '~> 1.3', '>= 1.3.2'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave' 
+gem 'rmagick'
 
 #Bootstrap
 gem 'autoprefixer-rails'
@@ -76,7 +76,7 @@ group :development, :test do
 
  	#gem 'guard-minitest'
 
- 	gem 'newrelic_rpm'
+ 	#gem 'newrelic_rpm'
 
 
 

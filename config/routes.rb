@@ -20,13 +20,19 @@ Rails.application.routes.draw do
   get 'navbar_cart'           => 'carts#navbar_cart'
   get 'continue_shopping'     => 'carts#continue_shopping'
 
+
   resources :carts
   resources :orders
   resources :charges, only: [:new, :create]
   resources :categories, only: [:show, :index]
   resources :departments, only: [:index]
-  resources :products, only: [:show, :index]
+  resources :products, only: [:show, :index, :new, :create]
   resources :static_pages, only: [:home, :help]
+
+  resources :galleries do
+    resources :images, :only => [:create]
+  end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

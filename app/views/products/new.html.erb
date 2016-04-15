@@ -1,0 +1,9 @@
+<%= stylesheet_link_tag "navbar" %>
+<%= form_for @product, method: :post do |f|  %>
+  <div class="field">
+    <%= f.file_field :image %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Add More Images" %>
+  </div>
+<% end %>
