@@ -92,9 +92,14 @@
 							<div class="col-sm-3 col-md-3">
 							</div>
 							<div class="col-sm-3 col-md-3">
+								<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+								  <input type="hidden" name="cmd" value="_cart">
+								  <input type="image" name="submit"
+								    src="https://www.paypalobjects.com/en_US/i/btn/btn_xpressCheckout.gif"
+								    alt="PayPal - The safer, easier way to pay online">
+								</form>
 							</div>
 							<div class="col-sm-3 col-md-3">
-							<%#= link_to "Checkout" ,new_charge_path, method: :get, class: "btn btn-success btn-block" unless @cart.line_items.empty? %>
 							<% if @cart.line_items.empty? %>
 							<% else %>
 								<% cache "checkout_cache" do %> 
