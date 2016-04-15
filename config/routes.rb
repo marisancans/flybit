@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   get 'navbar_cart'           => 'carts#navbar_cart'
   get 'continue_shopping'     => 'carts#continue_shopping'
+  get 'search'                => 'searches#search_for'
 
 
   resources :carts
