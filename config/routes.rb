@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   get 'navbar_cart'           => 'carts#navbar_cart'
   get 'continue_shopping'     => 'carts#continue_shopping'
-  get 'search'                => 'searches#search_for'
+  get 'search'                => 'products#product_search'
 
 
   resources :carts
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   resources :charges, only: [:new, :create]
   resources :categories, only: [:show, :index]
   resources :departments, only: [:index]
-  resources :products, only: [:show, :index, :new, :create]
+  resources :products, only: [:show, :index]
   resources :static_pages, only: [:home, :help]
 
   resources :galleries do
