@@ -17,7 +17,7 @@
 	<div class = "cart_button_center">
 		<%= button_to "show cart and checkout", cart_path(session[:cart_id]),  method: :get %>
 
-		<%= button_to "empty", empty_line_items_cart_path(session[:cart_id]), remote: true, method: :delete, data: { confirm: 'Are you sure?'}  %>
+		<%= button_to "empty", empty_line_items_cart_path(session[:cart_id]), remote: true, method: :delete, data: { confirm: 'Are you sure?'}  if !@cart.line_items.blank? %>
 	</div>
 </div>
 

@@ -19,5 +19,6 @@ Rails.application.config.assets.precompile += %w( active_admin.scss departments.
 																									static_pages.css.scss navbar.scss
 																									scaffolds.css carts.scss
 																									charges.css home_page.css.scss
-																									sign_up.css.scss searches.css)
+																									sign_up.css.scss searches.css
+																									navbar-fixed-side.css.scss)
 

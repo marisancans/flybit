@@ -7,8 +7,9 @@ class Product < ActiveRecord::Base
 	accepts_nested_attributes_for :attachments, allow_destroy: true
 	before_destroy :ensure_not_referenced_by_any_line_item
 
-	def self.search(search)
+	def self.search(search, selected)
 	  where("title ILIKE ?", "%#{search}%")
+	  #where("category_id = ?", selected) if !selected.present?
 	end
 
 	private

@@ -20,6 +20,8 @@
           <% end %>
         </ul>
       </div>
+      
+     
      
  <!-- NEEDS PATH TO USER CART! -->
 <span id = "login_cart_right_float">
@@ -29,9 +31,9 @@
       <% if @cart  && controller.controller_name != 'carts' && controller.controller_name != 'charges' %>
         <li>
           <span class = "cart-button-position">
-            <%= link_to navbar_cart_path, { method: :get, remote: true, class: "btn btn-default dropdown-toggle", "id": "cart-button", "type": "button", "data-toggle": "dropdown", "style": "height: 35px; width: 100px; margin-top: 10%;" }  do %>
+            <%= link_to navbar_cart_path, { method: :get, remote: true, class: "btn btn-default dropdown-toggle", "id": "cart-button", "type": "button", "data-toggle": "dropdown", "style": "height: 35px; width: 100px; margin-top: 10%; background-color: #222; border-color: #222" }  do %>
               <div style = "padding: 5 0 5 0;">
-                <span class="glyphicon glyphicon-shopping-cart" style = "color: black;"></span>
+                <span class="glyphicon glyphicon-shopping-cart" style = "color: white; font-size: 1.2em;"></span>
                 <span class="badge" id="cart-badge-id"><%="#{@cart.line_items_count}" %></span>
               </div>
             <% end %>

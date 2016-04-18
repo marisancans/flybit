@@ -1,12 +1,47 @@
 <%= stylesheet_link_tag "navbar" %>
+<%= stylesheet_link_tag "navbar-fixed-side" %>
 <% @title="Flybit - #{@current_category}" %>
-<h4><%= @current_category %></h4>
-<%= will_paginate %>
-<div="row">
-	<div class="col-md-1"></div>
-	<div class="col-md-10">
-		<%= render @products %>
+
+<div class="row">
+	<div class="col-md-11">
+		<div class="col-sm-2 col-lg-2">
+    <nav class="navbar navbar-default navbar-fixed-side">
+      <!-- normal collapsible navbar markup -->
+      <h4><%= @current_category %></h4>
+      <%= form_tag search_path, method: 'get' do %>
+				<%= text_field_tag :search %>
+				<%= hidden_field_tag 'selected', params[:selected] %>
+				<%= submit_tag "Search" %>
+			<% end %>
+    </nav>
+  </div>
+  <div class="col-sm-9 col-lg-10">
+		<div class="row">
+			<div class="col-md-4 col-xs-4">
+			</div>
+			<div class="col-md-4 col-xs-4">
+				<%= will_paginate if !@products.blank? %> 
+			</div>
+			<div class="col-md-4 col-xs-4">
+			</div>
+		</div>
+    <!-- your page content -->
+		<% if @products.blank? %>
+		  <h4>No products found in this category</h4>
+		<% else %>
+		  <%= render @products %>
+		<% end %>
 	</div>
 	<div class="col-md-1"></div>
 </div>
-<%= will_paginate %>
+
+<div class="row">
+	<div class="col-md-4 col-xs-4">
+	</div>
+	<div class="col-md-4 col-xs-4">
+		<%= will_paginate if !@products.blank? %> 
+	</div>
+	<div class="col-md-4 col-xs-4">
+	</div>
+</div>
+
