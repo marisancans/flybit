@@ -16,10 +16,14 @@ Rails.application.routes.draw do
     match :qty, action: :qty, via: [:post, :delete], on: :member #-> url.com/line_items/qty
     match :input_field_change, action: :input_field_change, via: :post, on: :member
   end
+  resources :carts do
+    match :empty_line_items, action: :empty_line_items, via: :delete, on: :member #-> url.com/line_items/qty
+  end
 
   get 'navbar_cart'           => 'carts#navbar_cart'
   get 'continue_shopping'     => 'carts#continue_shopping'
-  get 'search'                => 'searches#search_for'
+  get 'search'                => 'products#product_search'
+
 
 
   resources :carts
