@@ -3,16 +3,21 @@
 		<%= render(cart.line_items) %>
 
 		<tr class="total_line">
-			<td colspan="2">Total</td>
-			<td class="total_cell"><%= number_to_currency(cart.total_price) %></td>
+			<% if @cart.line_items.empty? %>
+				Your cart is empty
+				<%= link_to "Browse shop", departments_path, class: "btn btn-primary btn-sm btn-block" %>
+			<% else %>
+				<td colspan="2">Total</td>
+				<td class="total_cell"><%= number_to_currency(cart.total_price) %></td>
+			<% end %>
 		</tr>
 
 	</table>
 
 	<div class = "cart_button_center">
-		<%= link_to "Checkout" ,new_charge_path, method: :get %>
-		<%= button_to "show cart", cart_path(session[:cart_id]),  method: :get %>
-		<%= button_to "empty", cart, method: :delete, data: { confirm: 'Are you sure?'} %>
+		<%= button_to "show cart and checkout", cart_path(session[:cart_id]),  method: :get %>
+
+		<%= button_to "empty", empty_line_items_cart_path(session[:cart_id]), remote: true, method: :delete, data: { confirm: 'Are you sure?'}  %>
 	</div>
 </div>
 

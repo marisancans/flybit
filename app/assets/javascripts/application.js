@@ -14,6 +14,7 @@
 //= require jquery-ui/effect-bounce
 //= require jquery-ui/effect-highlight
 //= require jquery-ui/effect-slide
+//= require jquery-ui/effect-clip
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets

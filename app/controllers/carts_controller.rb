@@ -76,8 +76,24 @@ class CartsController < ApplicationController
     @cart.destroy if @cart.id == session[:cart_id]
     session[:cart_id] = nil
     respond_to do |format|
-      format.html { redirect_to root_url }
-      format.json { head :no_content }
+      if @line_item.save
+        format.js { @item = params[:id] }
+        format.json { head :ok }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @line_item.errors, status: :unprocessable_entity}
+      end
+    end
+  end
+
+  def empty_line_items
+    @cart = Cart.find(session[:cart_id])
+    @cart.line_items.each do |line_item|
+      line_item.destroy
+    end
+    respond_to do |format|
+      format.js { @cart = Cart.find(session[:cart_id]) }
+      format.json { head :ok }
     end
   end
 

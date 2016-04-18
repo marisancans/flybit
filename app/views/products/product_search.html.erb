@@ -10,7 +10,7 @@
 			<div class="col-md-4 col-xs-4">
 			</div>
 			<div class="col-md-4 col-xs-4">
-				<%= will_paginate %>
+				<%= will_paginate if !@products.blank? %>
 			</div>
 			<div class="col-md-4 col-xs-4">
 			</div>
@@ -25,7 +25,7 @@
 		<div class="col-md-4 col-xs-4">
 		</div>
 		<div class="col-md-4 col-xs-4">
-			<%= will_paginate %>
+			<%= will_paginate if !@products.blank? %> 
 		</div>
 		<div class="col-md-4 col-xs-4">
 		</div>
