@@ -1,6 +1,10 @@
+/*-------- Space so that navbar doesnt overlap content -------*/
+
 body{
   padding-top: 50px;
 }
+
+/*-------- Navbar butterfly(butter) logo dimensions --------*/
 
 .butter_image{
   height: 50px;
@@ -8,84 +12,69 @@ body{
   padding: 10px 10px;
 }
 
+/*-------------- Login dropdown menu styling -------------*/
+
 #login-dp{
     padding: 1% 2% 1% 2%;
     overflow:hidden;
     background-color: white;
 }
 
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
+/*------------- Dropdown box space between the top(cart, login)-------*/
 
-.nav-tabs .dropdown-menu, .nav-pills .dropdown-menu, .navbar .dropdown-menu {
+.dropdown-menu{
     margin-top: 0;
-    margin-right: 30px;
 }
 
+/*-------- If browser is resized to x pixels, this happens -----------*/
 
-.dropdown a{                 /* Dropdown links */
-    text-decoration: none;
-}
 
-#shop_button{
-  margin-left: 50%;
-  margin-top: 5%;
-
-  a{
-      text-decoration: none;
-      color: white;
-  }
-}
 @media (max-width: 990px) {
+    body{
+      padding-top: 70px;
+    }
     .navbar-header {
-        float: right;
-    }
-    .navbar-toggle {
-        display: block;
-    }
-    .navbar-collapse.collapse {
-        display: none!important;
-    }
-    .navbar-nav {
-        float: none!important;
-        margin-top: 7.5px;
-      }
-    .navbar-nav>li {
         float: none;
     }
-    .navbar-nav>li>a {
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-    .collapse.in{
-      display:block !important;
-    }
-
-    .butter_image{
+    #button_float_left{
       float: left;
-      max-width: 150px;
+    }
+    .navbar-toggle {
+        display: block !important;
+    }
+    .navbar-collapse.collapse {
+        display: none !important;
+    }
+    .navbar-nav {
+        margin-top: 7.5px;
     }
 
-    .cart_login_margin_from_right{
-      max-width: 20%;
+    /* With block, the dropdown stays open and allows scrolling */
+    /* inline doesn't */
+
+    .collapse.in{
+        display: block !important;
     }
 }
 
-#no-account{
-  text-decoration: none;
-  color: black;
-}
-
-#no-account:hover{
-  color: white;
-}
-
-.cart_login_margin_from_right{
-  margin-right: 5%;
+@media (max-width: 768px){
+    body{
+      padding-top: 150px;
+    }  
 }
 
 
+/*------------------ Text between cart and login --------------*/
+
+.navbar-text{
+  
+  color: grey !important;
+
+  a{
+    color: grey;
+  }
+
+}
 
 /*------------------ Navbar hover border color background -------------*/
 
@@ -99,8 +88,7 @@ body{
 }
 
 
-
-/*----- Cart ----*/
+/*--------------- Cart ---------------*/
 
 .cart{
   
@@ -114,6 +102,15 @@ body{
 
 }
 
+
+.cart_login_margin_from_right{
+  margin-right: 5%;
+}
+
+.cart-button-position:hover{
+  background-color: lightgrey;
+  border-radius: 5px;  
+}
 
 
 
