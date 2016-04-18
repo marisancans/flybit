@@ -25,12 +25,13 @@ Rails.application.routes.draw do
   get 'search'                => 'products#product_search'
 
 
+
   resources :carts
   resources :orders
   resources :charges, only: [:new, :create]
   resources :categories, only: [:show, :index]
   resources :departments, only: [:index]
-  resources :products, only: [:show, :index]
+  resources :products, only: [:show, :index, :new, :create]
   resources :static_pages, only: [:home, :help]
 
   resources :galleries do
