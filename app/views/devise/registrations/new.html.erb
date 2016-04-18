@@ -1,49 +1,23 @@
-<%= stylesheet_link_tag "navbar", "sign_up" %>
-<h2 id = "sign_up">Sign up</h2>
-
-<br/>
-<br/>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br/>
-    <%=  f.email_field :email, autofocus: true, :size => 50, :placeholder => "example@example.com", :style => "text-align: center" %>
+<%= stylesheet_link_tag "navbar", "registrations" %>
+<div class="container">
+<div class="row">
+  <div class="col-md-4">
   </div>
-
-  <br/>
-  <br/>
-
-
-  <div class="field">
-    <div class = "wrap">
-      <div class = "pass_pos">
-        <%= f.label :password %>
-        <% if @minimum_password_length %><% end %>
-        <%= f.password_field :password, autocomplete: "off", :size => 30, :style => "text-align: center" %>
-        </div>
-        
-        
-  
+  <div class="col-md-4">
+    <div class="form-signup"> 
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>      
+    <%= devise_error_messages! %>
+      <h2 class="form-signin-heading text-center">Sign up</h2>
+      <%=  f.email_field :email, autofocus: true, :size => 50, :placeholder => "Email Address", :style => "text-align: center", class: "form-control" %> 
+      <%= f.password_field :password, autocomplete: "off", :size => 30, :placeholder => "Password", :style => "text-align: center", class: "form-control" %> 
+      <%= f.password_field :password_confirmation, autocomplete: "off", :size => 30, :placeholder => "Password confirmation", :style => "text-align: center", class: "form-control" %>
+      <%= f.submit "Sign up", class: "btn btn-lg btn-primary btn-block" %>  
+      <% end %>
     </div>
   </div>
-
-  <br/>
-
-  <div class="field">
-    <div class = "pass_pos">
-      <%= f.label :password_confirmation %><br/>
-      <%= f.password_field :password_confirmation, autocomplete: "off", :size => 30, :style => "text-align: center" %>
-    </div>
+  <div class="col-md-4">
   </div>
-
-  <br/>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+</div>
+</div>
 
 <%#= render "devise/shared/links" %>
