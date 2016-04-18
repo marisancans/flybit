@@ -8,8 +8,11 @@ class Product < ActiveRecord::Base
 	before_destroy :ensure_not_referenced_by_any_line_item
 
 	def self.search(search, selected)
-	  where("title ILIKE ?", "%#{search}%")
-	  #where("category_id = ?", selected) if !selected.present?
+		if selected.present?
+	  	where("category_id = :selected AND title ILIKE :search", selected: selected, search: "%#{search}%" )
+		else
+			where("title ILIKE :search", search: "%#{search}%" )
+		end
 	end
 
 	private

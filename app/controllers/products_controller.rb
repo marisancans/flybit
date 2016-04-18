@@ -9,7 +9,11 @@ class ProductsController < ApplicationController
 	end
 
   def index
-    @products = Product.search(params[:search], params[:selected]).includes(:attachments).paginate(page: params[:page], :per_page => 30)
+    if !params[:search].blank? 
+      @products = Product.search(params[:search], params[:selected]).includes(:attachments).paginate(page: params[:page], :per_page => 30)
+    else
+      @products = Product.where("category_id = ?", params[:selected]).paginate(page: params[:page])
+    end
     @current_category = Category.find(params[:selected]).name
   end
 
