@@ -2,6 +2,7 @@
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
 
+  config.secret_key = ENV["devise_secret_key"] if Rails.env.production?
   config.http_authenticatable_on_xhr = false
   config.navigational_formats = ["*/*", :html, :json]
   # The secret key used by Devise. Devise uses this key to generate

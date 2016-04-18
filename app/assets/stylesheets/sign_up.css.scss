@@ -1,5 +1,14 @@
 $margin_center: 0 auto;
 
+/* Background image */
+html { 
+  background: url('sign_up_bg.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 /* Sign up text centered */
 
 	#sign_up{

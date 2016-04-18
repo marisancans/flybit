@@ -33,3 +33,4 @@ production:
  database: my_database_production
  pool: 5
  timeout: 5000
+ host: localhost	#Needs to be changed if hosted elesewhere
