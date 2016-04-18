@@ -28,33 +28,39 @@ body{
 
 /*-------- If browser is resized to x pixels, this happens -----------*/
 
+
 @media (max-width: 990px) {
+    body{
+      padding-top: 70px;
+    }
     .navbar-header {
         float: none;
+    }
+    #button_float_left{
+      float: left;
     }
     .navbar-toggle {
         display: block !important;
     }
     .navbar-collapse.collapse {
-        display: none!important;
+        display: none !important;
     }
     .navbar-nav {
         margin-top: 7.5px;
-    }
-    .navbar-right{
-
     }
 
     /* With block, the dropdown stays open and allows scrolling */
     /* inline doesn't */
 
     .collapse.in{
-      display: block !important;
+        display: block !important;
     }
+}
 
-    .cart_login_margin_from_right{
-     
-    }
+@media (max-width: 768px){
+    body{
+      padding-top: 150px;
+    }  
 }
 
 
@@ -80,7 +86,6 @@ body{
   background-color: white;
   color: black;
 }
-
 
 
 /*--------------- Cart ---------------*/

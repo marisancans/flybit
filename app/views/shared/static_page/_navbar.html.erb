@@ -1,29 +1,30 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class = "navbar-header">
-      
+  <div class = "navbar-header" style = "float: left;">
+
+    <span id = "button_float_left">  
       <%= link_to root_path do %>
         <%= image_tag "logo.png", class: "butter_image" %>      <!-- Navbar bilde ar linku uz sākumu-->
       <% end %>
 
       <button type = "button" class = "navbar-toggle" data-toggle = "collapse" data-target = ".navbar-collapse" style = "color: white;">
-        Kategorijas un Login
+        Kategorijas
       </button>
-  </div> 
+    </span> 
+  </div>
 
-      <div class = "navbar-collapse collapse">
+    
+      <div class = "navbar-collapse collapse" style = "float: left;">
         <ul class = "nav navbar-nav">
           <% cache 'dep_and_cat_list' do %>
             <%= render 'shared/static_page/dep_and_cat_list' %>
           <% end %>
         </ul>
-      <div>
+      </div>
      
-
  <!-- NEEDS PATH TO USER CART! -->
- <span id = "login_cart_right_float">
+<span id = "login_cart_right_float">
   <div class = "cart_login_margin_from_right">
-   <ul class="nav navbar-nav navbar-right" style = "max-height: 50px; float:right">
-
+   <ul class="nav navbar-nav navbar-right" style = "float: right;">
      <!-- Cart  -->
       <% if @cart  && controller.controller_name != 'carts' && controller.controller_name != 'charges' %>
         <li>
@@ -50,9 +51,10 @@
             <li class = "navbar-text"><p>Login or <a <%= link_to new_user_registration_path do %>register</a><% end %></p></li>
             <%= render 'shared/static_page/login_form' %>
         <% end %>
-      </li>
+      </li> 
     </ul>
   </span>
   </ul>
+</div>
 </div>
 </nav>
