@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 20160419114154) do
   create_table "product_attributes", force: :cascade do |t|
     t.string   "title"
     t.text     "details"
+    t.integer  "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

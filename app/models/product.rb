@@ -4,7 +4,9 @@ class Product < ActiveRecord::Base
 	has_many :line_items
 	has_many :orders, through: :line_items
 	has_many :attachments
+	has_many :product_attributes
 	accepts_nested_attributes_for :attachments, allow_destroy: true
+	accepts_nested_attributes_for :product_attributes, allow_destroy: true
 	before_destroy :ensure_not_referenced_by_any_line_item
 
 	def self.search(search, selected)

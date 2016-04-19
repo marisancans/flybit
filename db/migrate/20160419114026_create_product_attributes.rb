@@ -3,7 +3,7 @@ class CreateProductAttributes < ActiveRecord::Migration
     create_table :product_attributes do |t|
       t.string :title
       t.text :details
-
+      t.integer :product_id
       t.timestamps null: false
     end
   end
