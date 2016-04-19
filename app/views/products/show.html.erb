@@ -7,5 +7,6 @@
 	<% @product.attachments.each do |attachment| %>
 		<%= image_tag(attachment.image.url(:thumbnail)) %>
 		<% end %>
+	<li><%= @product.details_title %></li>
 	<%= button_to " Add to cart", line_items_path(product_id: @product), remote: true, class: "btn btn-default glyphicon glyphicon-shopping-cart" %>
 </ul>

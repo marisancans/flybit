@@ -1,5 +1,6 @@
 ActiveAdmin.register Product do
-	permit_params :title, :department, :category, :price, attachments_attributes: [:image, :image_content_type, :image_file_size, :image_updated_at, :_destroy, :id]
+	permit_params :title, :department, :category, :price, :description, :department_id, :category_id, :product_attribute_id
+                attachments_attributes: [:image, :image_content_type, :image_file_size, :image_updated_at, :_destroy, :id]
   collection_action :change_categories, :method => :get do
     @categories = Category.where("department_id = ?", Department.find(params[:product_department_id]))
     render :text => view_context.options_from_collection_for_select(@categories, :id, :name)
@@ -62,6 +63,10 @@ ActiveAdmin.register Product do
         onchange: remote_get("change_categories", 'product_department_id', :product_category_id)
       }
       f.input :category, include_blank: false, collection: Category.where("department_id = ?", 1)
+      inputs 'Product details' do
+        f.input :details_title
+        f.input :details_text
+      end
       inputs 'First image will be displayed as thumbnail!' do end
       f.has_many :attachments, allow_destroy: true, heading: 'Image', new_record: true do |fasset|
         fasset.input :image, as: :file
