@@ -2,37 +2,56 @@
 <% @title="Flybit - Checkout" %>
 
 <div class="container">
-	<div class="row" id="list">
-		<div class="col-md-6">
-			<table class="table table-bordered table-responsive">
-			  <tbody>
-			  	<% @cart.line_items.each do |line_item| %>
-				    <tr>
-				      <th scope="row"><%= line_item.product.title %></th>
-				      <td><%= line_item.product.price %></td>
-				    </tr>
-				    <% end %>
-			  </tbody>
-			</table>
-		</div>
-		<div class="col-md-6">
+	<div class="row text-center">
+		<h2></h2>
+		
+	</div>
+	<div class="row">
+	    <div class="panel panel-default">
+	    	<div class="panel-heading text-center">
+	    		<h2 class="panel-title">Checkout summary</h2>
+	    		Please check details of your order before placing it
+	    	</div>
+				<table class="table table-bordered table-responsive">
+					 <thead>
+			      <tr>
+			        <th>Product title</th>
+			        <th>Price per one product</th>
+			        <th>Quantity</th>
+			        <th>Total price for porduct</th>
+			      </tr>
+			    </thead>
+				  <tbody>
+				  	<% @cart.line_items.each do |line_item| %>
+					    <tr>
+					      <td><%= line_item.product.title %></td>
+					      <td>€<%= line_item.product.price %></td>
+					      <td><%= line_item.quantity %></td>
+					      <td>€<%= line_item.total_price %></td>
+					    </tr>
+					   <% end %>
+					   	<tr>
+					   		<td></td>
+					   		<td></td>
+					   		<th>Total:</th>
+					    	<th><span class="label label-info">€ <%= @cart.total_price %></span></th>
+					    </tr>
+				  </tbody>
+				</table>
+			</div>
+	</div>
+
+	<div class="row">
+	  <div class="panel panel-default">
+	  	<div class="panel-heading text-center">
+	  		<h2 class="panel-title">Choose payment method</h2>
+	  	</div>
+			<%= render "braintree"  if !@cart.line_items.empty? %>
+			<%= render "stripe"  if !@cart.line_items.empty? %>
 		</div>
 	</div>
+
 </div>
 
+        
 
-
-
-	<% if @cart.line_items.empty? %>
-	<% else %>
-		<%= render "braintree"  %>
-	<% end %>
-</div>
-<div class="col-sm-3 col-md-3">
-	<% if @cart.line_items.empty? %>
-	<% else %>
-		<% cache "checkout_cache" do %> 
-			<%= render "stripe"  %>
-		<% end %>
-	<% end %>
-</div>
