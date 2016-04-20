@@ -1,12 +1,60 @@
 <% @title="Flybit - #{@product.title}" %>
-<%= stylesheet_link_tag "navbar" %>
-<ul>
-	<li>Title: <%= @product.title %></li>
-	<li>Description: <%= @product.description %></li>
-	<li>Price: <%= @product.price %></li>
-	<% @product.attachments.each do |attachment| %>
-		<%= image_tag(attachment.image.url(:thumbnail)) %>
-		<% end %>
-	<li><%= @product.details_title %></li>
-	<%= button_to " Add to cart", line_items_path(product_id: @product), remote: true, class: "btn btn-default glyphicon glyphicon-shopping-cart" %>
-</ul>
+<%= stylesheet_link_tag "navbar", "product_show_page", "chocolat" %>
+<%= javascript_include_tag "jquery.chocolat" %>
+<script>
+$(document).ready(function(){
+    $('.chocolat-parent').Chocolat();
+});
+</script>
+<div class="container">
+
+  <h2><%= @product.title %></h2>
+
+
+  <div class="chocolat-parent" data-chocolat-title="set title">
+    <a class="chocolat-image" href="<%= asset_path(@product.attachments.first.image.url(:thumbnail)) %>" title="caption image 1">
+        <img src="<%= asset_path(@product.attachments.first.image.url) %>"
+    </a>
+    <a class="chocolat-image" href="http://www.7000days.org/assets/1974/pickle.jpg" title="caption image 2">
+        <img width="100" src="http://www.7000days.org/assets/1974/pickle.jpg" />
+    </a>
+    <a class="chocolat-image" href="http://www.7000days.org/assets/1974/pickle.jpg" title="caption image 3">
+        <img width="100" src="http://www.7000days.org/assets/1974/pickle.jpg"/>
+    </a>
+</div>
+
+
+ 
+	<div class="col-md-6 col-sm-6">
+		<ul>
+			<li>Title: <%= @product.title %></li>
+			<li>Description: <%= @product.description %></li>
+			<li>Price: <%= @product.price %></li>
+			<%= button_to " Add to cart", line_items_path(product_id: @product), remote: true, class: "btn btn-default glyphicon glyphicon-shopping-cart" %>
+		</ul>
+	</div>
+
+
+
+
+
+
+
+<div class="row">
+<table class="table table-hover table-responsive">
+  <tbody>
+  	<% @product.product_attributes.each do |attribute| %>
+	    <tr>
+	      <th scope="row"><%= attribute.title %></th>
+	      <td><%= attribute.details %></td>
+	    </tr>
+	    <% end %>
+  </tbody>
+</table>
+</div>
+
+
+
+        
+
+    
