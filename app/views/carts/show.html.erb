@@ -91,19 +91,9 @@
 					<div class="col-sm-3 col-md-3">
 					</div>
 					<div class="col-sm-3 col-md-3">
-						<% if @cart.line_items.empty? %>
-						<% else %>
-							<%= render "paypal"  %>
+						<%= button_to new_charge_path, method: :get, class: "btn btn-primary btn-lg outline" do %>
+							<i>Checkout</i>
 						<% end %>
-					</div>
-					<div class="col-sm-3 col-md-3">
-						<% if @cart.line_items.empty? %>
-						<% else %>
-							<% cache "checkout_cache" do %> 
-								<%= render "stripe"  %>
-							<% end %>
-						<% end %>
-					</div>
 				</div>
 			</div>
 		</div><!-- End of panel panel-onfo -->

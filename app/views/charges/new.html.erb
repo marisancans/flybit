@@ -1,0 +1,21 @@
+<%= stylesheet_link_tag "navbar" %>
+<% @title="Flybit - Checkout" %>
+
+
+
+
+
+
+	<% if @cart.line_items.empty? %>
+	<% else %>
+		<%= render "braintree"  %>
+	<% end %>
+</div>
+<div class="col-sm-3 col-md-3">
+	<% if @cart.line_items.empty? %>
+	<% else %>
+		<% cache "checkout_cache" do %> 
+			<%= render "stripe"  %>
+		<% end %>
+	<% end %>
+</div>
