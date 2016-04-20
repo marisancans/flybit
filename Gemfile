@@ -36,7 +36,8 @@ gem 'bootstrap-sass'
 gem 'devise'
 
 #Payment
-gem 'stripe'
+gem 'stripe' #Cards
+gem "braintree" #Paypal
 
 #Database
 gem 'pg'
