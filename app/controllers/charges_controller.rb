@@ -6,11 +6,11 @@
 
 class ChargesController < ApplicationController
 	include CurrentCart
-  before_action :set_cart, only: [:new, :create]
+  before_action :set_cart, only: [:checkout, :create]
   Stripe.api_key = ENV['stripe_secret_key']
 
-	def new
-		
+	def checkout
+
 	end
 
 	def create
