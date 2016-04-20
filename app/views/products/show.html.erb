@@ -10,48 +10,54 @@ $(document).ready(function(){
 
   <h2><%= @product.title %></h2>
 
-
-  <div class="chocolat-parent" data-chocolat-title="set title">
-    <a class="chocolat-image" href="<%= asset_path(@product.attachments.first.image.url(:thumbnail)) %>" title="caption image 1">
-        <img src="<%= asset_path(@product.attachments.first.image.url) %>"
-    </a>
-    <a class="chocolat-image" href="http://www.7000days.org/assets/1974/pickle.jpg" title="caption image 2">
-        <img width="100" src="http://www.7000days.org/assets/1974/pickle.jpg" />
-    </a>
-    <a class="chocolat-image" href="http://www.7000days.org/assets/1974/pickle.jpg" title="caption image 3">
-        <img width="100" src="http://www.7000days.org/assets/1974/pickle.jpg"/>
-    </a>
-</div>
-
+	<div class="row">
+		<div class="col-md-8 col-sm-8">
+		  <div class="chocolat-parent" data-chocolat-title="set title" loop="true">
+		    <a class="chocolat-image" href="<%= asset_path(@product.attachments.first.image.url) %>" title="<%= @product.title %>">
+		        <img class="img-responsive" src="<%= asset_path(@product.attachments.first.image.url(:show)) %>" />
+		    </a>
+				<div class="row">
+					<hr>
+					<% @product.attachments.each do |attachment| %>
+				    <a class="chocolat-image img-thumbnail" href="<%= attachment.image.url %>" title="<%= @product.title %>">
+				        <img src="<%= asset_path(attachment.image.url(:mini_show)) %>" />
+				    </a>
+			    <% end %>
+				</div>
+			</div>
+		</div>
+			<div class="col-md-4 col-sm-4">
+				<ul>
+					<li>Title: <%= @product.title %></li>
+					<li>Description: <%= @product.description %></li>
+					<li>Price: <%= @product.price %></li>
+					<%= button_to " Add to cart", line_items_path(product_id: @product), remote: true, class: "btn btn-default glyphicon glyphicon-shopping-cart" %>
+				</ul>
+			</div>
+	</div><!--End of row -->
 
  
-	<div class="col-md-6 col-sm-6">
-		<ul>
-			<li>Title: <%= @product.title %></li>
-			<li>Description: <%= @product.description %></li>
-			<li>Price: <%= @product.price %></li>
-			<%= button_to " Add to cart", line_items_path(product_id: @product), remote: true, class: "btn btn-default glyphicon glyphicon-shopping-cart" %>
-		</ul>
+
+
+
+
+
+
+
+<% if !@product.product_attributes.empty? %>
+	<div class="row">
+	<table class="table table-hover table-responsive">
+	  <tbody>
+	  	<% @product.product_attributes.each do |attribute| %>
+		    <tr>
+		      <th scope="row"><%= attribute.title %></th>
+		      <td><%= attribute.details %></td>
+		    </tr>
+		    <% end %>
+	  </tbody>
+	</table>
 	</div>
-
-
-
-
-
-
-
-<div class="row">
-<table class="table table-hover table-responsive">
-  <tbody>
-  	<% @product.product_attributes.each do |attribute| %>
-	    <tr>
-	      <th scope="row"><%= attribute.title %></th>
-	      <td><%= attribute.details %></td>
-	    </tr>
-	    <% end %>
-  </tbody>
-</table>
-</div>
+<% end %>
 
 
 
