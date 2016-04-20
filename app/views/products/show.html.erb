@@ -27,10 +27,10 @@ $(document).ready(function(){
 			</div>
 		</div>
 			<div class="col-md-4 col-sm-4">
-				<ul>
-					<li>Title: <%= @product.title %></li>
-					<li>Description: <%= @product.description %></li>
+				<ul class="unstyled">
 					<li>Price: <%= @product.price %></li>
+					<li>Description: <%= @product.description %></li>
+
 					<%= button_to " Add to cart", line_items_path(product_id: @product), remote: true, class: "btn btn-default glyphicon glyphicon-shopping-cart" %>
 				</ul>
 			</div>
