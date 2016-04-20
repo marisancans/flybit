@@ -13,7 +13,7 @@
 								<h5><span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart</h5>
 							</div>
 							<div class="col-sm-6 col-md-6 col-xs-6">
-							<%= link_to continue_shopping_path, class: "btn btn-primary btn-sm btn-block" do %>
+							<%= link_to continue_shopping_path, class: "btn btn-primary btn-sm btn-block center-block" do %>
 								  <i class="glyphicon glyphicon-check"></i>&nbsp; Continue shopping
 								<% end unless @cart.line_items.empty? %>
 							</div>
@@ -85,15 +85,14 @@
 				<% end %>
 			</div>
 			<div class="panel-footer">
-				<div class="row ">
-					<div class="col-sm-3 col-md-3">
+				<div class="row">
+					<div class="col-md-10">
 					</div>
-					<div class="col-sm-3 col-md-3">
-					</div>
-					<div class="col-sm-3 col-md-3">
-						<%= button_to checkout_path, method: :get, class: "btn btn-primary btn-lg outline" do %>
+					<div class="col-md-2">
+						<%= link_to checkout_path, method: :get, class: "btn btn-primary btn-lg outline" do %>
 							<i>Checkout</i>
 						<% end %>
+					</div>
 				</div>
 			</div>
 		</div><!-- End of panel panel-onfo -->
@@ -110,4 +109,3 @@
   	alert(value);
   }
 </script>
-<%= debug ENV.to_h.to_yaml %>

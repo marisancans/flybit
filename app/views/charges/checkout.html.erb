@@ -1,7 +1,24 @@
-<%= stylesheet_link_tag "navbar" %>
+<%= stylesheet_link_tag "navbar", "checkout" %>
 <% @title="Flybit - Checkout" %>
 
-
+<div class="container">
+	<div class="row" id="list">
+		<div class="col-md-6">
+			<table class="table table-bordered table-responsive">
+			  <tbody>
+			  	<% @cart.line_items.each do |line_item| %>
+				    <tr>
+				      <th scope="row"><%= line_item.product.title %></th>
+				      <td><%= line_item.product.price %></td>
+				    </tr>
+				    <% end %>
+			  </tbody>
+			</table>
+		</div>
+		<div class="col-md-6">
+		</div>
+	</div>
+</div>
 
 
 

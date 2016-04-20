@@ -23,5 +23,5 @@ Rails.application.config.assets.precompile += %w( active_admin.scss departments.
 																									navbar-fixed-side.css.scss product_show_page.css.scss
 																									jquery.chocolat.js chocolat.css.scss
 																									carts.css.scss charges.css.scss
-																									thank_you.css.scss)
+																									thank_you.css.scss checkout.css.csss)
 
