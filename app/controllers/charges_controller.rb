@@ -7,7 +7,7 @@
 class ChargesController < ApplicationController
 	include CurrentCart
   before_action :set_cart, only: [:new, :create]
-  Stripe.api_key = Rails.configuration.stripe[:stripe_secret_key]
+  Stripe.api_key = ENV['stripe_secret_key']
 
 	def new
 	end
