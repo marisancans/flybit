@@ -93,19 +93,14 @@
 					<div class="col-sm-3 col-md-3">
 						<% if @cart.line_items.empty? %>
 						<% else %>
-						<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-						  <input type="hidden" name="cmd" value="_cart">
-						  <input type="image" name="submit"
-						    src="https://www.paypalobjects.com/en_US/i/btn/btn_xpressCheckout.gif"
-						    alt="PayPal - The safer, easier way to pay online">
-						</form>
+							<%= render "paypal"  %>
 						<% end %>
 					</div>
 					<div class="col-sm-3 col-md-3">
 						<% if @cart.line_items.empty? %>
 						<% else %>
 							<% cache "checkout_cache" do %> 
-								<%= render "checkout"  %>
+								<%= render "stripe"  %>
 							<% end %>
 						<% end %>
 					</div>

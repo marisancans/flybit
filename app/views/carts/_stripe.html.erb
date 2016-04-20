@@ -9,7 +9,7 @@
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
   data-key="<%= ENV['STRIPE_TEST_PUBLISHABLE_PUBLIC_KEY'] %>"
-  data-image="<%= asset_path("flybit.png") %>"
+  data-image="<%= asset_path("melns.png") %>"
   data-name="Flybit"
   data-description="<%= pluralize(@cart.line_items_count, "item") %>"
   data-zip-code="true"

@@ -3,7 +3,7 @@ c = 0
 a = 0
 Product.find_each do |product|
 	c += 1
-	how_many = Faker::Number.between(1, 10)
+	how_many = Faker::Number.between(5, 15)
 	how_many.times do
 		a += 1
 		details = ""

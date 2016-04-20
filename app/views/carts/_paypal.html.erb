@@ -1,0 +1,13 @@
+<form action='expresscheckout.asp' METHOD='POST'>
+<input type='image' name='submit' src='https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif' border='0' align='top' alt='Check out with PayPal'/>
+</form>
+<script>
+  window.paypalCheckoutReady = function() {
+    paypal.checkout.setup("6XF3MPZBZV6HU", {
+      locale: 'en_US',
+      environment: 'sandbox',
+      container: ['t1', 't2']
+    });
+  }
+</script>
+<script async src="//www.paypalobjects.com/api/checkout.js"></script>
