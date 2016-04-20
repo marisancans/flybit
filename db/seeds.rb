@@ -113,7 +113,8 @@ product_count.times do
   title += " " + Faker::Hacker.verb
   title += " " + Faker::Hacker.noun
   title += " " + Faker::Hacker.verb
-  description = Faker::Lorem.paragraphs
+  paragraph_count = Faker::Number.between(5, 20)
+  description = Faker::Lorem.paragraph(paragraph_count, false, 4)
   price = Faker::Commerce.price
   department_id = Faker::Number.between(1, 5)
   category_id = Faker::Number.between(1, category_count)

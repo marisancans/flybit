@@ -1,12 +1,11 @@
-<%= stylesheet_link_tag "navbar" %>
+<%= stylesheet_link_tag "navbar", "carts" %>
 <% @title="Flybit - Cart" %>
 <% if notice %>
 <p id="notice"><%= notice %></p>
 <% end %>
-<div class="row">
-	<div class="col-md-1"></div>
-		<div class="col-md-10">
-			<div class="panel panel-info">
+<div class="container">
+	<div class="row">
+		<div class="panel panel-info">
 			<div class="panel-heading">
 					<div class="panel-title">
 						<div class="row">
@@ -21,102 +20,100 @@
 						</div>
 					</div>
 			</div>
-				<div class="panel-body">
-					<% if @cart.line_items.empty? %>
-						<div class="row text-center">
-							<h3>Your cart is empty</h3>
-							<div class ="row">
-								<div class="col-md-4 col-sm-4 col-xs-4">
-								</div>
-								<div class="col-md-4 col-sm-4 col-xs-4">
-									<%= link_to "Browse shop", departments_path, class: "btn btn-primary btn-sm btn-block" %>
-								</div>
-								<div class="col-md-4 col-sm-4 col-xs-4">
-								</div>
+			<div class="panel-body">
+				<% if @cart.line_items.empty? %>
+					<div class="row text-center">
+						<h3>Your cart is empty</h3>
+						<div class ="row">
+							<div class="col-md-4 col-sm-4 col-xs-4">
 							</div>
-							<p>Or try to refresh this page</p>
-						</div>
-					<% else %>
-						<% @cart.line_items.each_with_index do |item, index| %>
-						<!-- line item row -->
-							<div class="row" id="line-item-row-id-<%= item.id %>">
-								<div class="col-xs-2 col-md-2 col-sm-2">
-									<img class="img-responsive" src=
-									<%= item.product.attachments.first.image.url(:thumbnail) %>
-								</div>
-								</div>
-								<div class="col-xs-4 col-md-4 col-md-4">
-									<h4 class="product-name"><strong><%= link_to "#{item.product.title}", product_path(item.product) %></strong></h4><h4><small><%= item.product.description %></small></h4>
-								</div>
-								<div class="col-md-5" id="qty-n-price-row-<%= index + 1 %>">
-									<div class="col-xs-4 col-md-4 text-left">
-										<h6><strong><span class="text-muted">€<%= item.product.price %> </span> <span> x </span></strong></h6>
-									</div>
-									<div class="col-xs-4 col-md-4">
-										<%= number_field_tag 'quantity', item.quantity, { min: 1, :onchange => "input_change(#{index + 1}, #{item.id})", id: "quantity-input-id-#{index + 1}" } %>
-									</div>
-									<div class="col-xs-4 col-md-4">
-										<!-- id = litp- = line item total price -->
-										<h6><strong> <span id="litp-id-<%= index %>">= €<%= item.total_price %></span></strong></h6>
-									</div>
-								</div>
-								<div class="col-xs-1 col-md-1 col-md-1">
-									<%= button_to qty_line_item_path(item), method: :post, remote: true,  params: { index: index + 1 } do%>
-										<span class="glyphicon glyphicon-plus"></span>
-									<% end %>
-									<%= button_to qty_line_item_path(item), method: :delete, remote: true, params: { index: index + 1 } do%>
-										<span class="glyphicon glyphicon-minus"></span>
-									<% end %>
-									<%= button_to item, method: :delete , remote: true, data: { confirm: "Are you sure?" } do %>
-								    <span class="glyphicon glyphicon-trash"></span>
-									<% end %>
-								</div>
-							</div><!-- end of line item row-->
-							<hr id="line-item-hr-id-<%= item.id %>">
-						<% end %>
-						<div class="row">
-							<div class="col-xs-10">
-								<div class="row text-center">
-								</div>
+							<div class="col-md-4 col-sm-4 col-xs-4">
+								<%= link_to "Browse shop", departments_path, class: "btn btn-primary btn-sm btn-block" %>
 							</div>
-							<div class="col-xs-2">
-								<h4 class="text-center" id="line-items-total-sum"> <strong>Total: €<%= @cart.total_price %></strong></h4>
+							<div class="col-md-4 col-sm-4 col-xs-4">
 							</div>
 						</div>
+						<p>Or try to refresh this page</p>
+					</div>
+				<% else %>
+					<% @cart.line_items.each_with_index do |item, index| %>
+					<!-- line item row -->
+						<div class="row" id="line-item-row-id-<%= item.id %>">
+							<div class="col-xs-2 col-md-2 col-sm-2">
+								<img class="img-responsive" src=
+								<%= item.product.attachments.first.image.url(:thumbnail) %>
+							</div>
+							</div>
+							<div class="col-xs-4 col-md-4 col-md-4">
+								<h4 class="product-name"><strong><%= link_to "#{item.product.title}", product_path(item.product) %></strong></h4><h4><small><%= item.product.description %></small></h4>
+							</div>
+							<div class="col-md-5" id="qty-n-price-row-<%= index + 1 %>">
+								<div class="col-xs-4 col-md-4 text-left">
+									<h6><strong><span class="text-muted">€<%= item.product.price %> </span> <span> x </span></strong></h6>
+								</div>
+								<div class="col-xs-4 col-md-4">
+									<%= number_field_tag 'quantity', item.quantity, { min: 1, :onchange => "input_change(#{index + 1}, #{item.id})", id: "quantity-input-id-#{index + 1}" } %>
+								</div>
+								<div class="col-xs-4 col-md-4">
+									<!-- id = litp- = line item total price -->
+									<h6><strong> <span id="litp-id-<%= index %>">= €<%= item.total_price %></span></strong></h6>
+								</div>
+							</div>
+							<div class="col-xs-1 col-md-1 col-md-1">
+								<%= button_to qty_line_item_path(item), method: :post, remote: true,  params: { index: index + 1 } do%>
+									<span class="glyphicon glyphicon-plus"></span>
+								<% end %>
+								<%= button_to qty_line_item_path(item), method: :delete, remote: true, params: { index: index + 1 } do%>
+									<span class="glyphicon glyphicon-minus"></span>
+								<% end %>
+								<%= button_to item, method: :delete , remote: true, data: { confirm: "Are you sure?" } do %>
+							    <span class="glyphicon glyphicon-trash"></span>
+								<% end %>
+							</div>
+						</div><!-- end of line item row-->
+						<hr id="line-item-hr-id-<%= item.id %>">
 					<% end %>
-				</div>
-				<div class="panel-footer">
-					<div class="row ">
-							<div class="col-sm-3 col-md-3">
+					<div class="row">
+						<div class="col-xs-10">
+							<div class="row text-center">
 							</div>
-							<div class="col-sm-3 col-md-3">
-							</div>
-							<div class="col-sm-3 col-md-3">
-								<% if @cart.line_items.empty? %>
-								<% else %>
-								<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-								  <input type="hidden" name="cmd" value="_cart">
-								  <input type="image" name="submit"
-								    src="https://www.paypalobjects.com/en_US/i/btn/btn_xpressCheckout.gif"
-								    alt="PayPal - The safer, easier way to pay online">
-								</form>
-								<% end %>
-							</div>
-							<div class="col-sm-3 col-md-3">
-								<% if @cart.line_items.empty? %>
-								<% else %>
-									<% cache "checkout_cache" do %> 
-										<%= render "checkout"  %>
-									<% end %>
-								<% end %>
-							</div>
+						</div>
+						<div class="col-xs-2">
+							<h4 class="text-center" id="line-items-total-sum"> <strong>Total: €<%= @cart.total_price %></strong></h4>
+						</div>
+					</div>
+				<% end %>
+			</div>
+			<div class="panel-footer">
+				<div class="row ">
+					<div class="col-sm-3 col-md-3">
+					</div>
+					<div class="col-sm-3 col-md-3">
+					</div>
+					<div class="col-sm-3 col-md-3">
+						<% if @cart.line_items.empty? %>
+						<% else %>
+						<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+						  <input type="hidden" name="cmd" value="_cart">
+						  <input type="image" name="submit"
+						    src="https://www.paypalobjects.com/en_US/i/btn/btn_xpressCheckout.gif"
+						    alt="PayPal - The safer, easier way to pay online">
+						</form>
+						<% end %>
+					</div>
+					<div class="col-sm-3 col-md-3">
+						<% if @cart.line_items.empty? %>
+						<% else %>
+							<% cache "checkout_cache" do %> 
+								<%= render "checkout"  %>
+							<% end %>
+						<% end %>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="col-md-1"></div>
-	</div>
-</div>
+		</div><!-- End of panel panel-onfo -->
+	</div><!-- End of row -->
+</div><!-- End of container -->
 <script type="text/javascript">
   function input_change(index, item){
   	quantity = parseFloat($("#quantity-input-id-" + index).val()) || 1;

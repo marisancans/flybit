@@ -23,16 +23,26 @@ $(document).ready(function(){
 				        <img src="<%= asset_path(attachment.image.url(:mini_show)) %>" />
 				    </a>
 			    <% end %>
+			    <hr>
 				</div>
 			</div>
 		</div>
 			<div class="col-md-4 col-sm-4">
-				<ul class="list-unstyled">
-					<li>Price: <%= @product.price %></li>
-					<li>Description: <%= @product.description %></li>
-
-					<%= button_to " Add to cart", line_items_path(product_id: @product), remote: true, class: "btn btn-default glyphicon glyphicon-shopping-cart" %>
-				</ul>
+				<div class="row">
+					<div class="col-md-6 col-sm-6">
+						<div id ="price">Price: <%= @product.price %></div>
+					</div>
+					<div class="col-md-6 col-sm-6">
+						<%= button_to line_items_path(product_id: @product), remote: true, class: "btn btn-default btn-lg outline" do %>
+							<i>Add to cart</i>
+						<% end %>
+					</div>
+				</div>
+				<hr>	
+				<div class="row description-text">
+					<%= @product.description %>
+					<hr>
+				</div>
 			</div>
 	</div><!--End of row -->
 
