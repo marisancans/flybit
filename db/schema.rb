@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160421080417) do
+ActiveRecord::Schema.define(version: 20160421082041) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -115,17 +115,12 @@ ActiveRecord::Schema.define(version: 20160421080417) do
   add_index "products", ["product_attribute_id"], name: "index_products_on_product_attribute_id", using: :btree
 
   create_table "sliders", force: :cascade do |t|
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string   "image"
-    t.integer  "product_id"
-    t.integer  "category_id"
-    t.string   "Slider"
     t.string   "title"
+    t.string   "url"
   end
-
-  add_index "sliders", ["category_id"], name: "index_sliders_on_category_id", using: :btree
-  add_index "sliders", ["product_id"], name: "index_sliders_on_product_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -153,6 +148,4 @@ ActiveRecord::Schema.define(version: 20160421080417) do
   add_foreign_key "line_items", "orders"
   add_foreign_key "line_items", "products"
   add_foreign_key "products", "product_attributes"
-  add_foreign_key "sliders", "categories"
-  add_foreign_key "sliders", "products"
 end
