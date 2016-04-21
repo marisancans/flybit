@@ -4,6 +4,7 @@ class StaticPagesController < ApplicationController
   before_action :set_cart
 
   def home
+    
   end
 
   def show
