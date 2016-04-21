@@ -15,6 +15,8 @@ ActiveAdmin.setup do |config|
 
   config.view_factory.footer = MyFooter
 
+
+
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
   #
