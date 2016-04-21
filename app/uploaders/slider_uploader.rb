@@ -3,9 +3,9 @@ class SliderUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
    include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
-  
-  version :admin_panel do
-    resize_to_fit(500, 500)
+
+  version :slider do
+    resize_to_fit(1200, 315)
   end
 
   # Choose what kind of storage to use for this uploader:
