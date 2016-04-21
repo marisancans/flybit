@@ -4,7 +4,7 @@ class StaticPagesController < ApplicationController
   before_action :set_cart
 
   def home
-    
+    @sliders = Slider.all
   end
 
   def show

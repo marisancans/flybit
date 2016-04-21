@@ -5,7 +5,11 @@ class SliderUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
 
   version :slider do
-    resize_to_fit(1200, 315)
+    resize_and_pad(1200, 315)
+  end
+
+  version :thumbnail do
+    resize_to_fit(250, 250)
   end
 
   # Choose what kind of storage to use for this uploader:

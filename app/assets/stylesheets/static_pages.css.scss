@@ -1,0 +1,26 @@
+.carousel-control.left, .carousel-control.right {
+    background-image: none
+}
+
+.content {
+	padding-top: 50px;
+}
+
+.row-line {
+
+	margin-top: 35px;
+	margin-bottom: 53px;
+
+	.row-line-text {
+		background-color: black;
+		padding-top: 1px;
+		padding-bottom: 1px;
+		color: white;
+		font-size: 25px;
+		font-family: 'Open Sans' !important;
+    font-style: normal;
+    font-weight: 300;
+		padding-right: 100px;
+		padding-left: 100px;
+	}
+}
