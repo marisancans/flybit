@@ -18,64 +18,67 @@
 <% end %>
 
 <div class="row content">
-
-  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-    </ol>
+  <div class="col-md-12">
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <% @sliders.drop(1).each_with_index do |slider, index| %>
+          <li data-target="#carousel-example-generic" data-slide-to="<%= index + 1 %>" ></li>
+        <% end %>
+      </ol>
    
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-      <div class="item active">
-        <a href="<%= @sliders.first.url %>">
-          <img class="img-responsive" src="<%= @sliders.first.image.url(:slider) %>" alt="...">
-          <div class="carousel-caption">
-              <h3><%= @sliders.first.title %></h3>
-          </div>
-        </a>
-      </div>
-      <% @sliders.drop(1).each do |slider| %>
-        <div class="item">
-          <a href="<%= slider.url %>">
-            <img src="<%= slider.image.url(:slider) %>" alt="...">
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <div class="item active">
+          <a href="<%= @sliders.first.url %>">
+            <img class="img-responsive" src="<%= @sliders.first.image.url(:slider) %>" alt="...">
             <div class="carousel-caption">
-                <h3><%= slider.title %></h3>
+                <h3><%= @sliders.first.title %></h3>
             </div>
           </a>
         </div>
-      <% end %>
-    </div>
+        <% @sliders.drop(1).each do |slider| %>
+          <div class="item">
+            <a href="<%= slider.url %>">
+              <img src="<%= slider.image.url(:slider) %>" alt="...">
+              <div class="carousel-caption">
+                  <h3><%= slider.title %></h3>
+              </div>
+            </a>
+          </div>
+        <% end %>
+      </div>
    
-    <!-- Controls -->
-    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-    </a>
-    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-    </a>
-  </div> <!-- Carousel -->
+      <!-- Controls -->
+      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+      </a>
+    </div>
+  </div>
+</div>
 
 
 
 
   <!-- Exclusive products -->
   <!-- Page Content -->
-  <div class="container">
+
         <div class="row row-line text-center">
-          <span class="row-line-text">Discounts</span>
+          <div class="col-md-12">
+            <span class="row-line-text">Discounts</span>
+          </div>
         </div>
 
         <div class="row">
-          <% 4.times do %>
-          <div class="col-xs-6 col-sm-3">
-              <a class="thumbnail" href="#">
-                  <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-              </a>
+          <div class="col-md-12">
+            <% @discount_products.first(4).each do |discount_product| %>
+              <%= render discount_product.product %>
+            <% end %>
           </div>
-          <% end %>
         </div>
 
         <div class="row row-line text-center">
@@ -110,8 +113,3 @@
                 </a>
             </div>
           </div>
-        </div>
-      </div>
-
-  </div>
-</div>

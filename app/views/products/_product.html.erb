@@ -11,7 +11,10 @@
 
         <h6><%= product.title %></h6>
         
-				<%= link_to " More info", product, class: "btn btn-default glyphicon glyphicon-info-sign" %> 
+				<%= link_to " More info", product, class: "btn btn-default glyphicon glyphicon-info-sign" -%> 
+        <%= link_to product, class: "btn btn-default" do %>
+            <i class="glyphicon glyphicon-info-sign">More info</i>
+        <% end -%>
 
 
 			<h3>€<%= product.price %><h3>

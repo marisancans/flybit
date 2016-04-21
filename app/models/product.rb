@@ -17,6 +17,10 @@ class Product < ActiveRecord::Base
 		end
 	end
 
+	def discount_percent(original_price, discount_price)
+		original_price.percent_of(discount_price)
+	end
+
 	private
  		#ensure that there are no line items referencing this product
 		def ensure_not_referenced_by_any_line_item

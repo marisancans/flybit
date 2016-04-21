@@ -5,6 +5,7 @@ class StaticPagesController < ApplicationController
 
   def home
     @sliders = Slider.all
+    @discount_products = DiscountProduct.all
   end
 
   def show
