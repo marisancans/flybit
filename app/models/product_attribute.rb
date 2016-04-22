@@ -1,3 +1,3 @@
 class ProductAttribute < ActiveRecord::Base
-	belongs_to :product_attributes
+	belongs_to :product
 end

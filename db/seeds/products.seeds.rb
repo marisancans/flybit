@@ -5,7 +5,7 @@ choice = STDIN.gets.chomp.to_i
 category_count = Category.count
 c = 0
 choice.times do
-c += 1
+  c += 1
   title  = ""
   title += Faker::Hacker.noun
   title += " " + Faker::Hacker.adjective
@@ -15,6 +15,13 @@ c += 1
   paragraph_count =  Faker::Number.between(5, 20)
   description = Faker::Lorem.paragraph(paragraph_count, false, 4)
   price = Faker::Commerce.price
+
+  if (1..20).member?(rand(1..100))
+    begin
+      discount = Faker::Commerce.price
+    end while discount > price
+  end
+
   department_id = Faker::Number.between(1, 5)
   category_id = Faker::Number.between(1, category_count)
   img = image_array.sample
@@ -22,10 +29,11 @@ c += 1
                   description: description,
                   price: price,
                   department_id: department_id,
-                  category_id: category_id)
+                  category_id: category_id,
+                  discount: discount)
 
   puts "#{c}: #{title}, price = #{price}, image = #{img}"
-  Attachment.create(image: Rails.root.join("public/uploads/seeds/#{img}").open, 
+  Attachment.create(image: Rails.root.join("public/seeds/product_images/#{img}").open, 
                     product_id: Product.last.id)
   c = 0
   a = 0

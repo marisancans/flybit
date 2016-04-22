@@ -34,6 +34,7 @@ ActiveAdmin.register Product do
     end
     actions dropdown: true 
   end
+  #     number_to_percentage(current_discount_product.product.discount_percent(current_discount_product.product.price, current_discount_product.discount_price), precision: 0) if !current_discount_product.product.price.nil? && !current_discount_product.discount_price.nil?
 
   show do
     attributes_table do

@@ -15,7 +15,7 @@ Product.find_each do |product|
 			when 1
 			  details += Faker::StarWars.droid
 			when 2
-			  details += Faker::Beer.blg
+		  details += Faker::Beer.blg
 			when 3
 			  details += " " + Faker::Number.between(1, 4).to_s
 			when 4 

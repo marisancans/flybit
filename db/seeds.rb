@@ -118,11 +118,18 @@ product_count.times do
   price = Faker::Commerce.price
   department_id = Faker::Number.between(1, 5)
   category_id = Faker::Number.between(1, category_count)
+
+  if (1..20).member?(rand(1..100))
+    begin
+      discount = Faker::Commerce.price
+    end while discount > price
+  end
   Product.create!(title:  title,
                   description: description,
                   price: price,
                   department_id: department_id,
-                  category_id: category_id)
+                  category_id: category_id,
+                  discount: discount)
   puts "#{c}: #{title}, price = #{price}"
 end
 puts "== CREATED #{product_count} products ==\n\n"
@@ -136,11 +143,21 @@ puts "== CREATING attachments =="
 Product.find_each do |product|
   c += 1
   img = image_array.sample
-  Attachment.create(image: Rails.root.join("public/uploads/seeds/#{img}").open, 
+  Attachment.create(image: Rails.root.join("public/seeds/product_images/#{img}").open, 
                     product_id: product.id)
   puts "#{c}: #{img} for product id: #{product.id}"
 end
 puts "== DONE, created #{c} attachments ==\n\n" 
+
+#Generate sliders
+puts "== CREATING sliders =="
+c = 0
+4.times do |slider|
+  c += 1
+  Slider.create!(image: Rails.root.join("public/seeds/sliders/slider#{c}.jpg").open)
+  puts "#{c} | slider#{c}.jpg "
+end
+puts "== DONE, created 4 sliders ==\n\n"
 
 #Generate attributes
 puts "== CREATING attributes =="
