@@ -18,7 +18,7 @@ class Product < ActiveRecord::Base
 	end
 
 	def discount_percent(original_price, discount_price)
-		original_price.percent_of(discount_price)
+		((original_price + discount_price) / 100) * discount_price 
 	end
 
 	private
