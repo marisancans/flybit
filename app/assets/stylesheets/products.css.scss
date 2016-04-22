@@ -1,11 +1,48 @@
-h2 {
-  font-family: 'Open Sans' !important;
-  padding-bottom: 10px;
+.price {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 18px;
+}
+
+.title{
+  font-size: 20px;
+  font-family: 'Open Sans'
 }
 
 #content{
   padding-top: 35px;
+  font-family: 'Open Sans';
+  p {
+
+  }
 }
+
+.thumbnail:nth-child(3n+1) {
+  clear: left;
+}
+
+
+.button-row {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.btn.sharp {
+  border-radius:0;
+  background-color: white;
+  color: #000000;
+  font-size: 15px;
+  border: solid #000000 2px;
+  text-decoration: none;
+  margin-right: 0px;
+}
+
+.btn.sharp:hover {
+  background: #000000;
+  text-decoration: none;
+  color: white;
+}
+
 
 /*  Bootstrap Clearfix */
 
