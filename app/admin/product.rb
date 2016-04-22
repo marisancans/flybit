@@ -1,5 +1,5 @@
 ActiveAdmin.register Product do
-	permit_params :title, :department, :category, :price, :description, :department_id, :category_id, :product_attribute_id,
+	permit_params :title, :department, :category, :price, :discount, :description, :department_id, :category_id, :product_attribute_id,
                 attachments_attributes: [:image, :image_content_type, :image_file_size, :image_updated_at, :_destroy, :id],
                 product_attributes_attributes: [:title, :details, :_destroy, :id]
   collection_action :change_categories, :method => :get do
@@ -19,10 +19,15 @@ ActiveAdmin.register Product do
   filter :department
   filter :category#, collection: 
   filter :created_at
+  filter :discount
 
 	index pagination_total: false do
     column :id
     column :price
+    column :discount
+    column "Discount percentage" do |product|
+      number_to_percentage(product.discount_percent(product.price, product.discount), precision: 0) if !product.price.nil? && !product.discount.nil?
+    end
     column "Title", sortable: :title do |p|
       link_to p.title, admin_product_path(p)
     end
@@ -34,13 +39,17 @@ ActiveAdmin.register Product do
     end
     actions dropdown: true 
   end
-  #     number_to_percentage(current_discount_product.product.discount_percent(current_discount_product.product.price, current_discount_product.discount_price), precision: 0) if !current_discount_product.product.price.nil? && !current_discount_product.discount_price.nil?
+  
 
   show do
     attributes_table do
       row :id
       row :title
       row :price
+      row :discount
+      row "Discount percentage" do
+        number_to_percentage(product.discount_percent(product.price, product.discount), precision: 0) if !product.price.nil? && !product.discount.nil?
+      end
       row :description
       row :department
       row :category
@@ -69,6 +78,7 @@ ActiveAdmin.register Product do
     inputs 'Details' do
       f.input :title
       f.input :price  
+      f.input :discount
       f.input :description
       f.input :department, include_blank: false, :input_html => {
         onchange: remote_get("change_categories", 'product_department_id', :product_category_id)

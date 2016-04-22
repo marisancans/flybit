@@ -5,7 +5,10 @@ class StaticPagesController < ApplicationController
 
   def home
     @sliders = Slider.all
-    @discount_products = DiscountProduct.all
+    @discount_products = Product.where("discount IS NOT NULL").order("RANDOM()").limit(4)
+    #where.not(user_id: "")
+    #User.find(:all, )
+    #Model.order('rand()').limit(1).first.name
   end
 
   def show
