@@ -12,7 +12,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
   
   version :thumbnail do
-    resize_and_pad(250, 250)
+    resize_and_pad(250, 250, background = :transparent)
   end
 
   version :show do

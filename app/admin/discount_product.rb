@@ -41,9 +41,7 @@ show do
     	current_discount_product.product.price
     end
     column "Discount percentage" do |current_discount_product|
-    	current_discount_product.product.discount_percent(current_discount_product.product.price, current_discount_product.discount_price) if !current_discount_product.product.price.nil? && !current_discount_product.discount_price.nil?
-    	#current_discount_product.product.discount_percent(100, 25)
-    	#number_to_percentage(100, precision: 0)
+    	number_to_percentage(current_discount_product.product.discount_percent(current_discount_product.product.price, current_discount_product.discount_price), precision: 0) if !current_discount_product.product.price.nil? && !current_discount_product.discount_price.nil?
     end
     column :created_at
     column "Image" do |current_discount_product|

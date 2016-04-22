@@ -22,6 +22,7 @@ ActiveAdmin.register Product do
 
 	index pagination_total: false do
     column :id
+    column :price
     column "Title", sortable: :title do |p|
       link_to p.title, admin_product_path(p)
     end

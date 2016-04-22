@@ -5,7 +5,7 @@
 <div class="col-lg-3 col-md-4 col-xs-6 thumb">
   <div class="thumbnail">
     <%= link_to product do %>
-        <img class="img-responsive"> <%= image_tag(product.attachments.first.image.url) if product.attachments.exists? %></img>
+      <%= image_tag(product.attachments.first.image.url(:thumbnail)) if product.attachments.exists? %>
       <div class="text-under-thumbnail">
        <% end %>
 
