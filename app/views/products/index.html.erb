@@ -2,8 +2,8 @@
 <%= stylesheet_link_tag "navbar-fixed-side" %>
 <% @title="Flybit - #{@current_category}" %>
 
-<div class="row">
-	<div class="col-md-11">
+<div class="row" id="content">
+	<div class="col-md-12">
 		<div class="col-sm-2 col-lg-2">
     <nav class="navbar navbar-default navbar-fixed-side">
       <!-- normal collapsible navbar markup -->
@@ -32,8 +32,8 @@
 		  <%= render @products %>
 		<% end %>
 	</div>
-	<div class="col-md-1"></div>
 </div>
+
 
 <div class="row">
 	<div class="col-md-4 col-xs-4">

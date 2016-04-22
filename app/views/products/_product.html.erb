@@ -5,20 +5,22 @@
 <div class="col-lg-3 col-md-4 col-xs-6 thumb">
   <div class="thumbnail">
     <%= link_to product do %>
-      <%= image_tag(product.attachments.first.image.url(:thumbnail)) if product.attachments.exists? %>
-      <div class="text-under-thumbnail">
-       <% end %>
-
-        <h6 style="padding-bottom: 10px;"><%= product.title %></h6>
-        
-        <%= link_to product, class: "btn btn-default" do %>
-            <i class="glyphicon glyphicon-info-sign">More info</i>
-        <% end -%>
-
-
-			<h3>€<%= product.price %><h3>
-        <%= button_to " Add to cart", line_items_path(product_id: product), remote: true, class: "btn btn-default glyphicon glyphicon-shopping-cart" %>
-      </a>
+      <%= image_tag(product.attachments.first.image.url(:thumbnail)) %>
+    <% end if product.attachments.exists?  %>
+      <div class"col-md-12">
+        <h4 class="text-center"><%= product.title %></h4>
       </div>
+     <div class="col-md-12 pull-left">
+      <div class="col-md-6">
+
+        <%= link_to product, class: "btn btn-default" do %>
+          <i class="glyphicon glyphicon-info-sign">More info</i>
+        <% end -%>
+      </div>
+      <div class="col-md-6 pull-right">
+        <%= button_to " Add to cart", line_items_path(product_id: product), remote: true, class: "btn btn-default glyphicon glyphicon-shopping-cart" %>
+      </div>
+    </div>
+    <h3>€<%= product.price %><h3>
   </div>
 </div>

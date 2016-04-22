@@ -23,13 +23,13 @@ ActiveAdmin.register Product do
 
 	index pagination_total: false do
     column :id
+    column "Title", sortable: :title do |p|
+      link_to p.title, admin_product_path(p)
+    end
     column :price
     column :discount
     column "Discount percentage" do |product|
       number_to_percentage(product.discount_percent(product.price, product.discount), precision: 0) if !product.price.nil? && !product.discount.nil?
-    end
-    column "Title", sortable: :title do |p|
-      link_to p.title, admin_product_path(p)
     end
   	column :department  
   	column :category

@@ -124,7 +124,7 @@ product_count.times do
       discount = Faker::Commerce.price
     end while discount > price
   end
-  Product.create!(title:  title,
+  Product.create!(title:  title.capitalize,
                   description: description,
                   price: price,
                   department_id: department_id,

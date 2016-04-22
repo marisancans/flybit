@@ -25,7 +25,7 @@ choice.times do
   department_id = Faker::Number.between(1, 5)
   category_id = Faker::Number.between(1, category_count)
   img = image_array.sample
-  Product.create!(title:  title,
+  Product.create!(title:  title.capitalize,
                   description: description,
                   price: price,
                   department_id: department_id,

@@ -2,8 +2,6 @@
 <% @title="Flybit - Categories" %>
 <%= stylesheet_link_tag "navbar" %>
 <h4><%= Department.find(params[:selected]).name %></h4>
-<div class="col-md-1"></div>
-<div class="col-md-10">
+<div class="container">
 	<%= render @categories %>
 </div>
-<div class="col-md-1"></div>
