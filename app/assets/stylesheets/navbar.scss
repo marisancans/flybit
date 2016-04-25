@@ -90,11 +90,28 @@ body{
 
 /*--------------- Cart ---------------*/
 
-.cart {
-  width: 500px;
-  overflow-y: scroll; height:500px;
+#cart {
+ td {
+    font-family: 'Open Sans';
+  font-size: 17px;
+  a{
+    text-decoration: none;
+    color: black;
+    }
+  }
 }
 
+.cart-table{
+  width: 400px;
+  height: 200px;
+  overflow-y: scroll; height:200px;
+}
+
+.cart-image {
+  img{
+    width: 100px;
+  }
+}
 
 .cart_login_margin_from_right{
   margin-right: 5%;

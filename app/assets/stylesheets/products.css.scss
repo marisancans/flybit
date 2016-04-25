@@ -73,6 +73,10 @@
   font-family: 'Open Sans', 'sans-serif' !important;
 }
 
+.btn.sharp:focus {
+  outline: none;
+}
+
 .btn.sharp:hover {
   background: #000000;
   text-decoration: none;

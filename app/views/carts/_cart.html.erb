@@ -1,33 +1,39 @@
-<div class = "cart">
-
-
-	<table class="table table-bordered table-responsive">
-	 <thead>
-    <tr>
-    	<th>Image</th>
-      <th>Product title</th>
-      <th>Quantity</th>
-    </tr>
-  </thead>
-  <tbody>
-  	<% @cart.line_items.each do |line_item| %>
+<% if @cart.line_items.blank? %>
+	<div class="row text-center">
+		Your cart is empty
+	</div>
+	<%= link_to "Browse shop", departments_path, class: "btn btn-primary btn-sm btn-block" %>
+<% else %>
+<div class="cart-table">
+		<table class="table table-bordered table-responsive">
+		 <thead>
 	    <tr>
-	    	<td class="cart-image img-responsive"><%= image_tag line_item.product.attachments.first.image.url(:thumbnail) %></td>
-	      <td><%= line_item.product.title %></td>
-	      <td><%= line_item.quantity %></td>
+	    	<th>Image</th>
+	      <th>Product title</th>
+	      <th>Price</th>
+	      <th>Quantity</th>
 	    </tr>
-	   <% end %>
-	   	<tr>
-	   		<th>Total:</th>
-	    	<th><b>€ <%= @cart.total_price %></b></th>
-	    </tr>
-  </tbody>
-</table>
+	  </thead>
+	  <tbody>
+	  	<% @cart.line_items.each do |line_item| %>
+		    <tr>
+		    	<td class="cart-image"><%= image_tag line_item.product.attachments.first.image.url(:thumbnail) %></td>
+		      <td ><%= link_to line_item.product.title, product_path(line_item.product) %></td>
+		      <td>€<%= line_item.product.price %></td>
+		      <td><%= line_item.quantity %></td>
+		    </tr>
+		   <% end %>
+		   	<tr>
+		   		<th>Total:</th>
+		    	<th><b>€ <%= @cart.total_price %></b></th>
+		    </tr>
+	  </tbody>
+	</table>
+</div>
 
 	<div class = "cart_button_center">
 		<%= button_to "show cart and checkout", cart_path(session[:cart_id]),  method: :get %>
 
 		<%= button_to "empty", empty_line_items_cart_path(session[:cart_id]), remote: true, method: :delete, data: { confirm: 'Are you sure?'}  if !@cart.line_items.blank? %>
 	</div>
-</div>
-
+<% end %>
