@@ -1,9 +1,6 @@
 <%= stylesheet_link_tag "navbar", "home_page", "products" %>
 <% @title="Flybit" %>
 
-<% if notice %>
-  <p id = "notice"><%= notice %></p>
-<% end %>
 
 
 <% if Rails.env.production? %>
@@ -14,6 +11,9 @@
   </div>
 <% end %>
 <div class="container">
+  <% if notice %>
+    <p class="alert alert-info" id = "notice"><%= notice %></p>
+  <% end %>
   <div class="row content">
     <div class="col-md-12">
       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">

@@ -24,16 +24,20 @@
 		    </tr>
 		   <% end %>
 		   	<tr>
+		   		<th></th>
+		    	<th></th>
 		   		<th>Total:</th>
 		    	<th><b>€ <%= @cart.total_price %></b></th>
 		    </tr>
 	  </tbody>
 	</table>
 </div>
-
-	<div class = "cart_button_center">
-		<%= button_to "show cart and checkout", cart_path(session[:cart_id]),  method: :get %>
-
-		<%= button_to "empty", empty_line_items_cart_path(session[:cart_id]), remote: true, method: :delete, data: { confirm: 'Are you sure?'}  if !@cart.line_items.blank? %>
+<div class="row">
+	<div class="col-md-6">
+		<%= link_to "show cart and checkout", cart_path(session[:cart_id]),  method: :get, class: "btn btn-primary btn-lg outline" %>
 	</div>
+	<div class="col-md-6">
+		<%= button_to "empty", empty_line_items_cart_path(session[:cart_id]), remote: true, method: :delete, data: { confirm: 'Are you sure?'}, class: "btn btn-primary btn-lg outline pull-right"  if !@cart.line_items.blank? %>
+	</div>
+</div>
 <% end %>

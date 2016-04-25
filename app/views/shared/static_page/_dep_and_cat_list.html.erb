@@ -1,7 +1,7 @@
  <!-- Department and category list for navbar 
 data aviable in seed files-->
-<% departments = Department.all
-	categories = Category.all 
+<% departments = Department.all.order("id")
+	categories = Category.all .order("id")
   category_counter = 0 %>
 <% departments.each_with_index do |department, index| %>
   <li style = "max-width: 40%;">

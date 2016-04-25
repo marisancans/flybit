@@ -46,8 +46,20 @@
 	  	<div class="panel-heading text-center">
 	  		<h2 class="panel-title">Choose payment method</h2>
 	  	</div>
-			<%= render "braintree"  if !@cart.line_items.empty? %>
-			<%= render "stripe"  if !@cart.line_items.empty? %>
+	  	<div class="row">
+	  		<div class="col-md-4">
+	  		</div>
+	  		<div class="col-md-4">
+	  			<div class="col-md-6">
+			  		<%= render "braintree"  if !@cart.line_items.empty? %>
+			  	</div>
+			  	<div class="col-md-6">
+						<%= render "stripe"  if !@cart.line_items.empty? %>
+					</div>
+	  		</div>
+	  		<div class="col-md-4">
+	  		</div>
+			</div>
 		</div>
 	</div>
 

@@ -121,6 +121,20 @@ body{
   border-radius: 5px;  
 }
 
+/***********************
+  OUTLINE BUTTONS
+************************/
+
+.btn.outline {
+    background: none;
+    padding: 5px 10px;
+    border-radius: 0px;
+}
+.btn-primary.outline {
+    border: 2px solid #0099cc;
+    color: #0099cc;
+}
+
 
 
 
