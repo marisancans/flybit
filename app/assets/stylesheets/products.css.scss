@@ -23,31 +23,60 @@
   }
 }
 
-.thumbnail:nth-child(3n+1) {
-  clear: left;
+.thumb-info:hover {
+  .button-row{
+    opacity: 1;
+  }
+  img{
+    -webkit-filter: blur(5px);
+  }
+}
+
+.thumb-info {
+  /* Enable hardware acceleration to fix laggy transitions */
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+  img {
+    -webkit-transition: all .5s ease;
+     -moz-transition: all .5s ease;
+       -o-transition: all .5s ease;
+      -ms-transition: all .5s ease;
+          transition: all .5s ease;
+  }
 }
 
 
 .button-row {
-  padding-top: 5px;
-  padding-bottom: 5px;
+  opacity: 0;
+  position: absolute;
+  transition: opacity .5s ease-in-out;
+ -moz-transition: opacity .5s ease-in-out;
+ -webkit-transition: opacity .5s ease-in-out;
+  top: 125px;
 }
 
+
+
 .btn.sharp {
-  border-radius:0;
-  background-color: white;
-  color: #000000;
-  font-size: 15px;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  font-size: 20px;
   border: solid #000000 2px;
   text-decoration: none;
   margin-right: 0px;
   transition: all 0.5s ease 0s;
+  background-repeat:no-repeat;
+  font-family: 'Open Sans', 'sans-serif' !important;
 }
 
 .btn.sharp:hover {
   background: #000000;
   text-decoration: none;
-  color: white;
+  color: #2ecc71;
 }
 
 
@@ -129,4 +158,5 @@
     clear: left;
   }
 }
+
 

@@ -90,16 +90,9 @@ body{
 
 /*--------------- Cart ---------------*/
 
-.cart{
-  
-  table{
-    width: 20%;
-  }
-
-  .cart_button_center{
-    text-align: center;
-  }
-
+.cart {
+  width: 500px;
+  overflow-y: scroll; height:500px;
 }
 
 

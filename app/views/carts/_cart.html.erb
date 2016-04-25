@@ -1,18 +1,28 @@
 <div class = "cart">
-	<table>
-		<%= render(cart.line_items) %>
 
-		<tr class="total_line">
-			<% if @cart.line_items.empty? %>
-				Your cart is empty
-				<%= link_to "Browse shop", departments_path, class: "btn btn-primary btn-sm btn-block" %>
-			<% else %>
-				<td colspan="2">Total</td>
-				<td class="total_cell"><%= number_to_currency(cart.total_price) %></td>
-			<% end %>
-		</tr>
 
-	</table>
+	<table class="table table-bordered table-responsive">
+	 <thead>
+    <tr>
+    	<th>Image</th>
+      <th>Product title</th>
+      <th>Quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<% @cart.line_items.each do |line_item| %>
+	    <tr>
+	    	<td class="cart-image img-responsive"><%= image_tag line_item.product.attachments.first.image.url(:thumbnail) %></td>
+	      <td><%= line_item.product.title %></td>
+	      <td><%= line_item.quantity %></td>
+	    </tr>
+	   <% end %>
+	   	<tr>
+	   		<th>Total:</th>
+	    	<th><b>€ <%= @cart.total_price %></b></th>
+	    </tr>
+  </tbody>
+</table>
 
 	<div class = "cart_button_center">
 		<%= button_to "show cart and checkout", cart_path(session[:cart_id]),  method: :get %>

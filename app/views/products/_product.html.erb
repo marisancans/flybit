@@ -2,24 +2,26 @@
 <p id="notice"><%= notice %></p>
 <% end %>
 
-<div class="col-sm-6 col-lg-3 col-xs-12 col-md-4">
-  <%= link_to product do %>
-    <%= image_tag(product.attachments.first.image.url(:thumbnail)) %>
+<div class="col-sm-6 col-lg-3 col-xs-12 col-md-4 thumb">
+  <div class="thumb-info">
+    <%= link_to product do %>
+      <%= image_tag(product.attachments.first.image.url(:thumbnail)) %>
 
-  <% end if product.attachments.exists?  %>
-    <div class="row button-row">
-      <div class="col-md-6 sharp pull-right">
-        <%= button_to "Add to cart", line_items_path(product_id: product), remote: true, class: "btn btn-primary btn-lg sharp" %>
+    <% end if product.attachments.exists?  %>
+      <div class="button-row">
+        <div class="col-md-6 sharp pull-right">
+          <%= button_to "Add to cart", line_items_path(product_id: product), remote: true, class: "btn btn-primary btn-lg sharp" %>
+        </div>
+        <div class="col-md-6 sharp pull-left">
+          <%= button_to "More info", line_items_path(product_id: product), remote: true, class: "btn btn-primary btn-lg sharp" %>
+        </div>
       </div>
-      <div class="col-md-6 sharp pull-left">
-        <%= button_to "More info", line_items_path(product_id: product), remote: true, class: "btn btn-primary btn-lg sharp" %>
-      </div>
+    <div class"col-md-12">
+      <p class="text-center title"><%= link_to product.title, product_path(product) %></p>
     </div>
-  <div class"col-md-12">
-    <p class="text-center title"><%= link_to product.title, product_path(product) %></p>
-  </div>
-  <div class="col-md-12">
-    <h3 class="price text-center">€<b><%= product.price %></b> <h3>
+    <div class="col-md-12">
+      <h3 class="price text-center">€<b><%= product.price %></b> <h3>
+    </div>
   </div>
   <div class="col-md-12">
     <% if !product.product_attributes.empty? %>
