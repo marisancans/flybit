@@ -22,6 +22,10 @@ choice.times do
     end while discount > price
   end
 
+  if (1..10).member?(rand(1..100))
+    special = true
+  end
+
   department_id = Faker::Number.between(1, 5)
   category_id = Faker::Number.between(1, category_count)
   img = image_array.sample
@@ -32,7 +36,8 @@ choice.times do
                   department_id: department_id,
                   category_id: category_id,
                   discount: discount,
-                  times_bought: times_bought)
+                  times_bought: times_bought,
+                  special: special)
 
   puts "#{c}: #{title}, price = #{price}, image = #{img}"
   Attachment.create(image: Rails.root.join("public/seeds/product_images/#{img}").open, 

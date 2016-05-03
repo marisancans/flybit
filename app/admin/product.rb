@@ -1,5 +1,5 @@
 ActiveAdmin.register Product do
-	permit_params :title, :department, :category, :price, :times_bought, :discount, :description, :department_id, :category_id, :product_attribute_id,
+	permit_params :title, :department, :category, :special, :price, :times_bought, :discount, :description, :department_id, :category_id, :product_attribute_id,
                 attachments_attributes: [:image, :image_content_type, :image_file_size, :image_updated_at, :_destroy, :id],
                 product_attributes_attributes: [:title, :details, :_destroy, :id]
   collection_action :change_categories, :method => :get do
@@ -20,6 +20,8 @@ ActiveAdmin.register Product do
   filter :category#, collection: 
   filter :created_at
   filter :discount
+  filter :times_bought
+  filter :special, :as => :select
 
 	index pagination_total: false do
     column :id
@@ -32,6 +34,7 @@ ActiveAdmin.register Product do
       number_to_percentage(product.discount_percent(product.price, product.discount), precision: 0) if !product.price.nil? && !product.discount.nil?
     end
     column :times_bought
+    column :special
   	column :department  
   	column :category
     column :created_at, filter: :created_at, as: :check_boxes
@@ -52,6 +55,7 @@ ActiveAdmin.register Product do
         number_to_percentage(product.discount_percent(product.price, product.discount), precision: 0) if !product.price.nil? && !product.discount.nil?
       end
       row :times_bought
+      row :special
       row :description
       row :department
       row :category
@@ -81,6 +85,7 @@ ActiveAdmin.register Product do
       f.input :title
       f.input :price  
       f.input :discount
+      f.input :special
       f.input :description
       f.input :department, include_blank: false, :input_html => {
         onchange: remote_get("change_categories", 'product_department_id', :product_category_id)

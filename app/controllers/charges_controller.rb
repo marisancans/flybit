@@ -18,7 +18,7 @@ class ChargesController < ApplicationController
 	  @price_paid = @cart.total_price
 	  text = ""
 	  @cart.line_items.each  do |item|
-			text += item.product.title + "(#{item.quantity}), "
+			text += item.product.title + "(#{item.quantity}x), "
 		end
 	  @items_bought = text
 		token = params[:stripeToken]
@@ -39,6 +39,9 @@ class ChargesController < ApplicationController
 	  										 	 country: params[:stripeShippingAddressCountry],
 	  										 	 country_code: params[:stripeShippingAddressCountryCode]
 	  )
+	  @cart.line_items.each do |line_item|
+		  line_item.product.update(times_bought: line_item.product.times_bought += line_item.quantity)
+		end
 	  order.add_line_items_from_cart(@cart)
 	  session[:cart_id] = nil
 

@@ -126,13 +126,18 @@ product_count.times do
     end while discount > price
   end
 
+  if (1..10).member?(rand(1..100))
+    special = true
+  end
+
   Product.create!(title:  title.capitalize,
                   description: description,
                   price: price,
                   department_id: department_id,
                   category_id: category_id,
                   discount: discount,
-                  times_bought: times_bought)
+                  times_bought: times_bought,
+                  special: special)
   puts "#{c}: #{title}, price = #{price}"
 end
 puts "== CREATED #{product_count} products ==\n\n"

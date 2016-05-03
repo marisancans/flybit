@@ -79,13 +79,11 @@
   </div>
 
   <div class="row">
-    <% 4.times do %>
-      <div class="col-xs-6 col-sm-3">
-        <a class="thumbnail" href="#">
-          <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-        </a>
-      </div>
-    <% end %>
+    <div class="col-md-12">
+      <% @special_products.each do |product| %>
+        <%= render product %>
+      <% end %>
+    </div>
   </div>
 
   <div class="row row-line text-center">

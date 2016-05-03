@@ -16,7 +16,7 @@
 					 <thead>
 			      <tr>
 			        <th>Product title</th>
-			        <th>Price per one product</th>
+			        <th>Price per one unit</th>
 			        <th>Quantity</th>
 			        <th>Total price for porduct</th>
 			      </tr>
@@ -42,22 +42,28 @@
 	</div>
 
 	<div class="row">
+		<div class="col-md-7 col-md-offset-5">
+			<%= link_to "Back", cart_path(session[:cart_id]), class: "btn btn-primary btn-lg outline back-button" %>
+		</div>
+	</div>
+
+	<div class="row">
 	  <div class="panel panel-default">
 	  	<div class="panel-heading text-center">
 	  		<h2 class="panel-title">Choose payment method</h2>
 	  	</div>
 	  	<div class="row">
-	  		<div class="col-md-4">
+	  		<div class="col-md-4 col-sm-4 col-xs-4">
 	  		</div>
-	  		<div class="col-md-4">
-	  			<div class="col-md-6">
+	  		<div class="col-md-4 col-sm-4 col-xs-4">
+	  			<div class="col-md-6 col-sm-6 col-xs-6">
 			  		<%= render "braintree"  if !@cart.line_items.empty? %>
 			  	</div>
-			  	<div class="col-md-6">
+			  	<div class="col-md-6 col-sm-6 col-xs-6">
 						<%= render "stripe"  if !@cart.line_items.empty? %>
 					</div>
 	  		</div>
-	  		<div class="col-md-4">
+	  		<div class="col-md-4 col-sm-4 col-xs-4">
 	  		</div>
 			</div>
 		</div>
