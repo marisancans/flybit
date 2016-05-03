@@ -2,7 +2,11 @@
   <div class="thumb-info">
     <%= link_to product do %>
       <%= image_tag(product.attachments.first.image.url(:thumbnail)) %>
-
+      <% if !product.discount.blank? %>
+        <div class="discount-text">
+          <p><b>-<%= number_to_percentage(product.discount_percent(product.price, product.discount), precision: 0) %></b></p>
+        </div>
+      <% end %>
     <% end if product.attachments.exists?  %>
       <div class="button-row">
         <div class="col-md-6 sharp pull-right">
