@@ -58,56 +58,46 @@
     </div>
   </div>
 
+  <div class="row row-line text-center">
+    <div class="col-md-12">
+      <span class="row-line-text">Discounts</span>
+      <hr class="hr-tag">
+    </div>
+  </div>
 
+  <div class="row">
+    <div class="col-md-12">
+      <% @discount_products.each do |product| %>
+        <%= render product %>
+      <% end %>
+    </div>
+  </div>
 
+  <div class="row row-line text-center">
+    <span class="row-line-text">Special offers</span>
+    <hr class="hr-tag">
+  </div>
 
-    <!-- Exclusive products -->
-    <!-- Page Content -->
+  <div class="row">
+    <% 4.times do %>
+      <div class="col-xs-6 col-sm-3">
+        <a class="thumbnail" href="#">
+          <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+        </a>
+      </div>
+    <% end %>
+  </div>
 
-          <div class="row row-line text-center">
-            <div class="col-md-12">
-              <span class="row-line-text">Discounts</span>
-            </div>
-          </div>
+  <div class="row row-line text-center">
+    <span class="row-line-text">Top products</span>
+    <hr class="hr-tag">
+  </div>
 
-          <div class="row">
-            <div class="col-md-12">
-              <% @discount_products.each do |product| %>
-                <%= render product %>
-              <% end %>
-            </div>
-          </div>
-
-          <div class="row row-line text-center">
-            <span class="row-line-text">Special offers</span>
-          </div>
-
-          <div class="row">
-            <% 4.times do %>
-              <div class="col-xs-6 col-sm-3">
-                <a class="thumbnail" href="#">
-                  <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-              </div>
-            <% end %>
-          </div>
-
-          <div class="row row-line text-center">
-            <span class="row-line-text">Top products</span>
-          </div>
-
-          <div class="row">
-            <% 3.times do %>
-              <div class="col-xs-6 col-sm-3">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-              </div>
-              <% end %>
-              <div class="col-xs-6 col-sm-3">
-                  <a class="thumbnail" href="#">
-                      <img class="img-responsive" src="http://www.7000days.org/assets/1974/pickle.jpg" alt="">
-                  </a>
-              </div>
-            </div>
+  <div class="row">
+    <div class="col-md-12">
+      <% @top_products.each do |product| %>
+        <%= render product %>
+      <% end %>
+    </div>
+  </div>
 </div>            

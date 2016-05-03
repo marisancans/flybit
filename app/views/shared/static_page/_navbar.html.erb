@@ -15,6 +15,9 @@
     
       <div class = "navbar-collapse collapse" style = "float: left;">
         <ul class = "nav navbar-nav">
+          <li style = "max-width: 40%;">
+            <%= link_to "Home", root_url %>
+          </li>
           <% cache 'dep_and_cat_list' do %>
             <%= render 'shared/static_page/dep_and_cat_list' %>
           <% end %>

@@ -1,5 +1,5 @@
 ActiveAdmin.register Product do
-	permit_params :title, :department, :category, :price, :discount, :description, :department_id, :category_id, :product_attribute_id,
+	permit_params :title, :department, :category, :price, :times_bought, :discount, :description, :department_id, :category_id, :product_attribute_id,
                 attachments_attributes: [:image, :image_content_type, :image_file_size, :image_updated_at, :_destroy, :id],
                 product_attributes_attributes: [:title, :details, :_destroy, :id]
   collection_action :change_categories, :method => :get do
@@ -31,6 +31,7 @@ ActiveAdmin.register Product do
     column "Discount percentage" do |product|
       number_to_percentage(product.discount_percent(product.price, product.discount), precision: 0) if !product.price.nil? && !product.discount.nil?
     end
+    column :times_bought
   	column :department  
   	column :category
     column :created_at, filter: :created_at, as: :check_boxes
@@ -50,6 +51,7 @@ ActiveAdmin.register Product do
       row "Discount percentage" do
         number_to_percentage(product.discount_percent(product.price, product.discount), precision: 0) if !product.price.nil? && !product.discount.nil?
       end
+      row :times_bought
       row :description
       row :department
       row :category
