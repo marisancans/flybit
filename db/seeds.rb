@@ -118,18 +118,21 @@ product_count.times do
   price = Faker::Commerce.price
   department_id = Faker::Number.between(1, 5)
   category_id = Faker::Number.between(1, category_count)
+  times_bought = Faker::Number.between(0, 100)
 
   if (1..20).member?(rand(1..100))
     begin
       discount = Faker::Commerce.price
     end while discount > price
   end
+
   Product.create!(title:  title.capitalize,
                   description: description,
                   price: price,
                   department_id: department_id,
                   category_id: category_id,
-                  discount: discount)
+                  discount: discount,
+                  times_bought: times_bought)
   puts "#{c}: #{title}, price = #{price}"
 end
 puts "== CREATED #{product_count} products ==\n\n"

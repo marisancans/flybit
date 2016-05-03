@@ -25,12 +25,14 @@ choice.times do
   department_id = Faker::Number.between(1, 5)
   category_id = Faker::Number.between(1, category_count)
   img = image_array.sample
+  times_bought = Faker::Number.between(0, 100)
   Product.create!(title:  title.capitalize,
                   description: description,
                   price: price,
                   department_id: department_id,
                   category_id: category_id,
-                  discount: discount)
+                  discount: discount,
+                  times_bought: times_bought)
 
   puts "#{c}: #{title}, price = #{price}, image = #{img}"
   Attachment.create(image: Rails.root.join("public/seeds/product_images/#{img}").open, 
