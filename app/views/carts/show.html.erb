@@ -1,4 +1,4 @@
-<%= stylesheet_link_tag "navbar", "carts" %>
+<%= stylesheet_link_tag "navbar", "carts", "products" %>
 <% @title="Flybit - Cart" %>
 <% if notice %>
 <p id="notice"><%= notice %></p>
@@ -41,8 +41,10 @@
 						<div class="row" id="line-item-row-id-<%= item.id %>">
 							<div class="col-xs-2 col-md-2 col-sm-2">
 								<img class="img-responsive" src=
-								<%= item.product.attachments.first.image.url(:thumbnail) %>
-							</div>
+								<%= item.product.attachments.first.image.url(:thumbnail) %>>
+								<% if !item.product.discount.blank? %>
+					      <div class="ribbon"><span>-<%= number_to_percentage(item.product.discount_percent(item.product.price, item.product.discount), precision: 0) %></span></div>
+					      <% end %>
 							</div>
 							<div class="col-xs-4 col-md-4 col-md-4">
 								<h4 class="product-name"><strong><%= link_to "#{item.product.title}", product_path(item.product) %></strong></h4><h4><small><%= item.product.description %></small></h4>
@@ -106,6 +108,5 @@
 			url: "/line_items/" + item + "/input_field_change",
 			data: {index : index, quantity : quantity}
 		});
-  	alert(value);
   }
 </script>

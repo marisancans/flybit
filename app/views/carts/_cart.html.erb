@@ -17,9 +17,20 @@
 	  <tbody>
 	  	<% @cart.line_items.each do |line_item| %>
 		    <tr>
-		    	<td class="cart-image"><%= image_tag line_item.product.attachments.first.image.url(:thumbnail) %></td>
-		      <td ><%= link_to line_item.product.title, product_path(line_item.product) %></td>
-		      <td>€<%= line_item.product.price %></td>
+		    	<td class="cart-image">
+		    		<%= link_to line_item.product do %> 
+		    			<% image_tag line_item.product.attachments.first.image.url(:thumbnail) %>
+		    		<% end %> 
+		    	</td>
+		      <td >
+		      	<%= link_to line_item.product.title, product_path(line_item.product) %></td>
+		      <td>
+		      	<% if !line_item.product.discount.nil? %>
+		      		<%= line_item.product.price - line_item.product.discount %>
+		      	<% else %>
+							<%= line_item.product.price %>
+						<% end %>
+		      </td>
 		      <td><%= line_item.quantity %></td>
 		    </tr>
 		   <% end %>
