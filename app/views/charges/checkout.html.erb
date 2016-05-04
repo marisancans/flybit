@@ -16,7 +16,7 @@
 					 <thead>
 			      <tr>
 			        <th>Product title</th>
-			        <th>Price per one unit</th>
+			        <th>Price per one</th>
 			        <th>Quantity</th>
 			        <th>Total price for porduct</th>
 			      </tr>
@@ -25,7 +25,7 @@
 				  	<% @cart.line_items.each do |line_item| %>
 					    <tr>
 					      <td><%= line_item.product.title %></td>
-					      <td>€<%= line_item.product.price %></td>
+					      <td>€<%= line_item.product.price_with_discount(line_item.product.price, line_item.product.discount) %></td>
 					      <td><%= line_item.quantity %></td>
 					      <td>€<%= line_item.total_price %></td>
 					    </tr>

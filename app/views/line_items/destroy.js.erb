@@ -1,7 +1,8 @@
+
 $('#line-item-row-id-<%= @item %>').remove();
 $('#line-item-hr-id-<%= @item %>').remove();
-
 if ($('[id^="line-item-row-id-"').length) {
+	sum = 0;
 	$('[id^="litp-id-"]').each(function() {
 	   sum += parseFloat($(this).text().slice(3));
 		});
