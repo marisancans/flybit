@@ -3,6 +3,9 @@
     <%= link_to product do %>
       <%= image_tag(product.attachments.first.image.url(:thumbnail)) %>
     <% end if product.attachments.exists?  %>
+    <% if !product.discount.blank? %>
+     <div class="ribbon"><span>-<%= number_to_percentage(product.discount_percent(product.price, product.discount), precision: 0) %></span></div>
+     <% end %>
       <div class="button-row">
         <div class="col-md-6 sharp pull-right">
           <%= button_to "Add to cart", line_items_path(product_id: product), remote: true, class: "btn btn-primary btn-lg sharp" %>
@@ -16,11 +19,9 @@
     </div>
     <div class="col-md-12">
       <% if !product.discount.blank? %>
-        <h3 class="price text-center" <% if !product.discount.blank? %> style="text-decoration: line-through underline;" <% end %> >€<%= product.price %> </h3>
+        <h3 class="price text-center" <% if !product.discount.blank? %> style="text-decoration: line-through;" <% end %> >€<%= product.price %> </h3>
+        <hr class="hr-price">
         <h3 class="price text-center">€<%= product.price - product.discount %></h3>
-        <div class="discount-text text-center">
-          <p><b>-<%= number_to_percentage(product.discount_percent(product.price, product.discount), precision: 0) %></b></p>
-        </div>
         <% else %>
           <h3 class="price text-center" style="padding-bottom: 24px;">€<%= product.price %></h3>
       <% end %>
