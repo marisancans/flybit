@@ -1,9 +1,6 @@
 <% @title="Flybit - #{@product.title}" %>
-<%= stylesheet_link_tag "navbar", "product_show_page", "chocolat" %>
+<%= stylesheet_link_tag "navbar", "product_show_page", "chocolat"%>
 <%= javascript_include_tag "jquery.chocolat" %>
-<script>
-  $('.chocolat-parent').Chocolat();
-</script>
 <div class="container">
 
   <h2><%= @product.title %></h2>
@@ -13,22 +10,33 @@
 		  <div class="chocolat-parent" data-chocolat-title="set title" loop="true">
 		    <a class="chocolat-image" href="<%= asset_path(@product.attachments.first.image.url) %>" title="<%= @product.title %>">
 		        <img class="img-responsive" src="<%= asset_path(@product.attachments.first.image.url(:show)) %>" />
+		    <% if !@product.discount.blank? %>
+		     	<div class="ribbon"><span>-<%= number_to_percentage(@product.discount_percent(@product.price, @product.discount), precision: 0) %></span></div>
+		     <% end %>
 		    </a>
 				<div class="row">
-					<hr>
-					<% @product.attachments.each do |attachment| %>
-				    <a class="chocolat-image img-thumbnail" href="<%= attachment.image.url %>" title="<%= @product.title %>">
-				        <img src="<%= asset_path(attachment.image.url(:mini_show)) %>" />
-				    </a>
+					<% if !@product.attachments.drop(1).empty? %>
+						<hr>
+						<% @product.attachments.drop(1).each do |attachment| %>
+					    <a class="chocolat-image img-thumbnail" href="<%= attachment.image.url %>" title="<%= @product.title %>">
+					        <img src="<%= asset_path(attachment.image.url(:mini_show)) %>" />
+					    </a>
+				    <% end %>
 			    <% end %>
-			    <hr>
+				  <hr>
 				</div>
 			</div>
 		</div>
 			<div class="col-md-4 col-sm-4">
 				<div class="row">
 					<div class="col-md-6 col-sm-6">
-						<div id ="price">Price: <%= @product.price %></div>
+						<% if !@product.discount.blank? %>
+			        <h3 class="price text-center" <% if !@product.discount.blank? %> style="text-decoration: line-through;" <% end %> >€<%= @product.price %> </h3>
+			        <hr class="hr-price">
+			        <h3 class="price text-center">€<%= @product.price - @product.discount %></h3>
+			        <% else %>
+			          <h3 class="price text-center" style="padding-bottom: 24px;">€<%= @product.price %></h3>
+			      <% end %>
 					</div>
 					<div class="col-md-6 col-sm-6">
 						<%= button_to line_items_path(product_id: @product), remote: true, class: "btn btn-default btn-lg outline" do %>
@@ -57,6 +65,10 @@
 	</table>
 	</div>
 <% end %>
+
+<script>
+$('.chocolat-parent').Chocolat();
+</script>
 
 
 

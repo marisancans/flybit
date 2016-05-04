@@ -16,7 +16,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :show do
-    resize_to_fit(700, 700)
+    resize_to_fit(500, 500)
   end
 
   version :mini_show do
