@@ -21,6 +21,14 @@ class Product < ActiveRecord::Base
 		(discount_price / original_price) * 100
 	end
 
+	def price_with_discount(original_price, discount_price)
+		if discount_price.present?
+			original_price - discount_price 
+		else
+			original_price
+		end
+	end
+
 	private
  		#ensure that there are no line items referencing this product
 		def ensure_not_referenced_by_any_line_item
