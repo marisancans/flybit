@@ -28,7 +28,9 @@ ActiveAdmin.register Product do
     column "Title", sortable: :title do |p|
       link_to p.title, admin_product_path(p)
     end
-    column :price
+    column :price do |product|
+      number_to_currency(product.price,:unit=>'€ ')
+    end
     column :discount
     column "Discount percentage" do |product|
       number_to_percentage(product.discount_percent(product.price, product.discount), precision: 0) if !product.price.nil? && !product.discount.nil?
@@ -49,7 +51,9 @@ ActiveAdmin.register Product do
     attributes_table do
       row :id
       row :title
-      row :price
+      row :price do |product|
+        number_to_currency(product.price,:unit=>'€ ')
+      end
       row :discount
       row "Discount percentage" do
         number_to_percentage(product.discount_percent(product.price, product.discount), precision: 0) if !product.price.nil? && !product.discount.nil?

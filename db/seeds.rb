@@ -220,6 +220,7 @@ puts "== CREATING orders =="
 product_count = Product.count
 User.last(10).reverse.each do |user|
   c += 1
+  amount = 0
   Order.create!(name: Faker::Name.name , 
                 address: Faker::Address.street_address, 
                 email: user.email, 
@@ -233,7 +234,9 @@ User.last(10).reverse.each do |user|
     LineItem.create!(product_id: Faker::Number.between(1, product_count),
                      quantity: Faker::Number.between(1, 10),
                      order_id: Order.last.id)
+    amount += LineItem.last.total_price
   end
+  Order.last.update(amount: amount)
   puts "#{c}: email = #{user.email}, user id: #{user.id}"
 end
 

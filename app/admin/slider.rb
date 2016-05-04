@@ -28,7 +28,7 @@ ActiveAdmin.register Slider do
 
   index pagination_total: false do
     column :id
-    column "Title", sortable: :title do |s|
+    column "Path", sortable: :title do |s|
       link_to s.title, admin_slider_path(s)
     end
   	column :url  

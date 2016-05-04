@@ -32,6 +32,7 @@ class ChargesController < ApplicationController
 	  order = Order.create!( name: params[:stripeBillingName],
 	  											 address: params[:stripeBillingAddressLine1],
 	  										 	 email: params[:stripeEmail],
+	  										 	 amount: @cart.total_price,
 	  										 	 pay_type: params[:stripeTokenType],
 	  										 	 user_id: user_id,
 	  										 	 zip_code: params[:stripeShippingAddressZip],

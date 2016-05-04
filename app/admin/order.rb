@@ -8,7 +8,8 @@ ActiveAdmin.register Order do
   filter :name
   filter :address
   filter :email
-  filter :pay_type
+  filter :amount
+  filter :pay_type, as: :select
   filter :created_at
   filter :updated_at
   filter :user_id
@@ -23,6 +24,9 @@ ActiveAdmin.register Order do
       	link_to n.name, admin_order_path(n)
     end
     column :address
+    column :amount do |order|
+      number_to_currency(order.amount,:unit=>'€ ')
+    end
     column :email
     column :pay_type
     column :created_at
@@ -39,6 +43,9 @@ ActiveAdmin.register Order do
     attributes_table do
       row :id
       row :name
+       row :amount do |order|
+        number_to_currency(order.amount,:unit=>'€ ')
+      end
       row :address
       row :email
       row :pay_type
