@@ -43,7 +43,7 @@ ActiveAdmin.register Order do
     attributes_table do
       row :id
       row :name
-       row :amount do |order|
+      row :amount do |order|
         number_to_currency(order.amount,:unit=>'€ ')
       end
       row :address

@@ -26,6 +26,26 @@ ActiveAdmin.register User do
       row :last_sign_in_ip
       row :created_at
       row :updated_at
+      if user.orders.empty?
+        render plain: "Error, no items found"
+      else
+        user.orders.each do |order|
+          panel link_to "Order id: #{order.id}, amount: #{number_to_currency(order.amount,:unit=>'€ ')}", admin_order_path(order) do
+            table_for order.line_items do
+              column :id
+              column "Title" do |item|
+                link_to item.product.title, admin_product_path(item.product.id)
+              end
+              column :quantity
+              column :created_at
+              column "price" do |item|
+                number_to_currency(item.total_price,:unit=>'€ ')
+              end
+            end
+
+          end
+        end
+      end
     end
   end
 
