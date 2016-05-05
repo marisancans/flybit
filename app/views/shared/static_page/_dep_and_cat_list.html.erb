@@ -4,7 +4,7 @@ data aviable in seed files-->
 	categories = Category.all .order("id")
   category_counter = 0 %>
 <% departments.each_with_index do |department, index| %>
-  <li style = "max-width: 40%;">
+  <li>
     <%= link_to "#{department.name}", categories_path(selected: "#{index + 1}") %>
   </li>
 <% end %>

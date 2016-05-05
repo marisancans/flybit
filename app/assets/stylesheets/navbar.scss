@@ -1,24 +1,20 @@
-/*-------- Space so that navbar doesnt overlap content -------*/
-
 body{
   padding-top: 50px;
 }
 
-/*-------- Navbar butterfly(butter) logo dimensions --------*/
-
-.butter_image{
-  height: 50px;
-  width: 50px;
-  padding: 10px 10px;
+.navbar-brand 
+{
+  padding: 0px 0px 0px 10px;
 }
 
-/*-------------- Login dropdown menu styling -------------*/
-
-#login-dp{
-    padding: 1% 2% 1% 2%;
-    overflow:hidden;
-    background-color: white;
+.navbar-right {
+  margin-right: 0px;
 }
+
+.navbar-glyphicon {
+  color: white;
+}
+
 
 /*------------- Dropdown box space between the top(cart, login)-------*/
 
@@ -89,6 +85,11 @@ body{
 
 
 /*--------------- Cart ---------------*/
+
+#cart-button {
+  background-color: #222;
+  border-color: #222;
+}
 
 #cart {
  td {
