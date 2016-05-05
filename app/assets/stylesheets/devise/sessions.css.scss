@@ -1,17 +1,29 @@
-html { 
-  background: url('sign_in_bg.jpg') no-repeat center center fixed; 
+body { 
+  background: url('../sign_in_bg.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 
-
-
 .panel-default {
  opacity: 0.9;
- margin-top:30px;
+ margin-top:10%;
 }
 .form-group.last {
  margin-bottom:0px;
+}
+
+.btn-primary{
+	width: 40%;
+}
+
+.input-field {
+  padding: 5px;
+  border: solid 5px #c9c9c9;
+  transition: border 0.3s;
+}
+
+.btn-lg{
+	width: 40% !important;
 }

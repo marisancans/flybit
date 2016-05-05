@@ -2,21 +2,21 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-4 col-md-offset-4">
+        <div class="col-md-4 col-sm-4 col-md-offset-4 col-sm-offset-4">
             <div class="panel panel-default">
                 <div class="panel-heading"> <strong class="">Login</strong>
                 </div>
                 <div class="panel-body">
-                  <form class="form-horizontal" role="form">
+                  <form class="form-horizontal text-center" role="form">
                     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                       <div class="field">
                         <%= f.label :email %><br />
-                        <%= f.email_field :email, autofocus: true %>
+                        <%= f.email_field :email, autofocus: true, class: "input-field" %>
                       </div>
 
                       <div class="field">
                         <%= f.label :password %><br />
-                        <%= f.password_field :password, autocomplete: "off" %>
+                        <%= f.password_field :password, autocomplete: "off", class: "input-field" %>
                       </div>
 
                       <% if devise_mapping.rememberable? -%>
@@ -27,16 +27,28 @@
                       <% end -%>
 
                       <div class="actions">
-                        <%= f.submit "Log in" %>
+                        <%= f.submit "Log in", class: "btn btn-lg btn-primary btn-block center-block" %>
                       </div>
                     <% end %>
-                    <%= render "devise/shared/links" %>
+                    
                   </form>
                 </div>
-                <div class="panel-footer">Not Registered? <a href="#" class="">Register here</a>
+                <div class="panel-footer">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                      <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+                    <% end -%>
+                    </div>
+                    <div class="col-md-6 text-right">
+                      <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+                      <%= link_to "Sign up", new_registration_path(resource_name) %><br />
+                    <% end -%>
+                    </div>
+                  </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-4 col-xs-4">
             </div>
         </div>
     </div>
