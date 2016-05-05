@@ -1,6 +1,9 @@
 <% @title="Flybit - #{@product.title}" %>
 <%= stylesheet_link_tag "navbar", "product_show_page", "chocolat"%>
 <%= javascript_include_tag "jquery.chocolat" %>
+<script>
+	$('.chocolat-parent').Chocolat();
+</script>
 <div class="container">
 
   <h2><%= @product.title %></h2>
@@ -66,9 +69,7 @@
 	</div>
 <% end %>
 
-<script>
-$('.chocolat-parent').Chocolat();
-</script>
+
 
 
 
