@@ -14,8 +14,6 @@ ActiveAdmin.register Slider do
 #   permitted
 # end
 
-
-
   form do |f|
     f.semantic_errors # shows errors on :base
     inputs 'Details' do
@@ -51,11 +49,5 @@ ActiveAdmin.register Slider do
       end
     end
   end
-
-
-
-
-
-
 
 end
