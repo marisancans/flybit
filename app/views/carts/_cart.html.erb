@@ -26,9 +26,9 @@
 		      	<%= link_to line_item.product.title, product_path(line_item.product) %></td>
 		      <td>
 		      	<% if !line_item.product.discount.nil? %>
-		      		<%= line_item.product.price - line_item.product.discount %>
+		      		€<%= line_item.product.price - line_item.product.discount %>
 		      	<% else %>
-							<%= line_item.product.price %>
+							€<%= line_item.product.price %>
 						<% end %>
 		      </td>
 		      <td><%= line_item.quantity %></td>

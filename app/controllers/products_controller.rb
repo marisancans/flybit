@@ -19,6 +19,7 @@ class ProductsController < ApplicationController
 
   def product_search 
     @products = Product.search(params[:search], params[:selected]).order("created_at DESC").paginate(page: params[:page], :per_page => 30) if params[:search].present?
+    @categories = Category.uniq_product_categories(@products.uniq(:category_id))
   end
  # @products = Product.where("category_id = ?", params[:selected])
   #  .map{|p| [p.title, p.price] }#.paginate(page: params[:page]) Get only title, price etc. 
