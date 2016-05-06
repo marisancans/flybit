@@ -1,7 +1,7 @@
 #department and category hash of arrays, name and image name
 dach = {'Computers'           => [['Cases', 'computers_cases.png'], 
                                   ['Cooling', 'computers_cooling.png'], 
-                                  ['Memory (RAM)', 'computers_memory'],
+                                  ['Memory (RAM)', 'computers_memory.png'],
                                   ['Motherboards', 'computers_motherboard.png'],
                                   ['Power supplies', 'computers_power_supply.png'],
                                   ['Processors', 'computers_processors.png'],
@@ -9,9 +9,9 @@ dach = {'Computers'           => [['Cases', 'computers_cases.png'],
                                   ['Sound cards', 'computers_sound_cards.png'],
                                   ['Storage', 'computers_storage.png'],
                                   ['Pre-built PCs', 'computers_pre_built.png'],
-                                  ['All-in-one PCs', 'computers_all_in_one.png'],
+                                  ['All-in-one PCs', 'computers_all_in_one.png']],
 
-      'Tablets'               =>  ['Apple', 'apple.png'],
+      'Tablets'               =>  [['Apple', 'apple.png'],
                                   ['Samsung', 'samsung.png'],
                                   ['Microsoft', 'microsoft.png'],
                                   ['Lenovo', 'lenovo.png'],
@@ -19,13 +19,13 @@ dach = {'Computers'           => [['Cases', 'computers_cases.png'],
                                   ['Google', 'google.png'],
                                   ['Dell', 'dell.png'],
                                   ['Acer', 'acer.png'],
-                                  ['7 inches', 'laptops_7_inches.jpg'],
-                                  ['8 inches', 'laptops_8_inches.jpg'],
-                                  ['9 inches', 'laptops_9_inches.png'],
-                                  ['10 inches', 'laptops_10_inches.jpg'],
-                                  ['12 inches','laptops_12_inches.png'],
+                                  ['7 inches', 'tablets_7_inches.jpg'],
+                                  ['8 inches', 'tablets_8_inches.jpg'],
+                                  ['9 inches', 'tablets_9_inches.png'],
+                                  ['10 inches', 'tablets_10_inches.jpg'],
+                                  ['12 inches','tablets_12_inches.png']],
 
-      'Laptops & Notebooks' =>    ['Apple', 'apple.png'],
+      'Laptops & Notebooks' =>    [['Apple', 'apple.png'],
                                   ['Dell',  'dell.png'],
                                   ['HP', 'hp.png'],
                                   ['Lenovo', 'lenovo.png'],
@@ -35,25 +35,31 @@ dach = {'Computers'           => [['Cases', 'computers_cases.png'],
                                   ['Sony', 'sony.png'],
                                   ['Toshiba', 'toshiba.png'],
                                   ['Windows', 'windows.png'],
-                                  ['Mac OS', 'mac_os'],
+                                  ['Mac OS', 'mac_os.png'],
                                   ['Chrome OS', 'chrome_os.jpg'],
                                   ['No OS', 'no_os.png'],
-                                  ['Less than $500',------------
-                                  ['$500 - $1000', -------------
-                                  ['$1000+'--------
+                                  ['Less than $500', '500_EUR.png'],
+                                  ['$500 - $1000', '500_1000_EUR.png'],
+                                  ['$1000+', '1000_EUR.png']],
 
-      'Accessories'         =>  ['Mice', 'Keyboards', 'Headphones',
-                                 'Microphones', 'Cases', 'Styluses',
-                                 'Storage', 'Cooling', 'Chargers',
-                                 'Webcams', 'Carrying bags', 'Storage',
-                                 'Wrist rests'],
+      'Accessories'         =>    [['Mice', 'mouse.png'],
+                                  ['Keyboards', 'keyboard.png'],
+                                  ['Headphones','headphones.png'],
+                                  ['Microphones', 'microphone.jpg'],
+                                  ['Cases', 'computers_cases.png'],
+                                  ['Styluses', 'styluses.png'],
+                                  ['Storage', 'storage.jpeg'],
+                                  ['Cooling', 'computers_cooling.png'],
+                                  ['Chargers', 'chargers.png'],
+                                  ['Webcams', 'webcams.jpeg'],
+                                  ['Carrying bags', 'carrying_bags.png'],
+                                  ['Wrist rests', 'wrist_rest.png']],
 
-      'Laptops'             =>  ['Accessories', 'Bags', 'Batteries',
-                                 'Link']
+      'Laptops'               =>  [['Accessories', 'laptop_accessories.jpeg'],
+                                  ['Bags', 'computers_cases.png'],
+                                  ['Batteries', 'batteries.png'],
+                                  ['chargers', 'chargers.png']]
 }
-
-image: Rails.root.join("public/seeds/category_images/#{img}"
-
 
 #Generate categories for each department
 puts "== CREATING manual categories =="
@@ -62,12 +68,14 @@ category_count = 0
 dach.each do |key, array|
     department_id += 1
     puts "---#{key}---"
-    array.each_with_index do |name, category_index|
-    Category.create!(name: "#{name}", department_id: "#{department_id}")
-    puts "#{category_index + 1}|#{department_id}|#{name}"
+    array.each_with_index do |array_of_category, category_index|
+    img = array_of_category[1]
+    Category.create!(name: "#{array_of_category[0]}", 
+                    department_id: "#{department_id}",
+                    image: File.open(File.join(Rails.root,"public/seeds/category_images/#{img}")))
+    puts "#{category_index + 1}|#{department_id}|#{img}"
     category_count += 1
   end
   puts "\n"
 end
 puts "== DONE, created #{category_count} categories ==\n\n"
-puts hash.first
