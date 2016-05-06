@@ -1,8 +1,12 @@
 <%= stylesheet_link_tag "navbar", "departments" %>
 <% @title="Flybit - Browse shop" %>
-<h4>Browse shop</h4>
 <div class="container">
-	<% cache do %>
-		<%= render @departments %>
-	<% end %>
+	<div class="row text-center">
+		<h2>Browse shop</h2>
+	</div>
+	<div class="row">
+		<% cache do %>
+			<%= render @departments %>
+		<% end %>
+	</div>
 </div>
