@@ -7,7 +7,7 @@
   	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   	<%= csrf_meta_tags %>
 </head>
-<body>
+<body class="<%= params[:controller].gsub('/', '_') %>">
   <%= render 'shared/static_page/navbar' %>
 	<div class="container-fluid">
 <!-- Rendering left or right side navbars! -->

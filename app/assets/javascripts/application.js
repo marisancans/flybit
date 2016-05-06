@@ -16,5 +16,5 @@
 //= require jquery-ui/effect-slide
 //= require jquery-ui/effect-clip
 //= require jquery_ujs
-//= require turbolinks
+// require turbolinks
 //= require bootstrap-sprockets

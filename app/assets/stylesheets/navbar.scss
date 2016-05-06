@@ -11,6 +11,11 @@ body{
   margin-right: 0px;
 }
 
+input[type="text"], textarea, .search-field {
+  background-color : #222; 
+  color: white;
+}
+
 /*------------- Dropdown box space between the top(cart, login)-------*/
 
 .dropdown-menu{
