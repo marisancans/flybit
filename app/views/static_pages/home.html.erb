@@ -26,7 +26,7 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
           <div class="item active">
-            <a href="<%= @sliders.first.url if @sliders.first.exists? %>">
+            <a href="<%= @sliders.first.url if !@sliders.first.nil? %>">
               <img class="img-responsive" src="<%= @sliders.first.image.url(:slider) %>" alt="...">
               <div class="carousel-caption">
                   <h3><%= @sliders.first.title %></h3>

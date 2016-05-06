@@ -3,7 +3,7 @@
     <%= link_to products_path(selected: "#{category.id}") do %>
       <%= image_tag category.image.url(:thumbnail) %>
       <div class="text-under-thumbnail">
-        <%= category.name %>
+        <h4><%= category.name %></h4>
       </div>
     <% end %>
   </div>
