@@ -12,7 +12,6 @@
       <h4 class="text-center">Search in this category</h4>
       <%= form_tag products_path, method: 'get' do %>
 				<%= text_field_tag :search %>
-				<%= hidden_field_tag 'selected', params[:selected] %>
 				<%= submit_tag "Search" %>
 			<% end %>
     </nav>
@@ -34,7 +33,7 @@
 		  		<h4><%= link_to "Show all products", products_path(selected: params[:selected]) %></h4>
 				<% else %>
 					<% if params[:search].present? %>
-						<h4>Found <%= @products.count %> products</h4>
+						<h4>Found <%= pluralize(@products.count, 'product') %> in this category</h4>
 						<h4><%= link_to "Back", products_path(selected: params[:selected]) %></h4>
 					<% end %>
 			<div class="row">

@@ -4,5 +4,6 @@ class Category < ActiveRecord::Base
 	has_many :products
 
 	scope :uniq_product_categories, lambda { |category_ids| find(category_ids)}
+
 	
 end
