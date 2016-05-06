@@ -298,7 +298,4 @@ else
   puts "== Admin user created, admin@example.com, password: password ==\n\n"
 end
 
-
-
-
 puts "== DATABASE SEEDING DONE =="
