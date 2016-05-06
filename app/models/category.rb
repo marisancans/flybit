@@ -3,6 +3,6 @@ class Category < ActiveRecord::Base
 	belongs_to :department, counter_cache: true
 	has_many :products
 
-	scope :uniq_product_categories, lambda { |category_ids| find(category_ids).merge(category_ids)}
+	scope :uniq_product_categories, lambda { |category_ids| find(category_ids)}
 	
 end
