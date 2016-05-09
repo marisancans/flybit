@@ -112,7 +112,7 @@ ActiveAdmin.register Order do
 
   controller do
     def scoped_collection
-      super.includes :line_items # prevents N+1 queries to your database
+      super.includes :line_items, :user # prevents N+1 queries to your database
     end
   end
  
