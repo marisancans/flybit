@@ -2,7 +2,7 @@ ActiveAdmin.register Order do
 	menu :label => "Orders", :priority => 2
 	permit_params :email, :address, :name, :pay_type, 
 								:created_at, :updated_at, :user_id,
-								:zip_code, :city, :country, :country_code
+								:zip_code, :city, :country, :country_code, :status
 
 	filter :id
   filter :name
@@ -17,9 +17,11 @@ ActiveAdmin.register Order do
   filter :city
   filter :country
   filter :country_code
+  filter :order, as: :select
 
 	index pagination_total: false do
     column :id
+    column :status
     column "name" do |n|
       	link_to n.name, admin_order_path(n)
     end
