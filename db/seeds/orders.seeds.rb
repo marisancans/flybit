@@ -5,10 +5,11 @@ product_count = Product.count
 User.last(10).reverse.each do |user|
   c += 1
   amount = 0
-  Order.create!(name: Faker::Name.name , 
+  Order.create!(name: Faker::Name.name,
+                status: Order::STATUSES.sample,
                 address: Faker::Address.street_address, 
                 email: user.email, 
-                pay_type: "card",
+                pay_type: Order::PAYMENT_TYPES.sample,
                 user_id: user.id,
                 zip_code: Faker::Address.zip_code,
                 city: Faker::Address.city,

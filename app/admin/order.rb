@@ -17,7 +17,7 @@ ActiveAdmin.register Order do
   filter :city
   filter :country
   filter :country_code
-  filter :order, as: :select
+  filter :status, as: :select
 
 	index pagination_total: false do
     column :id
@@ -44,6 +44,7 @@ ActiveAdmin.register Order do
 	show :title => :id do
     attributes_table do
       row :id
+      row :status
       row :name
       row :amount do |order|
         number_to_currency(order.amount,:unit=>'€ ')
@@ -90,11 +91,12 @@ ActiveAdmin.register Order do
     f.semantic_errors # shows errors on :base
       inputs 'Details' do
 	      f.input :id
+        f.input :status, as: :select, collection: Order::STATUSES, include_blank: false
 	      f.input :name
 	      f.input :address
 	      f.input :email
-	      f.input :pay_type
 	      f.input :user_id
+        f.input :pay_type, as: :select, collection: Order::PAYMENT_TYPES, include_blank: false
 	      f.input :zip_code
 	      f.input :city
 	      f.input :country
