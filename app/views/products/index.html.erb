@@ -12,6 +12,7 @@
       <h4 class="text-center">Search in this category</h4>
       <%= form_tag products_path, method: 'get' do %>
 				<%= text_field_tag :search %>
+				<%= hidden_field_tag(:selected, params[:selected]) %>
 				<%= submit_tag "Search" %>
 			<% end %>
     </nav>
