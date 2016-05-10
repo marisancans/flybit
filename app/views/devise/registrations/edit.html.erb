@@ -2,7 +2,7 @@
 
 <div class="container main-content">
   <div class="well">
-    <div class="row">
+    <div class="row"><!-- uer email and links -->
       <div class="col-md-12">
         <div class="panel panel-default">
                     <div class="panel-heading">
@@ -25,7 +25,60 @@
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row"><!-- edit profile -->
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Edit profile</h3>
+          </div>
+          <div class="panel-body">
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+              <%= devise_error_messages! %>
+
+              <div class="field">
+                <%= f.label :email %><br />
+                <%= f.email_field :email, autofocus: true %>
+              </div>
+
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+              <% end %>
+
+              <div class="field">
+                <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+                <%= f.password_field :password, autocomplete: "off" %>
+              </div>
+
+              <div class="field">
+                <%= f.label :password_confirmation %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "off" %>
+              </div>
+
+              <div class="field">
+                <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+                <%= f.password_field :current_password, autocomplete: "off" %>
+              </div>
+
+              <div class="actions">
+                <%= f.submit "Update" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="panel panel-danger">
+          <div class="panel-heading">
+            <h3 class="panel-title">Delete my account</h3>
+          </div>
+          <div class="panel-body">
+            <h4>Warning, there is no way of undoing this action!</h4>
+              <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row"><!-- orders table -->
       <div class="col-md-12">
         <div class="panel panel-default">
           <div class="panel-heading">
@@ -33,13 +86,12 @@
           </div>
           <div class="panel-body">
             <% if current_user.orders.exists? %>
-              <div class="cart-table">
-                <table class="table table-bordered table-responsive">
-                 <thead>
+              <table class="table table-bordered table-responsive">
+                <thead>
                   <tr>
                     <th>Title</th>
                     <th>Quantity</th>
-                    <th>Total price</th>
+                    <th>Price</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -50,8 +102,10 @@
                           <%= line_item.product.title %>
                         </td>
                         <td>
+                          <%= line_item.quantity %>
                         </td>
                         <td>
+                          €<%= line_item.total_price %>
                         </td>
                       </tr>
                     <% end %>
@@ -63,62 +117,9 @@
                   </tr>
                 </tbody>
               </table>
-            </div>
             <% else %>
               <p>You haven't placed any orders yet, feel free to browse out shop</p>
             <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-12">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Edit profile</h3>
-        </div>
-        <div class="panel-body">
-          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-            <%= devise_error_messages! %>
-
-            <div class="field">
-              <%= f.label :email %><br />
-              <%= f.email_field :email, autofocus: true %>
-            </div>
-
-            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-            <% end %>
-
-            <div class="field">
-              <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-              <%= f.password_field :password, autocomplete: "off" %>
-            </div>
-
-            <div class="field">
-              <%= f.label :password_confirmation %><br />
-              <%= f.password_field :password_confirmation, autocomplete: "off" %>
-            </div>
-
-            <div class="field">
-              <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-              <%= f.password_field :current_password, autocomplete: "off" %>
-            </div>
-
-            <div class="actions">
-              <%= f.submit "Update" %>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-        <div class="col-md-12">
-        <div class="panel panel-danger">
-          <div class="panel-heading">
-            <h3 class="panel-title">Delete my account</h3>
-          </div>
-          <div class="panel-body">
-            <p>Delete <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-            <%= link_to "Back", :back %>
           </div>
         </div>
       </div>
