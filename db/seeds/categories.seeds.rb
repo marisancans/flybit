@@ -72,7 +72,7 @@ dach.each do |key, array|
     img = array_of_category[1]
     Category.create!(name: "#{array_of_category[0]}", 
                     department_id: "#{department_id}",
-                    image: "#{img}")
+                    image: img)
     puts "#{category_index + 1}|#{department_id}|#{img}"
     category_count += 1
   end

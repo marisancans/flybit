@@ -27,7 +27,7 @@
         <div class="carousel-inner">
           <div class="item active">
             <a href="<%= @sliders.first.url if !@sliders.first.nil? %>">
-              <img class="img-responsive" src="<%= @sliders.first.image %>" alt="...">
+              <%= cl_image_tag @sliders.first.image, :width => 1200, :height => 315, :background => "white", :crop=>"pad" %>
               <div class="carousel-caption">
                   <h3><%= @sliders.first.title %></h3>
               </div>
@@ -36,7 +36,7 @@
           <% @sliders.drop(1).each do |slider| %>
             <div class="item">
               <a href="<%= slider.url %>">
-                <img src="<%= slider.image %>" alt="...">
+                <%= cl_image_tag slider.image, :width => 1200, :height => 315, :background => "white", :crop=>"pad" %>
                 <div class="carousel-caption">
                     <h3><%= slider.title %></h3>
                 </div>

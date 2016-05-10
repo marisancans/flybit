@@ -95,7 +95,7 @@ if choice == 1
       img = array_of_category[1]
       Category.create!(name: "#{array_of_category[0]}", 
                       department_id: "#{department_id}",
-                      image: File.open(File.join(Rails.root,"public/seeds/category_images/#{img}")))
+                      image: img)
       puts "#{category_index + 1}|#{department_id}|#{img}"
       category_count += 1
     end
@@ -189,7 +189,7 @@ puts "== CREATING attachments =="
 Product.find_each do |product|
   c += 1
   img = image_array.sample
-  Attachment.create(image: Rails.root.join("public/seeds/product_images/#{img}").open, 
+  Attachment.create(image: img,
                     product_id: product.id)
   puts "#{c}: #{img} for product id: #{product.id}"
 end
