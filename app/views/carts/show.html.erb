@@ -13,9 +13,7 @@
 								<h5><span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart</h5>
 							</div>
 							<div class="col-sm-6 col-md-6 col-xs-6">
-							<%= link_to continue_shopping_path, class: "btn btn-primary btn-sm btn-block center-block" do %>
-								  <i class="glyphicon glyphicon-check"></i>&nbsp; Continue shopping
-								<% end unless @cart.line_items.empty? %>
+								<%= button_to "empty", empty_line_items_cart_path(session[:cart_id]), remote: true, method: :delete, data: { confirm: 'Are you sure?'}, class: "btn btn-primary btn-lg outline pull-right"  if !@cart.line_items.blank? %>
 							</div>
 						</div>
 					</div>

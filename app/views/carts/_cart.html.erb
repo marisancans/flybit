@@ -44,10 +44,10 @@
 	</table>
 </div>
 <div class="row">
-	<div class="col-md-6">
+	<div class="col-md-6 col-xs-6">
 		<%= link_to "show cart and checkout", cart_path(session[:cart_id]),  method: :get, class: "btn btn-primary btn-lg outline" %>
 	</div>
-	<div class="col-md-6">
+	<div class="col-md-6 col-xs-6">
 		<%= button_to "empty", empty_line_items_cart_path(session[:cart_id]), remote: true, method: :delete, data: { confirm: 'Are you sure?'}, class: "btn btn-primary btn-lg outline pull-right"  if !@cart.line_items.blank? %>
 	</div>
 </div>
