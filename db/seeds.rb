@@ -90,7 +90,7 @@ if choice == 1
     end
   puts "== DONE, created #{dach.count} departments ==\n\n"
 
-Generate categories for each department
+#Generate categories for each department
 puts "== CREATING manual categories =="
 department_id = 0
 category_count = 0
@@ -211,7 +211,7 @@ c = 0
   c += 1
   slider = Slider.create
   slider.save
-  slider = "slider#{c}.jpg"
+  slider[:image] = "slider#{c}.jpg"
   slider.save
   puts "#{c} | slider#{c}.jpg "
 end
