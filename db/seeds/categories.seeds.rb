@@ -48,14 +48,14 @@ dach = {'Computers'           => [['Cases', 'computers_cases.png'],
                                   ['Microphones', 'microphone.jpg'],
                                   ['Cases', 'computers_cases.png'],
                                   ['Styluses', 'styluses.png'],
-                                  ['Storage', 'storage.jpeg'],
+                                  ['Storage', 'storage.png'],
                                   ['Cooling', 'computers_cooling.png'],
                                   ['Chargers', 'chargers.png'],
-                                  ['Webcams', 'webcams.jpeg'],
+                                  ['Webcams', 'webcams.png'],
                                   ['Carrying bags', 'carrying_bags.png'],
                                   ['Wrist rests', 'wrist_rest.png']],
 
-      'Laptops'               =>  [['Accessories', 'laptop_accessories.jpeg'],
+      'Laptops'               =>  [['Accessories', 'laptop_accessories.png'],
                                   ['Bags', 'computers_cases.png'],
                                   ['Batteries', 'batteries.png'],
                                   ['chargers', 'chargers.png']]
@@ -72,7 +72,7 @@ dach.each do |key, array|
     img = array_of_category[1]
     Category.create!(name: "#{array_of_category[0]}", 
                     department_id: "#{department_id}",
-                    image: File.open(File.join(Rails.root,"public/seeds/category_images/#{img}")))
+                    image: "#{img}")
     puts "#{category_index + 1}|#{department_id}|#{img}"
     category_count += 1
   end

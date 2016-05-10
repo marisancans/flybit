@@ -1,7 +1,7 @@
 <div class="col-lg-3 col-md-4 col-xs-6 thumb">
   <div class="thumbnail">
     <%= link_to products_path(selected: "#{category.id}") do %>
-      <%= image_tag category.image.url(:thumbnail) %>
+      <%= cl_image_tag category.image, :width => 250, :height => 250, :background => "white", :crop=>"pad" %>
       <div class="text-under-thumbnail">
         <h4><%= category.name %></h4>
       </div>
