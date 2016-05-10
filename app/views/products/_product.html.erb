@@ -1,8 +1,8 @@
 <div class="col-sm-6 col-lg-3 col-xs-12 col-md-4 thumb">
   <div class="thumb-info">
     <%= link_to product do %>
-      <%= cl_image_tag(product.attachments.first.image, :width => 250) %>
-    <% end if product.attachments.exists?  %>
+      <%= cl_image_tag product.attachments.first.image, :width => 250, :height => 250, :background => "white", :crop=>"pad" if product.attachments.exists?  %>
+    <% end %>
     <% if !product.discount.blank? %>
      <div class="ribbon"><span>-<%= number_to_percentage(product.discount_percent(product.price, product.discount), precision: 0) %></span></div>
      <% end %>

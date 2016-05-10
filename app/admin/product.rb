@@ -69,7 +69,7 @@ ActiveAdmin.register Product do
       row "Images" do
         ul do
           product.attachments.each do|attachment|
-            ul do cl_image_tag("jj") end if !product.attachments.blank?
+            ul do cl_image_tag attachment.image, :width => 500, :background => "white", :crop=>"pad" end if !product.attachments.blank?
           end
         end
       end

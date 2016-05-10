@@ -12,6 +12,12 @@ choice = STDIN.gets.chomp.to_i
 
 if choice == 1 
 
+  #List of image file names on dropbox, so they are randomly assigned
+  image_array = ["microsoft_surface_random.jpg", "mouse_yellow_random.jpg", "logitech_controller_random.jpg", 
+               "msi_laptop_random.jpg", "power_bank_random.jpg", "mouse_black_random.jpg", 
+               "intel_all_in_one_pc_random.jpg", "computer_black_random.jpg", "tablet_black_random.jpg",
+               "windows_tablet_random.jpg", "headphones_black_random.jpg"]
+
   #dach = department and category hash
   #Each key is department and key value is array of categories
   dach = {'Computers'           => [['Cases', 'computers_cases.png'], 
@@ -84,24 +90,26 @@ if choice == 1
     end
   puts "== DONE, created #{dach.count} departments ==\n\n"
 
-  #Generate categories for each department
-  puts "== CREATING manual categories =="
-  department_id = 0
-  category_count = 0
-  dach.each do |key, array|
-      department_id += 1
-      puts "---#{key}---"
-      array.each_with_index do |array_of_category, category_index|
-      img = array_of_category[1]
-      Category.create!(name: "#{array_of_category[0]}", 
-                      department_id: "#{department_id}",
-                      image: img)
-      puts "#{category_index + 1}|#{department_id}|#{img}"
-      category_count += 1
-    end
-    puts "\n"
+Generate categories for each department
+puts "== CREATING manual categories =="
+department_id = 0
+category_count = 0
+dach.each do |key, array|
+    department_id += 1
+    puts "---#{key}---"
+    array.each_with_index do |array_of_category, category_index|
+    img = array_of_category[1]
+    category = Category.create!(name: "#{array_of_category[0]}", 
+                    department_id: "#{department_id}")
+    category.save
+    category[:image] = img
+    category.save
+    puts "#{category_index + 1}|#{department_id}|#{img}"
+    category_count += 1
   end
-  puts "== DONE, created #{category_count} categories ==\n\n"
+  puts "\n"
+end
+puts "== DONE, created #{category_count} categories ==\n\n"
 
   #Code refractoring
   #if choice == 1
@@ -180,20 +188,18 @@ product_count.times do
 end
 puts "== CREATED #{product_count} products ==\n\n"
 
-#List of image file names on dropbox, so they are randomly assigned
-image_array = ["microsoft_surface_random.jpg", "mouse_yellow_random.jpg", "logitech_controller_random.jpg", 
-               "msi_laptop_random.jpg", "power_bank_random.jpg", "mouse_black_random.jpg", 
-               "intel_all_in_one_pc_random.jpg", "computer_black_random.jpg", "tablet_black_random.jpg",
-               "windows_tablet_random.jpg", "headphones_black_random.jpg"]
-
 #Generate images (Attachments)
+@upload = true
 c = 0
 puts "== CREATING attachments =="
 Product.find_each do |product|
   c += 1
   img = image_array.sample
-  Attachment.create(image: img,
-                    product_id: product.id)
+  attachment = Attachment.create!(product_id: product.id)
+  attachment.save
+  attachment[:image] = img
+  attachment.save
+
   puts "#{c}: #{img} for product id: #{product.id}"
 end
 puts "== DONE, created #{c} attachments ==\n\n" 
@@ -203,7 +209,10 @@ puts "== CREATING sliders =="
 c = 0
 4.times do |slider|
   c += 1
-  Slider.create!(image: "slider#{c}.jpg")
+  slider = Slider.create
+  slider.save
+  slider = "slider#{c}.jpg"
+  slider.save
   puts "#{c} | slider#{c}.jpg "
 end
 puts "== DONE, created 4 sliders ==\n\n"

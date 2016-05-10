@@ -43,8 +43,10 @@ choice.times do
                   special: special)
 
   puts "#{c}: #{title}, price = #{price}, image = #{img}"
-  Attachment.create(image: img,
-                    product_id: Product.last.id)
+  attachment = Attachment.create!(product_id: Product.last)
+  attachment.save
+  attachment[:image] = img
+  attachment.save
   c = 0
   a = 0
   c += 1
