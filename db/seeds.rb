@@ -183,8 +183,8 @@ puts "== CREATED #{product_count} products ==\n\n"
 #List of image file names on dropbox, so they are randomly assigned
 image_array = ["microsoft_surface_random.jpg", "mouse_yellow_random.jpg", "logitech_controller_random.jpg", 
                "msi_laptop_random.jpg", "power_bank_random.jpg", "mouse_black_random.jpg", 
-               "intel_all_in_one_pc_random.jpg", "computer_black_random.jpg", "laptop_toshiba_random.jpg",
-               "laptop_white_random.jpg", "laptop_bag_random.jpg"]
+               "intel_all_in_one_pc_random.jpg", "computer_black_random.jpg", "tablet_black_random.jpg",
+               "windows_tablet_random.jpg", "headphones_black_random.jpg"]
 
 #Generate images (Attachments)
 c = 0
@@ -203,7 +203,7 @@ puts "== CREATING sliders =="
 c = 0
 4.times do |slider|
   c += 1
-  Slider.create!(image: Rails.root.join("public/seeds/sliders/slider#{c}.jpg").open)
+  Slider.create!(image: "slider#{c}.jpg")
   puts "#{c} | slider#{c}.jpg "
 end
 puts "== DONE, created 4 sliders ==\n\n"
