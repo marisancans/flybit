@@ -1,4 +1,6 @@
-image_array = ["iphone.jpg", "keyboard.jpeg", "vlad.jpg", "laptop.jpg", "smartphone.jpg", "earbuds.jpeg", "mouse.jpg", "router.jpg"]
+image_array = ["microsoft_surface_random.jpg", "mouse_yellow_random.jpg", "logitech_controller_random.jpg", 
+               "msi_laptop_random.jpg", "power_bank_random.jpg", "mouse_black_random.jpg", 
+               "intel_all_in_one_pc_random.jpg", "computer_black_random.jpg"]
 print "MAKE SURE DEPARTMENTS AND CATEGORIES ARE GENERATED BEFORE!"
 print "How many products? : "
 choice = STDIN.gets.chomp.to_i

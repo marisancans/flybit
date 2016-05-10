@@ -8,13 +8,6 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   include Cloudinary::CarrierWave
 
-  version :admin_panel do
-    eager
-    cloudinary_transformation :transformation => [
-        :width => 250
-      ]
-  end
-
   # Choose what kind of storage to use for this uploader:
   #storage :file
   # storage :fog
