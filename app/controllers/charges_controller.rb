@@ -29,16 +29,17 @@ class ChargesController < ApplicationController
 	    :source => token
 	  )
 	  user_id = current_user.id if user_signed_in?
-	  order = Order.create!( name: params[:stripeBillingName],
-	  											 address: params[:stripeBillingAddressLine1],
-	  										 	 email: params[:stripeEmail],
-	  										 	 amount: @cart.total_price,
-	  										 	 pay_type: params[:stripeTokenType],
-	  										 	 user_id: user_id,
-	  										 	 zip_code: params[:stripeShippingAddressZip],
-	  										 	 city: params[:stripeShippingAddressCity],
-	  										 	 country: params[:stripeShippingAddressCountry],
-	  										 	 country_code: params[:stripeShippingAddressCountryCode]
+	  order = Order.create!(name: params[:stripeBillingName],
+	  											address: params[:stripeBillingAddressLine1],
+	  										 	email: params[:stripeEmail],
+	  										 	amount: @cart.total_price,
+	  										 	pay_type: params[:stripeTokenType].capitalize,
+	  										 	status: "Placed",
+	  										 	user_id: user_id,
+	  										 	zip_code: params[:stripeShippingAddressZip],
+	  										 	city: params[:stripeShippingAddressCity],
+	  										 	country: params[:stripeShippingAddressCountry],
+	  										 	country_code: params[:stripeShippingAddressCountryCode]
 	  )
 	  @cart.line_items.each do |line_item|
 		  line_item.product.update(times_bought: line_item.product.times_bought += line_item.quantity)
