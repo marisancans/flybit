@@ -10,6 +10,7 @@ ActiveAdmin.register Product do
     @categories = Category.where("department_id = ?", Department.find(params[:product_department_id]))
     render :text => view_context.options_from_collection_for_select(@categories, :id, :name)
   end
+
   menu priority: 2
   batch_action :destroy
 
@@ -41,7 +42,7 @@ ActiveAdmin.register Product do
   	column :category
     column :created_at, filter: :created_at, as: :check_boxes
     column "Image" do |product|
-      image_tag(product.attachments.first.image.url(:thumbnail))
+      cl_image_tag(product.attachments.first.image, :width => 250) if !product.attachments.blank?
     end
     actions dropdown: true 
   end
@@ -68,7 +69,7 @@ ActiveAdmin.register Product do
       row "Images" do
         ul do
           product.attachments.each do|attachment|
-            ul do image_tag(attachment.image.url(:admin_panel)) end
+            ul do cl_image_tag(attachment.image, :width => 500) end if !product.attachments.blank?
           end
         end
       end
@@ -107,6 +108,8 @@ ActiveAdmin.register Product do
     end
     f.actions dropdown: true          # adds the 'Submit' and 'Cancel' buttons
   end
+
+
   
   controller do
     def scoped_collection

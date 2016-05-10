@@ -26,6 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #Image handling
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave' 
 gem 'rmagick'
+gem 'cloudinary'
 
 #Bootstrap
 gem 'autoprefixer-rails'

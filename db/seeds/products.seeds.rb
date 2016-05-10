@@ -40,7 +40,7 @@ choice.times do
                   special: special)
 
   puts "#{c}: #{title}, price = #{price}, image = #{img}"
-  Attachment.create(image: Rails.root.join("public/seeds/product_images/#{img}").open, 
+  Attachment.create(image: Cloudinary::Uploader.upload("public/seeds/product_images/#{img}"),
                     product_id: Product.last.id)
   c = 0
   a = 0
