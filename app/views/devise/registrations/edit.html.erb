@@ -92,9 +92,10 @@
                     <h3 class="panel-title"><%= order.created_at.strftime("%d %b. %Y %H:%M") %></h3>
                   </div>
                    <div class="panel-body">
-                    <table class="table table-bordered table-responsive">
+                    <table class="table table-responsive">
                       <thead>
                         <tr>
+                          <th>Status</th>
                           <th>Title</th>
                           <th>Quantity</th>
                           <th>Price</th>
@@ -103,7 +104,10 @@
                       <tbody>
                         <% order.line_items.each do |line_item| %>
                           <tr>
-                            <td class="col-md-6">
+                            <td class="col-md-2">
+                              <%= order.status  %>
+                            </td>
+                            <td class="col-md-4">
                               <%= link_to line_item.product.title, product_path(line_item.product) %>
                             </td>
                             <td class="col-md-3">
@@ -115,6 +119,7 @@
                           </tr>
                         <% end %>
                         <tr>
+                          <th></th>
                           <th></th>
                           <th></th>
                           <th>Total: <%= order.total_price %></th>

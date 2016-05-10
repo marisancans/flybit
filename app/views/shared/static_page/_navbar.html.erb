@@ -6,18 +6,17 @@
       <%= image_tag "logo.png", "class": "navbar-brand" %>
     <% end %>
   </div>
+  <div class="collapse navbar-collapse">
+  <!-- department list -->
+  <ul class = "nav navbar-nav">
+    <li>
+      <%= link_to "Home", root_url %>
+    </li>
+    <% cache 'dep_and_cat_list' do %>
+      <%= render 'shared/static_page/dep_and_cat_list' %>
+    <% end %>
+  </ul>
 
-  <!-- Navbar collapse -->
-  <div class = "navbar-collapse collapse" style = "float: left;">
-    <ul class = "nav navbar-nav">
-      <li>
-        <%= link_to "Home", root_url %>
-      </li>
-      <% cache 'dep_and_cat_list' do %>
-        <%= render 'shared/static_page/dep_and_cat_list' %>
-      <% end %>
-    </ul>
-  </div>
 
   <!-- search field -->
   <ul class="nav navbar-nav">
@@ -67,5 +66,6 @@
       </li>
     <% end %>
   </ul>
+</div>
 
 </nav>
