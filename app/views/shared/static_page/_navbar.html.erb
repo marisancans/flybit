@@ -1,71 +1,72 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- navbar collapse button brand logo -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <!-- Navbar brand logo -->
+        <%= link_to root_path do %>
+          <%= image_tag "logo.png", "class": "navbar-brand" %>
+        <% end %>
+    </div>
 
-  <!-- Navbar brand logo -->
-  <div class="navbar-header">
-    <%= link_to root_path do %>
-      <%= image_tag "logo.png", "class": "navbar-brand" %>
-    <% end %>
-  </div>
-  <div class="collapse navbar-collapse">
-  <!-- department list -->
-  <ul class = "nav navbar-nav">
-    <li>
-      <%= link_to "Home", root_url %>
-    </li>
-    <% cache 'dep_and_cat_list' do %>
-      <%= render 'shared/static_page/dep_and_cat_list' %>
-    <% end %>
-  </ul>
-
-
-  <!-- search field -->
-  <ul class="nav navbar-nav">
-    <form class="navbar-form pull-left" action="/search" accept-charset="UTF-8">
-      <div class="input-group">
-          <div class="input-group-btn">
-            <button type="submit" class="btn btn-default" style="background-color: #222; border-color: #222"><span class="glyphicon glyphicon-search" style="color: white;"></span></button>
-         </div>
-         <input type="text" class="form-control search-feld" name="search" placeholder="Search all products" style="border-color: #222; background-color : #222; color: white;">
-      </div>
-    </form>
-  </ul>
-
-    
-  <!-- Cart, login, register -->
-  <ul class="nav navbar-nav navbar-right">
-    <% if @cart  && controller.controller_name != 'carts' && controller.controller_name != 'charges' %> <!-- Cart  -->
-      <li>
-          <%= link_to navbar_cart_path, { method: :get, remote: true, class: "btn btn-default dropdown-toggle", "id": "cart-button", "data-toggle": "dropdown" }  do %>
-            <div>
-              <span class="glyphicon glyphicon-shopping-cart" style = "color: white; font-size: 1.2em;"></span>
-              <span class="badge" id="cart-badge-id"><%="#{@cart.line_items_count}" %></span>
+    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+      <!-- department list -->
+      <ul class = "nav navbar-nav">
+        <% cache 'dep_and_cat_list' do %>
+          <%= render 'shared/static_page/dep_and_cat_list' %>
+        <% end %>
+          <!-- search field -->
+        <li>
+          <form class="navbar-form pull-left" action="/search" accept-charset="UTF-8">
+            <div class="input-group">
+                <div class="input-group-btn">
+                  <button type="submit" class="btn btn-default" style="background-color: #222; border-color: #222"><span class="glyphicon glyphicon-search" style="color: white;"></span></button>
+               </div>
+               <input type="text" class="form-control search-feld" name="search" placeholder="Search all products" style="border-color: #222; background-color : #222; color: white;">
             </div>
+          </form>
+        </li>
+      </ul>
+        <!-- Cart, login, register -->
+        <ul class="nav navbar-nav navbar-right">
+          <% if @cart  && controller.controller_name != 'carts' && controller.controller_name != 'charges' %> <!-- Cart  -->
+            <li>
+                <%= link_to navbar_cart_path, { method: :get, remote: true, class: "btn btn-default dropdown-toggle", "id": "cart-button", "data-toggle": "dropdown" }  do %>
+                  <div>
+                    <span class="glyphicon glyphicon-shopping-cart" style = "color: white; font-size: 1.2em;"></span>
+                    <span class="badge" id="cart-badge-id"><%="#{@cart.line_items_count}" %></span>
+                  </div>
+                <% end %>
+                <ul class="dropdown-menu" id="cart-dropdown">
+                  <div id="cart">
+                    <p class ="text-center">Loading...</p>
+                  </div>
+                </ul>
+            </li>
+          <% end %> <!--End of cart-->
+
+          <!-- user session links -->
+          <% if user_signed_in? %>
+            <li>
+              <%= link_to "Profile", edit_user_registration_path %>
+            </li>
+            <li>
+              <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> 
+            </li>
+          <% else %>
+            <li>
+              <%= link_to "Login", new_user_session_path %>
+            </li>
+            <li>
+              <%= link_to "Register", new_user_registration_path %>
+            </li>
           <% end %>
-          <ul class="dropdown-menu" id="cart-dropdown">
-            <div id="cart">
-              <p class ="text-center">Loading...</p>
-            </div>
-          </ul>
-      </li>
-    <% end %> <!--End of cart-->
-
-    <!-- user session links -->
-    <% if user_signed_in? %>
-      <li>
-        <%= link_to "Profile", edit_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> 
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "Login", new_user_session_path %>
-      </li>
-      <li>
-        <%= link_to "Register", new_user_registration_path %>
-      </li>
-    <% end %>
-  </ul>
-</div>
-
+        </ul>
+    </div><!-- end of collapse -->
+  </div>
 </nav>

@@ -7,9 +7,6 @@ body{
   padding: 0px 0px 0px 10px;
 }
 
-.navbar-right {
-  margin-right: 0px;
-}
 
 /*------------- Dropdown box space between the top(cart, login)-------*/
 
@@ -20,7 +17,7 @@ body{
 /*-------- If browser is resized to x pixels, this happens -----------*/
 
 
-@media (max-width: 1150px) {
+@media (max-width: 1080px) {
     .navbar-header {
         float: none;
     }
@@ -117,14 +114,6 @@ body{
   img{
     width: 100px;
   }
-}
-
-.cart_login_margin_from_right{
-  margin-right: 5%;
-}
-
-.cart-button-position:hover{
-  border-radius: 5px;  
 }
 
 /***********************
