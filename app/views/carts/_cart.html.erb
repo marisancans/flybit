@@ -1,5 +1,5 @@
 <% if @cart.line_items.blank? %>
-	<div class="row text-center">
+	<div class="row text-center empty">
 		Your cart is empty
 	</div>
 	<%= link_to "Browse shop", departments_path, class: "btn btn-primary btn-sm btn-block" %>
@@ -17,9 +17,9 @@
 	  <tbody>
 	  	<% @cart.line_items.each do |line_item| %>
 		    <tr>
-		    	<td class="cart-image">
+		    	<td>
 		    		<%= link_to line_item.product do %> 
-		    			<% image_tag line_item.product.attachments.first.image.url(:thumbnail) %>
+		    			<% cl_image_tag line_item.product.attachments.first.image, :width => 100, :background => "white", :crop=>"pad" %>
 		    		<% end %> 
 		    	</td>
 		      <td >

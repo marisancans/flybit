@@ -43,6 +43,10 @@ body{
     .cart-table {
       background-color: white;
     }
+
+    .empty, .loading {
+      color: white;
+    }
 }
 
 /*------------------ Text between cart and login --------------*/

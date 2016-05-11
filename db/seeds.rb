@@ -293,12 +293,12 @@ end
 puts "== DONE, created #{c} orders ==\n\n" 
 
 #Generate test user
-if User.exists?(email: "user@example.com")
-  puts "== ERROR, test user already exists! user@example.com, password: password ==\n\n"
+if User.exists?(email: "admin@example.com")
+  puts "== ERROR, test user already exists! admin@example.com, password: password ==\n\n"
 else
-  User.create!(email: "user@example.com",
+  User.create!(email: "admin@example.com",
                password: "password")
-  puts "== User created, user@example.com, password: password ==\n\n"
+  puts "== User created, admin@example.com, password: password ==\n\n"
 end
 
 #Generate admin user
