@@ -18,8 +18,8 @@
 					<% if !@product.attachments.drop(1).empty? %>
 						<hr>
 						<% @product.attachments.drop(1).each do |attachment| %>
-					    <a class="chocolat-image img-thumbnail" href="<%= attachment.image.url %>" title="<%= @product.title %>">
-					        <%= cl_image_tag @product.attachments.first.image, :width => 50, :background => "white", :crop=>"pad" %>
+					    <a class="chocolat-image img-thumbnail" href="<%= attachment.image %>" title="<%= @product.title %>">
+					        <%= cl_image_tag attachment.image, :width => 50, :background => "white", :crop=>"pad" %>
 					    </a>
 				    <% end %>
 			    <% end %>

@@ -1,13 +1,6 @@
 <%= stylesheet_link_tag "navbar", "home_page", "products" %>
 <% @title="Flybit" %>
 
-<% if Rails.env.production? %>
-  <div class="alert alert-info">
-    You are in test production mode. Pay with test card: 4242424242424242<br>
-    access admin panel by typing /admin at home page<br>
-    admin email: admin@example.com, password: password
-  </div>
-<% end %>
 <div class="container">
   <% if notice %>
     <p class="alert alert-info" id = "notice"><%= notice %></p>
