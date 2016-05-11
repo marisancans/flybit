@@ -1,9 +1,7 @@
 <%= stylesheet_link_tag "navbar", "departments" %>
 <% @title="Flybit - Categories" %>
 <%= stylesheet_link_tag "navbar" %>
-<% cache do "category_list_cache" %>
 <div class="container">
 	<h2 class="text-center"><%= Department.find(params[:selected]).name %></h2>
 	<%= render @categories %>
 </div>
-<% end %>
