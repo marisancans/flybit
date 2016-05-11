@@ -30,7 +30,7 @@ ActiveAdmin.register Category do
   	column :department
     column :created_at
      column "Image" do |category|
-      image_tag(category.image.url(:thumbnail)) if !category.image.nil?
+      cl_image_tag category.image, :width => 250, :background => "white", :crop=>"pad" if !category.image.nil?
     end
     actions
   end
@@ -42,7 +42,7 @@ ActiveAdmin.register Category do
       row :department
       row :created_at
       row "Image" do 
-        image_tag(category.image.url(:thumbnail)) if !category.image.nil?
+        cl_image_tag category.image, :width => 500, :background => "white", :crop=>"pad" if !category.image.nil?
       end
     end
   end

@@ -32,7 +32,7 @@ ActiveAdmin.register Slider do
   	column :url  
     column :created_at
     column "Image" do |slider|
-      image_tag(slider.image.url(:thumbnail))
+      cl_image_tag slider.image, :width => 250, :background => "white", :crop=>"pad"
     end
     actions
   end
@@ -45,7 +45,7 @@ ActiveAdmin.register Slider do
       row :created_at
       row :updated_at
       row "Image" do
-        image_tag(slider.image.url(:slider))
+        cl_image_tag slider.image, :width => 500, :background => "white", :crop=>"pad"
       end
     end
   end
