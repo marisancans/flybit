@@ -103,6 +103,12 @@ class CartsController < ApplicationController
       @cart = Cart.find(session[:cart_id])
     end
 
+    def require_permission
+      if current_user.cart_id != Cart.find(params[:id]) && current_user.admin == false
+        redirect_to root_path
+      end
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def cart_params
       params[:cart]
