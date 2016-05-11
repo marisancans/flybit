@@ -176,7 +176,7 @@ product_count.times do
     special = true
   end
 
-  Product.create!(title:  title.capitalize,
+  new_product = Product.create(title:  title.capitalize,
                   description: description,
                   price: price,
                   department_id: department_id,
@@ -184,6 +184,7 @@ product_count.times do
                   discount: discount,
                   times_bought: times_bought,
                   special: special)
+  new_product.save
   puts "#{c}: #{title}, price = #{price}"
 end
 puts "== CREATED #{product_count} products ==\n\n"
@@ -192,10 +193,9 @@ puts "== CREATED #{product_count} products ==\n\n"
 @upload = true
 c = 0
 puts "== CREATING attachments =="
-Product.find_each do |product|
   c += 1
   img = image_array.sample
-  attachment = Attachment.create!(product_id: product.id)
+  attachment = Attachment.create!(product_id: new_product.id)
   attachment.save
   attachment[:image] = img
   attachment.save

@@ -33,7 +33,7 @@ choice.times do
   category_id = Faker::Number.between(1, category_count)
   img = image_array.sample
   times_bought = Faker::Number.between(0, 100)
-  Product.create!(title:  title.capitalize,
+  new_product = Product.create(title:  title.capitalize,
                   description: description,
                   price: price,
                   department_id: department_id,
@@ -41,9 +41,10 @@ choice.times do
                   discount: discount,
                   times_bought: times_bought,
                   special: special)
+  new_product.save
 
   puts "#{c}: #{title}, price = #{price}, image = #{img}"
-  attachment = Attachment.create!(product_id: Product.last)
+  attachment = Attachment.create!(product_id: new_product.id)
   attachment.save
   attachment[:image] = img
   attachment.save
