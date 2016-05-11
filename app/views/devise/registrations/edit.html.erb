@@ -89,13 +89,23 @@
               <% current_user.orders.each do |order| %>
                 <div class="panel panel-default">
                   <div class="panel-heading">
-                    <h3 class="panel-title"><%= order.created_at.strftime("%d %b. %Y %H:%M") %></h3>
+                    <% case order.status # a_variable is the variable we want to compare
+                      when "Placed"    
+                        label_color = "label label-info" 
+                      when "Changed"    
+                        label_color = "label label-warning" 
+                      when "Shipped"    
+                        label_color = "label label-primary" 
+                      when "Received"    
+                        label_color = "label label-success"
+                      end %>
+                    <h3 class="panel-title"><%= order.created_at.strftime("%d %b. %Y %H:%M") %> | Status: <span class="<%= label_color %>"><%= order.status  %></span></h3> 
                   </div>
                    <div class="panel-body">
                     <table class="table table-responsive">
                       <thead>
                         <tr>
-                          <th>Status</th>
+                          <th>Image</th>
                           <th>Title</th>
                           <th>Quantity</th>
                           <th>Price</th>
@@ -104,16 +114,16 @@
                       <tbody>
                         <% order.line_items.each do |line_item| %>
                           <tr>
-                            <td class="col-md-2">
-                              <%= order.status  %>
+                            <td class="col-md-5">
+                              <%= cl_image_tag line_item.product.attachments.first.image, :width => 250, :background => "white", :crop=>"pad", class: "img-responsive" %>
                             </td>
-                            <td class="col-md-4">
+                            <td class="col-md-5">
                               <%= link_to line_item.product.title, product_path(line_item.product) %>
                             </td>
-                            <td class="col-md-3">
+                            <td class="col-md-1">
                               <%= line_item.quantity %>
                             </td>
-                            <td class="col-md-3">
+                            <td class="col-md-1">
                               €<%= line_item.total_price %>
                             </td>
                           </tr>
