@@ -15,9 +15,9 @@
 		     <% end %>
 		    </a>
 				<div class="row">
-					<% if !@product.attachments.drop(1).empty? %>
+					<% if !@product.attachments.order("id").drop(1).empty? %>
 						<hr>
-						<% @product.attachments.drop(1).each do |attachment| %>
+						<% @product.attachments.order("id").drop(1).each do |attachment| %>
 					    <a class="chocolat-image img-thumbnail" href="<%= attachment.image %>" title="<%= @product.title %>">
 					        <%= cl_image_tag attachment.image, :width => 50, :background => "white", :crop=>"pad" %>
 					    </a>

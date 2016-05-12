@@ -113,7 +113,7 @@ ActiveRecord::Schema.define(version: 20160509061102) do
     t.integer  "department_id"
     t.integer  "category_id"
     t.decimal  "discount"
-    t.integer  "times_bought"
+    t.integer  "times_bought",  default: 0
     t.boolean  "special",       default: false
   end
 

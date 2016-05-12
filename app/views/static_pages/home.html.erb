@@ -1,4 +1,4 @@
-<%= stylesheet_link_tag "navbar", "home_page", "products" %>
+<%= stylesheet_link_tag "navbar", "home_page", "products", "footer" %>
 <% @title="Flybit" %>
 
 <div class="container">
@@ -22,7 +22,7 @@
             <a href="<%= @sliders.first.url if !@sliders.first.nil? %>">
               <%= cl_image_tag @sliders.first.image, :width => 1200, :height => 315, :background => "white", :crop=>"pad" if @sliders.exists? %>
               <div class="carousel-caption">
-                  <h3><%= @sliders.first.title %></h3>
+                  <h3><%= @sliders.first.title if @sliders.exists? %></h3>
               </div>
             </a>
           </div>

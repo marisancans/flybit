@@ -42,7 +42,7 @@ ActiveAdmin.register Product do
   	column :category
     column :created_at, filter: :created_at, as: :check_boxes
     column "Image" do |product|
-      cl_image_tag(product.attachments.first.image, :width => 250) if !product.attachments.blank?
+      cl_image_tag(product.attachments.order("id DESC").first.image, :width => 250) if !product.attachments.blank?
     end
     actions dropdown: true 
   end

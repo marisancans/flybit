@@ -24,5 +24,5 @@ Rails.application.config.assets.precompile += %w( active_admin.scss departments.
 																									jquery.chocolat.js chocolat.css.scss
 																									carts.css.scss charges.css.scss
 																									thank_you.css.scss checkout.css devise/sessions.css.scss
-																									devise/passwords.css.scss)
+																									devise/passwords.css.scss footer.css.scss)
 
