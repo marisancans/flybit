@@ -1,2 +1,5 @@
-require "spec_helper"
-require "product.rb"
+require "rails_helper"
+
+describe Product, type: :model do
+
+end

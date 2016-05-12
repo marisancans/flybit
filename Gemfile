@@ -71,6 +71,7 @@ gem 'country_select'
 	gem 'seedbank' 
 
 	gem 'web-console', group: :development
+	gem 'database_cleaner', group: :test
 
 group :development, :test do
 
@@ -82,6 +83,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'guard-minitest'
   gem 'guard-rspec'
+
 
   #gem "rails-erd" 
 
