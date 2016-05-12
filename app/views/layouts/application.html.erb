@@ -18,10 +18,12 @@
       <%= yield %>
     </div><!-- #content -->
     
-    <div id="footer">
-      <%= render 'shared/static_page/footer' %>
-    </div><!-- #footer -->
-    
+    <% if controller.controller_name != 'sessions' && controller.controller_name != 'charges' && controller.controller_name != 'registrations' %>
+      <div id="footer">
+        <%= render 'shared/static_page/footer' %>
+      </div><!-- #footer -->
+    <% end %>
+
   </div><!-- #wrapper -->
 </body>
 </html>
