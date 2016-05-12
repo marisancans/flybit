@@ -186,8 +186,7 @@ product_count.times do
                   special: special)
   new_product.save
   puts "#{c}: #{title}, price = #{price}"
-end
-puts "== CREATED #{product_count} products ==\n\n"
+
 
 #Generate images (Attachments)
 @upload = true
@@ -199,10 +198,9 @@ puts "== CREATING attachments =="
   attachment.save
   attachment[:image] = img
   attachment.save
-
-  puts "#{c}: #{img} for product id: #{product.id}"
+  puts "#{c}: #{img} for product id: #{new_product.id}"
 end
-puts "== DONE, created #{c} attachments ==\n\n" 
+puts "== CREATED #{product_count} products ==\n\n"
 
 #Generate sliders
 puts "== CREATING sliders =="

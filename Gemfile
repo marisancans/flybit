@@ -70,13 +70,19 @@ gem 'country_select'
 	#More rake comands, specific seed files
 	gem 'seedbank' 
 
+	gem 'web-console', group: :development
+
 group :development, :test do
 
-
+	gem 'rspec-rails', '~> 3.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  
+  gem 'capybara'
+  gem 'factory_girl_rails'
+  gem 'guard-minitest'
+  gem 'guard-rspec'
+
   #gem "rails-erd" 
 
  	#gem 'guard-minitest'
@@ -85,9 +91,7 @@ group :development, :test do
 
 
 
-	#gem "better_errors" 
-
-	gem 'web-console'
+	#gem "better_errors"
 
 end
 
