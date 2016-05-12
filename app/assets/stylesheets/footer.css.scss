@@ -1,20 +1,39 @@
-.page-footer {
-	background-color: #222;
-	color: white;
-	margin-top: 50px;
-}
-
 .about-us, .where-to-find-us {
 	margin-top: 60px;
 }
 
 .copyright {
 	background-color: #404040;
-	margin-top: 10px;
+	padding-bottom: 10px;
 }
 
 .where-to-find-us a:hover, a:visited, a:link, a:active
 {
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
 }
+
+html,
+body {
+	margin:0;
+	padding:0;
+	height:100%;
+}
+
+#wrapper {
+	min-height:100%;
+	position:relative;
+}
+
+#content {
+	padding-bottom:280px; /* Height of the footer element */
+}
+
+#footer {
+	height: 280px;
+	position:absolute;
+	bottom:0;
+
+
+}
+

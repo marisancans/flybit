@@ -7,12 +7,21 @@
   	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   	<%= csrf_meta_tags %>
 </head>
-<body class="<%= params[:controller].gsub('/', '_') %>">
-  <%= render 'shared/static_page/navbar' %>
-	<div class="container-fluid">
-<!-- Rendering left or right side navbars! -->
-		<%= yield %>
-	</div>
+<body>
+  <div id="wrapper">
+
+    <div id="header">
+      <%= render 'shared/static_page/navbar' %>
+    </div><!-- #header -->
+    
+    <div id="content">
+      <%= yield %>
+    </div><!-- #content -->
+    
+    <div id="footer">
+      <%= render 'shared/static_page/footer' %>
+    </div><!-- #footer -->
+    
+  </div><!-- #wrapper -->
 </body>
-  <%= render 'shared/static_page/footer' %>
 </html>
