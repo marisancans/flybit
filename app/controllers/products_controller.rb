@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
   def product_search 
     #Global search
     @products = Product.search(params[:search], params[:selected]).order("created_at DESC").paginate(page: params[:page], :per_page => 30) if params[:search].present?
-    @categories = Category.uniq_product_categories(@products.uniq(:category_id).map{|product| product.category_id}) if !@products.blank? 
+    @categories = Category.all
   end
 
 end
