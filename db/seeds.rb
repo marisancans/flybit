@@ -116,7 +116,7 @@ puts "== DONE, created #{category_count} categories ==\n\n"
   #  dn = Proc.new { name = Faker::Commerce.department  }
 
 else
-
+  c = 1
   #Generate departments
   puts "== CREATING departments =="
   department_count.times do
