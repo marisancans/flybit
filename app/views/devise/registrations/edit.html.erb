@@ -115,7 +115,7 @@
                         <% order.line_items.each do |line_item| %>
                           <tr>
                             <td class="col-md-5">
-                              <%= cl_image_tag line_item.product.attachments.first.image, :width => 250, :background => "white", :crop=>"pad", class: "img-responsive" %>
+                              <%= cl_image_tag line_item.product.attachments.first.image, :crop=>"pad", class: "img-responsive" %>
                             </td>
                             <td class="col-md-5">
                               <%= link_to line_item.product.title, product_path(line_item.product) %>

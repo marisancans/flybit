@@ -38,7 +38,7 @@
 					<!-- line item row -->
 						<div class="row" id="line-item-row-id-<%= item.id %>">
 							<div class="col-xs-2 col-md-2 col-sm-2">
-								<%= cl_image_tag item.product.attachments.first.image, :width => 250, :background => "white", :crop=>"pad", class: "img-responsive" %>
+								<%= cl_image_tag item.product.attachments.first.image, :width => 250, :crop=>"pad", class: "img-responsive" %>
 								<% if !item.product.discount.blank? %>
 					      <div class="ribbon"><span>-<%= number_to_percentage(item.product.discount_percent(item.product.price, item.product.discount), precision: 0) %></span></div>
 					      <% end %>

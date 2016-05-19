@@ -9,7 +9,7 @@
 		<div class="col-md-8 col-sm-8">
 		  <div class="chocolat-parent" data-chocolat-title="set title">
 		    <a class="chocolat-image" href="<%= asset_path(@product.attachments.first.image.url) %>" title="<%= @product.title %>">
-		        <%= cl_image_tag @product.attachments.first.image, :width => 500, :background => "white", :crop=>"pad" %>
+		        <%= cl_image_tag @product.attachments.first.image, :width => 500, :crop=>"pad" %>
 		    <% if !@product.discount.blank? %>
 		     	<div class="ribbon"><span>-<%= number_to_percentage(@product.discount_percent(@product.price, @product.discount), precision: 0) %></span></div>
 		     <% end %>
@@ -19,7 +19,7 @@
 						<hr>
 						<% @product.attachments.order("id").drop(1).each do |attachment| %>
 					    <a class="chocolat-image img-thumbnail" href="<%= attachment.image %>" title="<%= @product.title %>">
-					        <%= cl_image_tag attachment.image, :width => 50, :background => "white", :crop=>"pad" %>
+					        <%= cl_image_tag attachment.image, :width => 50, :crop=>"pad" %>
 					    </a>
 				    <% end %>
 			    <% end %>
