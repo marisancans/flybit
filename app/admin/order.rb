@@ -50,7 +50,7 @@ ActiveAdmin.register Order do
         number_to_currency(order.amount,:unit=>'€ ')
       end
       row :address
-      row "registred?" do |order|
+      row "registred user?" do |order|
         User.exists?(email: order.email) ? status_tag( "yes", :ok ) : status_tag( "no", :ok )
       end
       row :email

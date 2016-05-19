@@ -68,7 +68,7 @@ ActiveAdmin.register Product do
       row :updated_at
       row "Images" do
         ul do
-          product.attachments.each do|attachment|
+          product.attachments.order(:id).each do|attachment|
             ul do cl_image_tag attachment.image, :width => 500, :crop=>"pad" end if !product.attachments.blank?
           end
         end
