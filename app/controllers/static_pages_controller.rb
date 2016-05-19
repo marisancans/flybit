@@ -12,16 +12,5 @@ class StaticPagesController < ApplicationController
     #User.find(:all, )
     #Model.order('rand()').limit(1).first.name
   end
-
-  def show
-  end
-
-  def help
-  end
-
-  def about
-  end
-
-  def contact
-  end
+  
 end

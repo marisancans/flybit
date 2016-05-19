@@ -18,7 +18,7 @@
       <%= yield %>
     </div><!-- #content -->
     
-    <% if controller.controller_name != 'sessions' && controller.controller_name != 'charges' && controller.controller_name != 'registrations' %>
+    <% if controller.controller_name != 'sessions' && controller.controller_name != 'charges' && controller.controller_name != 'registrations' && controller_name != 'support_messages' %>
       <div id="footer">
         <%= render 'shared/static_page/footer' %>
       </div><!-- #footer -->
