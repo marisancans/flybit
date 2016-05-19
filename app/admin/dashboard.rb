@@ -24,6 +24,21 @@ ActiveAdmin.register_page "Dashboard" do
       end
 
       column do
+        panel "Recently recieved messages" do
+          table_for SupportMessage.limit(15).select(:id, :email, :created_at).order('id desc') do
+            column :id
+            column "Email", :email do |message|
+              link_to message.email, admin_support_message_path(message)
+            end
+            column :created_at
+          end
+        end
+      end
+    end
+
+    columns do
+
+      column do
         panel "Recently registred users" do
           table_for User.limit(15).select(:id, :email, :created_at).order('id desc') do
             column :id
@@ -46,9 +61,7 @@ ActiveAdmin.register_page "Dashboard" do
           end
         end
       end
-
     end
-
   end
 
 
