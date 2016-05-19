@@ -1,0 +1,15 @@
+// Place all the styles related to the support_messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.content {
+	padding-top: 150px;
+}
+
+body { 
+  background: url('http://res.cloudinary.com/flybit/image/upload/c_scale,w_1851/v1463660496/support_bg.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}

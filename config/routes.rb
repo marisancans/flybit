@@ -6,10 +6,6 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
 
-  get 'help'                  => 'static_pages#help'
-  get 'about'                 => 'static_pages#about'
-  get 'contact'               => 'static_pages#contact'
-
   resources :line_items do
     match :qty, action: :qty, via: [:post, :delete], on: :member #-> url.com/line_items/qty
     match :input_field_change, action: :input_field_change, via: :post, on: :member
@@ -22,7 +18,7 @@ Rails.application.routes.draw do
   get 'continue_shopping'     => 'carts#continue_shopping'
   get 'search'                => 'products#product_search'
   get 'checkout'              => 'charges#checkout'
-
+  get 'support'               => 'support_messages#new'
 
   resources :carts, :orders
   resources :charges
@@ -30,6 +26,7 @@ Rails.application.routes.draw do
   resources :departments, only: [:index]
   resources :products, only: [:show, :index, :new, :create]
   resources :static_pages, only: [:home, :help]
+  resources :support_messages, only: [:create]
 
 
   # The priority is based upon order of creation: first created -> highest priority.
