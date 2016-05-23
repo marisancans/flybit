@@ -14,7 +14,7 @@ feature "User logs in and logs out" do
     expect(page).to have_css("h4", text: "Log in")
     expect(current_path).to eq(new_user_session_path)
 
-    login "someone@example.tld", "somepassword"
+    login "someone@example.tld", "somepassword" 
 
     expect(page).to have_content "Discounts"
     expect(current_path).to eq "/"
