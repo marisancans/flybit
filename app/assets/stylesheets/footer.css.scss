@@ -47,3 +47,17 @@ body {
 	}
 }
 
+/*------ Image swapping for logo ----*/
+
+.image-swap {
+    background: url('http://res.cloudinary.com/flybit/image/upload/c_scale,w_150/logo.png');
+        height: 100px;
+        width: 150px;
+}
+
+.image-swap:hover {
+    background: url('http://res.cloudinary.com/flybit/image/upload/e_negate/w_150/v1464010617/ButterfliesTinyBlack.gif') no-repeat center;
+
+}
+
+

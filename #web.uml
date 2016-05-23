@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>RailsDependency</ID>
+  <OriginalElement>#web</OriginalElement>
+  <nodes>
+    <node x="364.0" y="477.6060606060606">Product</node>
+    <node x="392.0" y="0.0">User</node>
+    <node x="873.0" y="84.75">Order</node>
+    <node x="984.0" y="534.75">Attachment</node>
+    <node x="973.0" y="419.75">Cart</node>
+    <node x="956.5" y="767.75">Department</node>
+    <node x="673.0" y="886.75">SupportMessage</node>
+    <node x="0.0" y="626.4886363636364">Category</node>
+    <node x="1350.0" y="397.75">LineItem</node>
+    <node x="974.0" y="630.75">ProductAttribute</node>
+    <node x="0.0" y="886.75">AdminUser</node>
+    <node x="455.0" y="886.75">Slider</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="User" target="Order">
+      <point x="186.5" y="-0.0" />
+      <point x="-198.5" y="-73.75" />
+    </edge>
+    <edge source="Product" target="ProductAttribute">
+      <point x="214.5" y="59.0" />
+      <point x="873.0" y="679.25" />
+      <point x="-97.5" y="-0.0" />
+    </edge>
+    <edge source="Category" target="Department">
+      <point x="142.0" y="47.0" />
+      <point x="364.0" y="823.25" />
+      <point x="-115.0" y="18.5" />
+    </edge>
+    <edge source="Product" target="Department">
+      <point x="214.5" y="118.0" />
+      <point x="873.0" y="786.25" />
+      <point x="-115.0" y="-18.5" />
+    </edge>
+    <edge source="Order" target="LineItem">
+      <point x="198.5" y="-0.0" />
+      <point x="-84.0" y="-39.66666666666663" />
+    </edge>
+    <edge source="Cart" target="LineItem">
+      <point x="98.5" y="-0.0" />
+      <point x="-84.0" y="-0.0" />
+    </edge>
+    <edge source="Product" target="Attachment">
+      <point x="214.5" y="-59.0" />
+      <point x="873.0" y="572.25" />
+      <point x="-87.5" y="-0.0" />
+    </edge>
+    <edge source="Product" target="Order">
+      <point x="214.5" y="-118.0" />
+      <point x="-198.5" y="73.75" />
+    </edge>
+    <edge source="Category" target="Product">
+      <point x="142.0" y="-0.0" />
+      <point x="-214.5" y="73.75" />
+    </edge>
+    <edge source="Product" target="Category">
+      <point x="-214.5" y="-73.75" />
+      <point x="142.0" y="-47.0" />
+    </edge>
+    <edge source="Product" target="LineItem">
+      <point x="214.5" y="-0.0" />
+      <point x="873.0" y="620.25" />
+      <point x="1270.0" y="620.25" />
+      <point x="-84.0" y="39.66666666666663" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.6101987899740708" x="759.0" y="568.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Association fields</Category>
+    <Category>Migration fields</Category>
+  </Categories>
+</Diagram>
+
