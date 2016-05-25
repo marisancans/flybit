@@ -20,7 +20,7 @@ Rails.application.config.assets.precompile += %w( active_admin.scss departments.
 																									scaffolds.css carts.scss
 																									charges.css home_page.css.scss
 																									devise/registrations.css.scss searches.css
-																									navbar-fixed-side.css.scss product_show_page.css.scss
+																								  product_show_page.css.scss
 																									jquery.chocolat.js chocolat.css.scss
 																									carts.css.scss charges.css.scss
 																									thank_you.css.scss checkout.css devise/sessions.css.scss
